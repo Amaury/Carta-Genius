@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+	3 cartes utilisant plusieurs gabarits et sous-gabarits
+-->
+<pandocreon:carta-genius>
+	<templates>
+		<template id="fond">
+			<box x="0mm" y="0mm" width="8cm" height="8cm"
+			 fill-color="#ff0000"/>
+		</template>
+		<template id="vert" template="fond">
+			<box x="1cm" y="1cm" width="6cm" height="6cm"
+			 fill-color="#00ff00"/>
+		</template>
+		<template id="bleu" template="fond,vert">
+			<box x="2cm" y="2cm" width="6cm" height="6cm"
+			 fill-color="#0000ff"/>
+		</template>
+	</templates>
+	<deck>
+		<paper type="a4" margin="2cm"/>
+		<cardsize width="8cm" height="8cm"/>
+		<card template="fond">
+			<circle x="4cm" y="4cm" radius="25mm" fill-color="#00ffff"/>
+		</card>
+		<card template="vert">
+			<circle x="4cm" y="4cm" radius="25mm" fill-color="#ffff00"/>
+		</card>
+		<card template="bleu">
+			<circle x="4cm" y="4cm" radius="25mm" fill-color="#ff00ff"/>
+		</card>
+	</deck>
+</pandocreon:carta-genius>

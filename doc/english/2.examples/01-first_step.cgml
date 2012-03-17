@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+	simple example: a card with a red circle, and
+	another card with a blue square
+-->
+<pandocreon:carta-genius>
+	<!-- deck definition -->
+	<deck>
+		<!-- paper definition -->
+		<paper type="a4" margin="2cm"/>
+		<!-- cards size definition -->
+		<cardsize type="a7"/>
+		<!-- first card -->
+		<card>
+			<!-- a circle -->
+			<circle x="3cm" y="5cm" radius="20mm" fill-color="#0000ff"/>
+		</card>
+		<!-- second card -->
+		<card>
+			<!-- a square -->
+			<box x="2cm" y="3cm" width="3cm" height="3cm" fill-color="#00ff00"/>
+		</card>
+	</deck>
+</pandocreon:carta-genius>

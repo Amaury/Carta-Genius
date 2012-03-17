@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+	une carte, papier avec un fond-perdu rouge
+-->
+<pandocreon:carta-genius>
+	<deck>
+		<paper type="a4" margin="4.5cm"/>
+		<cardsize type="a6"/>
+		<hidden-ditch odd="#ff0000"/>
+		<card>
+			<box x="0" y="0" width="7cm" height="10cm" fill-color="#000000"/>
+		</card>
+	</deck>
+</pandocreon:carta-genius>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+	une carte contenant un texte d'un seul caractere
+	affiche en utilisant une police externe
+-->
+<pandocreon:carta-genius>
+	<!-- declaration des fontes -->
+	<fonts>
+		<!-- definition d'une fonte -->
+		<font id="PandocreonSymbol"
+		 outline="../../../resources/pandocreon-symbol-0.4.0.pfa" 
+		 metrics="../../../resources/pandocreon-symbol-0.4.0.afm"/>
+	</fonts>
+	<deck>
+		<paper type="a4" margin="2cm"/>
+		<cardsize type="a6"/>
+		<card>
+			<!-- definition de la zone de texte utilisant la fonte -->
+			<text x="5mm" y="5mm" width="6cm" height="10cm"
+			 font="PandocreonSymbol" size="120pt" color="#000000">
+				P
+			</text>
+		</card>
+	</deck>
+</pandocreon:carta-genius>

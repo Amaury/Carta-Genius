@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+	plusieurs hexagones
+-->
+<pandocreon:carta-genius>
+	<deck>
+		<paper type="a4" landscape="yes" margin="0cm"/>
+		<cardsize type="a5"/>
+		<card>
+			<!-- hexagone -->
+			<hexagon x="3cm" y="3cm" width="9cm" line-color="#808080"
+			 line-width="1mm"/>
+		</card>
+		<card>
+			<hexagon x="2cm" y="2cm" width="8cm" fill-color="#8080ff"/>
+			<hexagon x="7.5cm" y="6cm" width="4cm" line-color="#000000"
+			 line-width="3mm"/>
+		</card>
+	</deck>
+</pandocreon:carta-genius>

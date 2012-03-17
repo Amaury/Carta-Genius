@@ -1,0 +1,36 @@
+In the Carta Genius' bin directory, there is a shell script named
+"pdf_to_bitmap". Its purpose is to convert a PDF file in several
+bitmap pictures (one picture per page).
+
+Examples of use:
+- You need a JPEG image of game cards? Create a Carta Genius document
+  with the margins explicitely set to 0 (zero), with the paper size
+  equal to cards' size. Create the PDF file. You should get a PDF with
+  one page for each card. Now, convert the PDF to get as many JPEG
+  files than cards in the PDF.
+- You want to show a card generated with Carta Genius in another
+  Carta Genius document? Export the card in JPEG (like explained just
+  before), and use it inside the new document.
+
+To use pdf_to_bitmap, you need to have on your computer the ghostscript
+program installed (you can get it at http://www.ghostscript.com) in its
+GNU or APFL revision. If your PDF file contains transparency, you will
+need the 8.14 version or above.
+
+How to use pdf_to_bitmap
+========================
+
+1. You need to decide the "dot per inch" resolution of the created
+   pictures. This will set the images' pixel size. For example, if
+   your PDF pages are 2 inches x 2 inches, and you set a 300 dpi
+   resolution, you will get a 600x600 pixels image.
+   Higher the dpi resolution is, better the output image is.
+2. There is some options:
+   a. The output image type. It is JPEG by default, but you can choose
+      BMP (bmp16m), PBM (pbm), PNG (png16m), or TIFF (tiff24nc).
+   b. You can choose the first and last PDF document's pages to
+      process.
+   c. It is possible to ask for anti-aliasing on texts and/or graphics
+      to get a better result.
+3. Type "./pdf_to_bitmap -h" to have the exact command line options.
+

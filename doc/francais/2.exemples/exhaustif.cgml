@@ -1,0 +1,262 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- définition d'un fichier PDF -->
+<pandocreon:carta-genius>
+	<!-- information sur le document [optionnel]
+	     author: auteur
+	     title: titre
+	     subject: sujet
+	     keywords: mots-cles
+	     copyright: information sur le copyright / la licence
+	     version: version du document
+	     lang: langue 
+	     note: toute autre information -->
+	<info author="" title="" subject="" keywords="" copyright="" version="" lang="" note=""/>
+	<!-- information sur l'encodage PDF [optionnel]
+	     version: version de la norme PDF à utiliser (1.3, 1.4, 1.5) [optionnel, 1.4 par défaut]
+	     master-password, user-password: mots de passe utilisés pour restreindre l'accès au fichier PDF [optionnel].
+	       Ces deux mots de passe doivent être non-nuls et différents, sinon il n'y a pas de restriction. L'utilisation
+	       de la restriction d'accès implique l'utilisation de l'encryption du fichier (sur 40 bits en PDF 1.3,
+	       sur 128 bits dans les autres cas) -->
+	<pdf version="1.4" master-password="passwd1" user-password="passwd2"/>
+	<!-- unité de base : unité par défaut des valeurs données sans unité (mm | cm | in | pt) [optionnel, mm par défaut] -->
+	<unit base="mm"/>
+	<!-- creation des verso des cartes [optionnel]
+	     side: cote de retournement des pages (width, height)
+             reverse: 'yes' pour inverser les pages (verso avant recto) [optionnel] -->
+	<back side="height" reverse="no"/>
+	<!-- définition des variables initiales [optionnel] -->
+	<variables>
+		<var name="var1">"valeur"</var>
+		<var anme="v2" precision="0">1</var>
+	</variables>
+	<!-- définition de toutes les polices de caractères utilisées (DOIVENT être des polices Postscript Type 1)
+	     default: nom de la police par defaut [optionnel ; peut etre une police integree] -->
+	<fonts default="Helvetica">
+		<!-- id: le nom Postscript exact de la police
+		     outline: chemin vers le fichier '.pfa'
+		     metrics: chemin vers le fichier '.afm' -->
+		<font id="PandocreonSymbol" outline="../resources/pandocreon-symbol-0.2.0.pfa"
+		 metrics="../resources/pandocreon-symbol-0.2.0.pfa"/>
+		<!-- ajout d'un repertoire de recherche de polices
+		     dir: chemin vers le repertoire d'inclusion -->
+		<path dir="/path/to/dir/"/>
+	</fonts>
+	<!-- définition de toutes les images utilisées (les GIF, JPEG et PNG sont supportées ;
+	     la transparence implicite sur une couleur est supportée dans les GIF et les PNG) -->
+	<images>
+		<!-- id: nom du masque tel qu'il sera utilise plus tard
+		     file: chemin vers le fichier de l'image (PNG) -->
+		<mask id="previmg" file="/path/to/mask"/>
+		<!-- id: nom de l'image tel qu'il sera utilisé plus tard
+		     file: chemin vers le fichier de l'image
+		     width: largeur de l'image par défaut
+		     height: hauteur de l'image par défaut
+		     mask: chemin vers le masque de transparence explicite (doit être une image PNG en noir et blanc)
+		     mask-id: identifiant de l'image a utiliser comme masque (doit etre une image PNG NB, deja definie) -->
+		<image id="logo" file="/path/to/logo" width="5cm" height="1cm" mask="/path/to/logo_mask.png" mask-id="previmg"/>
+		<!-- ajout d'un repertoire de recherche d'images
+		     dir: chemin vers le repertoire d'inclusion (avec '/' ou '\' a la fin) -->
+		<path dir="/path/to/dir/"/>
+	</images>
+	<!-- définition des gabarits [optionnel] -->
+	<templates>
+		<!-- id: nom du gabarit, tel qu'il sera utilisé plus tard -->
+		<template id="default">
+			<!-- les gabarits peuvent contenir les mêmes instructions que les cartes ; ici une ligne -->
+			<line x1="3mm" y1="3mm" x2="47.5mm" y2="69.25 mm" color="#808080" width="5mm"/>
+		</template>
+		<!-- id: nom du gabarit
+		     template: nom du gabarit à utiliser avant d'utiliser celui-ci -->
+		<template id="back" template="default">
+			<box x="0" y="0" width="47.5mm" height="69.25mm" fill-color="#800000"/>
+		</template>
+	</templates>
+	<!-- definition des fichiers a inclure -->
+	<includes>
+		<!-- inclusion d'un fichier
+		     file: chemin vers le fichier a inclure -->
+		<include file="subfile.xml"/>
+		<!-- ajout d'un repertoire d'inclusion
+		     dir: chemin vers le repertoire d'inclusion (avec '/' ou '\' a la fin) -->
+		<path dir="/path/to/dir/"/>
+	</includes>
+	<!-- définition d'un ensemble de cartes -->
+	<deck>
+		<!-- définition du papier
+		     type: type de papier (4a0 à a10, ra0 à ra4, sra0 à sra4, b0 à b10, c0 à c10,
+					   letter, legal, ledger, semi-letter, executive, tabloid,
+					   dl, com10, monarch, e-a3, e-a3/2, e-a4, e-a4/2, e-a5, e-a5/2, e-a6, e-a7,
+					   e-b4, e-b4/2, e-b5, e-b6, e-b7, e-b8, id1, id2, id3, business-card)
+		     landscape: si le paramètre 'type' est utilisé, et que ce paramètre est mis à 'yes', les pages seront en mode paysage [optionnel]
+		     width, height: largeur et hauteur du papier si le paramètre 'type' n'est pas utilisé (pour dimensions spéciales)
+		     margin: marge tout autour des feuilles ; contient les traits de coupe
+		     margin-width, margin-height: a utiliser si la marge est différente suivant les cotés [optionnel; non-utilisé si 'margin' est rempli] -->
+		<paper type="a4" landscape="yes" width="210mm" height="29.7cm" margin="1cm" margin-width="1.5cm" margin-height="1.2cm"/>
+		<!-- définition du fond-perdu
+		     odd: couleur des pages recto
+		     even: couleur des pages verso -->
+		<hidden-ditch odd="#000000" even="#000000"/>
+		<!-- dimensions des cartes
+		     type: taille standard (4a0 à a10, b0 à b10, c0 à c10, letter, legal, ledger, semi-letter, executive, tabloid, printer1)
+		     landscape: si le paramètre 'type' est utilisé, et que ce paramètre est mis à 'yes', les pages seront en mode paysage [optionnel]
+		     width, height: taille non-standard [optionnel, utilisé si le parametre 'type' n'est pas rempli]
+		     space: espace vertical et horizontal entre les cartes [optionnel]
+		     space-width, space-height: a utiliser si l'espace vertical et horizontal sont differents [optionnel; non-utilise si 'space' est rempli] -->
+		<cardsize type="a8" landscape="yes" width="47.5mm" height="69.25mm" space="1cm" space-width="5mm" space-height="8mm"/>
+		<!-- définition d'une carte (autant de cartes dans un "deck" wue vous voulez)
+		     count: nombre d'apparitions de cette carte
+		     template: nom du gabarit à utiliser [optionnel]
+		     back: nom du gabarit à utiliser pour le dos de la carte [optionnel] -->
+		<card count="2" template="default" back="back">
+			<!-- définition d'un cercle
+			     x, y: position du centre du cercle (à partir du coin inférieur gauche de la carte)
+			     radius: diamètre du cercle
+			     line-width: épaisseur de la ligne [optionnel]
+			     line-color: couleur de la ligne [optionnel]
+			     fill-color: couleur à l'intérieur du cercle [optionnel, mais la couleur de la ligne ET/OU celle du fond doit être donnée]
+			     dash1: longueur des pointilles pleins [optionnel, doit etre utilise avec dash2]
+			     dash2: longueur des pointilles vides [optionnel, doit etre utilise avec dash1]
+			     opacity: opacité du cercle [optionnel, valeur flottante entre 0 et 1]
+			     blendmode: mode de melange des couleurs [optionnel];
+					valeurs possibles: Normal (uniquement si 'opacity' est utilise et inferieur a 1.0), Multiply, Screen, Overlay, Darken, Lighten, ColorDodge, ColorBurn, HardLight, SoftLight, Difference, Exclusion, Hue, Saturation, Color, Luminosity -->
+			<circle x="2cm" y="45mm" radius="4mm" line-width="0.2mm" line-color="#000000"
+			 fill-color="#808080" dash1="3mm" dash2="1mm" opacity="0.65" blendmode="Normal"/>
+			<!-- définition d'un rectangle
+			     x, y, width, height: dimensions du rectangle
+			     radius: diametre de l'arrondis des coins [optionnel; angles droits si non defini]
+			     line-width, line-color, fill-color: épaisseur et couleur de la ligne et de l'intérieur
+			     rotation: angle de rotation en degrés [optionnel]
+			     dash1: longueur des pointilles pleins [optionnel, doit etre utilise avec dash2]
+			     dash2: longueur des pointilles vides [optionnel, doit etre utilise avec dash1]
+			     opacity: opacité de la boite [optionnel, valeur flottante entre 0 et 1]
+			     blendmode: mode de melange des couleurs [optionnel];
+					valeurs possibles: Normal (uniquement si 'opacity' est utilise et inferieur a 1.0), Multiply, Screen, Overlay, Darken, Lighten, ColorDodge, ColorBurn, HardLight, SoftLight, Difference, Exclusion, Hue, Saturation, Color, Luminosity -->
+			<box x="1" y="2" width="3cm" height="2cm" line-width="2mm" line-color="#000000"
+			 fill-color="#ff0000" rotation="45" dash1="1cm" dash2="6mm" opacity="0.8" blendmode="HardLight"/>
+			<!-- définition d'une ligne
+			     x1, y1: coordonnées du début de la ligne
+			     x2, y2: coordonnées de la fin de la ligne
+			     width: épaisseur de la ligne [optionnel]
+			     color: couleur de la ligne
+			     dash1: longueur des pointilles pleins [optionnel, doit etre utilise avec dash2]
+			     dash2: longueur des pointilles vides [optionnel, doit etre utilise avec dash1]
+			     opacity: opacité de la ligne [optionnel, valeur flottante entre 0 et 1]
+			     blendmode: mode de melange des couleurs [optionnel];
+					valeurs possibles: Normal (uniquement si 'opacity' est utilise et inferieur a 1.0), Multiply, Screen, Overlay, Darken, Lighten, ColorDodge, ColorBurn, HardLight, SoftLight, Difference, Exclusion, Hue, Saturation, Color, Luminosity -->
+			<line x1="0" y1="69.25mm" x2="47.5mm" y2="0" width="0.5mm" color="#ff0000" dash1="1cm" dash2="6mm"
+			 opacity="0.9" blendmode="Hue"/>
+			<!-- definition d'une courbe de bezier
+			     x1, y1: coordonnees du debut de la ligne
+			     x2, y2: coordonnees de la fin de la ligne
+			     cp-x1, cp-y1: coordonnees du premier point de controle
+			     cp-x2, cp-y2: coordonnees du second point de controle
+			     dash1: longueur des pointilles pleins [optionnel, doit etre utilise avec dash2]
+			     dash2: longueur des pointilles vides [optionnel, doit etre utilise avec dash1]
+			     opacity: opacite de la boite [optionnel, valeur flottante entre 0 et 1]
+			     blendmode: mode de melange des couleurs [optionnel] -->
+			<bezier x1="0mm" y1="10mm" x2="25mm" y2="60mm" cp-x1="12cm" cp-y1="0mm" cp-x2="8mm" cp-y2="50mm"
+			 width="0.5mm" color="#00ff00" dash1="0.3cm" dash2="4mm" opacity="0.3" blendmode="Hue"/>
+			<!-- definition d'un polygone
+			     x, y: coordonnees du point qui commence et ferme le polygone
+			     line-width, line-color, fill-color: epaisseur et couleur de la ligne et de l'interieur
+			     rotation: angle de rotation du polygone [optionnel]
+			     dash1: longueur des pointilles pleins [optionnel, doit etre utilise avec dash2]
+			     dash2: longueur des pointilles vides [optionnel, doit etre utilise avec dash1]
+			     opacity: opacite de la boite [optionnel, valeur flottante entre 0 et 1]
+			     blendmode: mode de melange des couleurs [optionnel] -->
+			<polygon x="50mm" y="25cm" line-width="0.2mm" line-color="#0000ff" fill-color="#ffff00"
+			 rotation="12" dash1="1cm" dash2="6mm" opacity="0.5" blendmode="Difference">
+				<!-- ligne
+				     x, y: coordonnees du prochain point -->
+				<line x="55mm" y="12cm"/>
+				<!-- courbe de bezier
+				     x, y: coordonnees du prochain point
+				     cp-x1, cp-y1: coordonnees du premier point de controle
+				     cp-x2, cp-y2: coordonnees du second point de controle -->
+				<bezier x="60mm" y="5mm" cp-x1="20cm" cp-y1="0mm" cp-x2="3mm" cp-y2="12mm"/>
+			</polygon>
+			<!-- definition d'une grille
+			     x, y: coordonnees de la grille
+			     cell-width, cell-height: dimensions des cellules
+			     nbr-width: nombre de cellules horizontalement
+			     nbr-height: nombre de cellules verticalement
+			     line-width, line-color, fill-color: epaisseur et couleur de la ligne et de l'interieur
+			     rotation: angle de rotation [optionnel]
+			     dash1: longueur des pointilles pleins [optionnel, doit etre utilise avec dash2]
+			     dash2: longueur des pointilles vides [optionnel, doit etre utilise avec dash1]
+			     opacity: opacite de la boite [optionnel, valeur flottante entre 0 et 1]
+			     blendmode: mode de melange des couleurs [optionnel] -->
+			<grid x="1cm" y="2cm" cell-width="3cm" cell-height="5mm" nbr-width="3" nbr-height="6"
+			 line-width="0.5mm" line-color="#000000" fill-color="#ffffff" rotation="0"
+			 dash1="5mm" dash2="5mm" opacity="0.9" blendmode="Hue"/>
+			<!-- definition d'un hexagone
+			     x, y: coordonnees de l'hexagone
+			     width: largeur de l'hexagone
+			     line-width, line-color, fill-color: epaisseur et couleur de la ligne et de l'interieur
+			     rotation: angle de rotation [optionnel]
+			     dash1: longueur des pointilles pleins [optionnel, doit etre utilise avec dash2]
+			     dash2: longueur des pointilles vides [optionnel, doit etre utilise avec dash1]
+			     opacity: opacite de la boite [optionnel, valeur flottante entre 0 et 1]
+			     blendmode: mode de melange des couleurs [optionnel] -->
+			<hexagon x="1cm" y="5mm" width="4cm" line-width="0.5mm" line-color="#000000" fill-color="#ffffff"
+			 rotation="0" dash1="5mm" dash2="5mm" opacity="0.9" blandmode="Hue"/>
+			<!-- définition d'une zone de texte
+			     font: nom de la police de caractères (tel que declare au prealable ou : Courier,
+					Courier-Bold, Courier-Oblique, Courier-BoldOblique, Helvetica, Helvetica-Bold,
+					Helvetica-Oblique, Helvetica-BoldOblique, Times-Roman, Times-Bold,
+					Times-Italic, Times-BoldItalic, Symbol, ZapfDingbats)
+			     size: taille des caractères
+			     color: couleur du texte
+			     align: alignement du texte (left|right|center|justify)
+			     x, y: coordonnées du coin inférieur gauche de la zone
+			     width, height: dimensions de la zone de texte
+			     adapt: mettre 'yes' pour diminuer automatiquement la taille des caractère s'il y a trop de texte [optionnel]
+			     space: interlignage, en multiple de la taille de la police (1.0 pour un interlignage simple normal) [optionnel]
+			     rotation: angle de rotation du texte [optionnel]
+			     opacity: opacité du texte [optionnel, valeur flottante entre 0 et 1]
+			     blendmode: mode de melange des couleurs [optionnel];
+					valeurs possibles: Normal (uniquement si 'opacity' est utilise et inferieur a 1.0), Multiply, Screen, Overlay, Darken, Lighten, ColorDodge, ColorBurn, HardLight, SoftLight, Difference, Exclusion, Hue, Saturation, Color, Luminosity
+			     fill-color: couleur de fond [optionnel]
+			     line-color: couleur du cadre [optionnel]
+			     line-width: epaisseur du cadre [optionnel]
+			     border: taille de la bordure interne [optionnel]
+			     underline: ligne sous le texte [optionnel]
+			     overline: ligne sur le texte [optionnel]
+			     strikeout: ligne barrant le texte [optionnel]
+			     char-space: espacement entre les caracteres [optionnel; defaut=0]
+			     h-scale: echelle horizontale [optionnel; defaut=100; doit etre positif]
+			     dash1: longueur des pointilles pleins [optionnel, doit etre utilise avec dash2]
+			     dash2: longueur des pointilles vides [optionnel, doit etre utilise avec dash1]
+			     ladder-color: couleur des rayures [optionnel]
+			     ladder-bottom: placer les rayures sont l'empattement des caracteres [optionnel; defaut=NO]
+			     ladder-rise: deplacement vertical des rayures [optionnel] -->
+			<text font="PandocreonSymbol" size="12" color="#000000" align="center"
+			 x="0" y="5mm" width="69.25mm" height="1cm" adapt="yes" space="1.0" rotation="180"
+			 opacity="1" blendmode="Darken" fill-color="#0000ff" line-color="#800000" line-width="0.5mm"
+			 border="5mm" underline="yes" overline="yes" strikeout="yes" char-space="0pt" h-scale="120"
+			 dash1="3mm" dash2="8mm" ladder-color="#000080" ladder-bottom="yes" ladder-rise="-2pt">
+				Du texte<p/>Paragraphe suivant<br/>ligne suivant&nbsp;...<value precision="2">$toto</value>
+			</text>
+			<!-- définition d'une image
+			     id: nom de la définition de l'image
+			     file: chemin vers l'image [optionnel : a utiliser si l'image n'a pas ete definie auparavant]
+			     mask: chemin vers le masque de transparence explicite (doit etre une image PNG en noir et blanc)
+			     entire: l'image sera deformee pour couvrir toute la zone si mis a YES [optionnel]
+			     x, y: coordonnées du coin inférieur gauche de l'image
+			     width, height: taille de l'image [optionnel : utilise les valeurs par défaut sinon]
+			     rotation: angle de rotation de l'image [optionnel] -->
+			<image id="logo" file="/path/to/logo2" mask="/path/to/logo_mask.png" entire="yes"
+			 x="2cm" y="3cm" width="2.5cm" height="5mm" rotation="90"/>
+			<!-- definition d'un texte enrichi
+			     id: identifiant du texte -->
+			<text-define id="word1">
+				<block font="" size="" color="" space="" underline="" overline="" strikeout=""
+				 char-space="" h-scale="">
+					Du text<p/>Paragraphe suivant<br/>ligne suivante&nbsp;...<value preision="2">$toto</value>
+				</block>
+			</text-define>
+			<text-area id="" x="" y="" width="" height="" radius="" rotation="" opacity="" blendmode=""
+			 fill-color="" line-color="" line-width="" border="" dash1="" dash2=""/>
+		</card>
+	</deck>
+</pandocreon:carta-genius>

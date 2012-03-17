@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<window id="main-window" title="Variable" orient="vertical"
+ xmlns:html="http://www.w3.org/1999/xhtml"
+ xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+ onload="wizInit()">
+
+  <script src="chrome://carta-gui/content/wiz-var.js"/>
+  <script src="chrome://carta-gui/content/tools.js"/>
+
+
+  <groupbox>
+    <caption label="Attributs obligatoires"/>
+    <grid flex="1">
+      <columns>
+        <column flex="0"/>
+        <column flex="1"/>
+      </columns>
+      <rows>
+        <row>
+          <label value="Nom :"/>
+          <textbox id="edit-name"/>
+        </row>
+        <row>
+          <label value="Valeur :"/>
+          <textbox id="edit-value"/>
+        </row>
+      </rows>
+    </grid>
+  </groupbox>
+  
+  <groupbox>
+    <caption label="Attribut optionnel"/>
+    <grid flex="1">
+      <columns>
+        <column flex="0"/>
+        <column flex="1"/>
+        <column flex="0"/>
+      </columns>
+      <rows>
+        <row>
+          <checkbox id="check-precision" label="Précision :" oncommand="checkPrecision()"/>
+          <menulist id="menulist-precision" disabled="true">
+	    <menupopup>
+	      <menuitem label="0" oncommand="value_precision = &quot;0&quot;"/>
+	      <menuitem label="1" oncommand="value_precision = &quot;1&quot;"/>
+	      <menuitem label="2" oncommand="value_precision = &quot;2&quot;"/>
+	      <menuitem label="3" oncommand="value_precision = &quot;3&quot;"/>
+	    </menupopup>
+          </menulist>
+          <label id="label-precision" value="chiffre(s) après la virgule" disabled="true"/>
+        </row>
+      </rows>
+    </grid>
+  </groupbox>
+
+  <hbox>
+    <spacer flex="1"/>
+    <button id="btn-ok" label="OK" oncommand="wizValid()" flex="0"/>
+    <button id="btn-cancel" label="Annuler" oncommand="window.close()" flex="0"/>
+  </hbox>
+
+</window>

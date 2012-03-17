@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<window id="main-window" title="Carta-GUI" orient="vertical" width="640" height="560" persist="width height"
+ xmlns:html="http://www.w3.org/1999/xhtml"
+ xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+ onload="carta.start()">
+
+  <script src="chrome://carta-gui/content/cartagui-simple.js"/>
+  <script src="chrome://carta-gui/content/carta-gui.js"/>
+
+  <toolbox flex="0" orient="vertical">
+    <menubar id="main-menubar">
+      <menu id="file-menu" label="Fichier">
+        <menupopup id="file-popup">
+          <menuitem label="Nouveau..." oncommand="carta.wizNew()"/>
+          <menuitem label="Ouvrir..." oncommand="carta.openFile()"/>
+          <menuitem id="item-save" label="Enregistrer" oncommand="carta.saveFile()" disabled="true"/>
+          <menuseparator/>
+          <menuitem label="Quitter" oncommand="carta.quit()"/>
+        </menupopup>
+      </menu>
+      <menu id="generate-menu" label="G&#233;n&#233;ration">
+        <menupopup id="generate-popup">
+          <menuitem id="item-generate" label="G&#233;n&#233;rer PDF" oncommand="carta.generatePDF()" disabled="true"/>
+        </menupopup>
+      </menu>
+      <menu id="elements-menu" label="Eléments basiques">
+        <menupopup id="elements-popup">
+          <menuitem id="item-circle" label="Cercle..." oncommand="carta.wizCircle()" disabled="true"/>
+          <menuitem id="item-box" label="Boîte..." oncommand="carta.wizBox()" disabled="true"/>
+          <menuitem id="item-line" label="Ligne..." oncommand="carta.wizLine()" disabled="true"/>
+          <menuitem id="item-bezier" label="Bézier..." oncommand="carta.wizBezier()" disabled="true"/>
+          <menuitem id="item-image" label="Image..." oncommand="carta.wizImage()" disabled="true"/>
+          <menuitem id="item-grid" label="Grille..." oncommand="carta.wizGrid()" disabled="true"/>
+          <menuitem id="item-hexagon" label="Hexagone..." oncommand="carta.wizHexagon()" disabled="true"/>
+          <menuitem id="item-text" label="Texte..." oncommand="carta.wizText()" disabled="true"/>
+          <menuitem id="item-var" label="Variable..." oncommand="carta.wizVar()" disabled="true"/>
+        </menupopup>
+      </menu>
+      <menu id="help-menu" label="Aide">
+        <menupopup id="help-popup">
+          <menuitem id="item-help" label="Aide" oncommand="carta.help()" disabled="true"/>
+          <menuitem id="item-about" label="A propos..." oncommand="carta.about()"/>
+        </menupopup>
+      </menu>
+    </menubar>
+  </toolbox>
+
+  <textbox id="text-content" type="text" multiline="true" flex="1" oninput="carta.setEditState()" disabled="true"/>
+
+  <!--
+  <tabbox id="main-tabbox" flex="1">
+    <tabs id="main-tabs">
+      <tab id="tab-info" label="Informations g&#233;n&#233;rales"/>
+      <tab id="tab-fonts" label="D&#233;f. fontes"/>
+      <tab id="tab-imgs" label="D&#233;f. images"/>
+      <tab id="tab-templates" label="Gabarits"/>
+      <tab id="tab-cards" label="Cartes"/>
+    </tabs>
+    <tabpanels id="main-tabpanels" flex="1">
+      <tabpanel id="tabpanel-info" orient="vertical">
+        <label value="Auteur :" control="edit-author"/>
+        <textbox id="edit-author"/>
+        <label value="Titre :" control="edit-title"/>
+        <textbox id="edit-title"/>
+        <label value="Sujet :" control="edit-subject"/>
+        <textbox id="edit-subject"/>
+        <label value="Mots-cl&#233;s :" control="edit-keywords"/>
+        <textbox id="edit-keywords"/>
+        <label value="Copyright :" control="edit-copyright"/>
+        <textbox id="edit-copyright"/>
+        <label value="Version :" control="edit-version"/>
+        <textbox id="edit-version"/>
+        <label value="Langue :" control="edit-lang"/>
+        <textbox id="edit-lang"/>
+        <hbox>
+          <vbox>
+            <label value="Unit&#233; de base :" control="combo-unit"/>
+            <menulist id="combo-unit">
+              <menupopup>
+	        <menuitem label="millim&#232;tre" selected="true"/>
+	        <menuitem label="centim&#232;tre"/>
+	        <menuitem label="pouce"/>
+	        <menuitem label="point"/>
+	     </menupopup>
+            </menulist>
+          </vbox>
+          <vbox>
+            <label value="Recto/verso :" control="combo-back"/>
+            <menulist id="combo-back">
+              <menupopup>
+                <menuitem label="Aucun" selected="true"/>
+                <menuitem label="Retournement sur la largeur"/>
+                <menuitem label="Retournement sur la hauteur"/>
+              </menupopup>
+            </menulist>
+          </vbox>
+        </hbox>
+        <label value="Notes :" control="edit-note"/>
+        <textbox id="edit-note" multiline="true" flex="1"/>
+      </tabpanel>
+    </tabpanels>
+  </tabbox>
+  -->
+
+
+<!--
+  <hbox flex="1">
+    <toolbox flex="0" orient="vertical">
+      <toolbar id="toolbar-actions" orient="vertical">
+        <toolbarbutton id="btn-new" oncommand="newFile()" tooltiptext="Nouveau" image="new.gif"/>
+        <toolbarbutton id="btn-open" oncommand="openFile()" tooltiptext="Ouvrir" image="new.gif"/>
+        <toolbarbutton id="btn-save" oncommand="saveFile()" tooltiptext="Enregistrer" image="new.gif"/>
+        <toolbarbutton id="btn-generate" oncommand="generatePDF()" tooltiptext="G&#233;n&#233;rer" image="new.gif"/>
+      </toolbar>
+      <toolbar id="toolbar-elements" orient="vertical">
+        <toolbarbutton id="btn-template" tooltiptext="Gabarit" image="new.gif"/>
+        <toolbarbutton id="btn-define-image" tooltiptext="D&#233;finition d'image" image="new.gif"/>
+        <toolbarbutton id="btn-page" tooltiptext="D&#233;finition de page" image="new.gif"/>
+        <toolbarbutton id="btn-card" tooltiptext="Carte" image="new.gif"/>
+      </toolbar>
+      <toolbar id="toolbar-primitives" orient="vertical">
+        <toolbarbutton id="btn-circle" tooltiptext="Cercle" image="new.gif"/>
+        <toolbarbutton id="btn-box" tooltiptext="Boite" image="new.gif"/>
+        <toolbarbutton id="btn-line" tooltiptext="Ligne" image="new.gif"/>
+        <toolbarbutton id="btn-bezier" tooltiptext="Bezier" image="new.gif"/>
+        <toolbarbutton id="btn-image" tooltiptext="Image" image="new.gif"/>
+        <toolbarbutton id="btn-polygon" tooltiptext="Polygone" image="new.gif"/>
+        <toolbarbutton id="btn-grid" tooltiptext="Grille" image="new.gif"/>
+        <toolbarbutton id="btn-hexagon" tooltiptext="Hexagone" image="new.gif"/>
+        <toolbarbutton id="btn-text" tooltiptext="Texte simple" image="new.gif"/>
+      </toolbar>
+      <toolbar id="toolbar-text" orient="vertical">
+        <toolbarbutton id="btn-text-define" tooltiptext="D&#233;finition de texte" image="new.gif"/>
+        <toolbarbutton id="btn-text-area" tooltiptext="Zone de texte" image="new.gif"/>
+      </toolbar>
+    </toolbox>
+    <vbox flex="1" orient="vertical">
+      <tabbox id="main-tabbox" flex="1">
+        <tabs id="main-tabs">
+          <tab label="Nouveau fichier" oncommand="focusText(0)"/>
+        </tabs>
+        <tabpanels id="main-tabpanels" flex="1">
+          <tabpanel id="file-tabpanel-0" orient="vertical">
+            <textbox id="file-textbox-0" multiline="true" flex="1"/>
+          </tabpanel>
+        </tabpanels>
+      </tabbox>
+    </vbox>
+  </hbox>
+-->
+
+</window>

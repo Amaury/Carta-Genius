@@ -1,0 +1,52 @@
+<?xml verison="1.0"?>
+<!--
+	dessin d'un etui de cartes
+-->
+<pandocreon:carta-genius>
+	<templates>
+		<!-- template contenant les variables necessaires -->
+		<template id="init">
+			<var name="case_width">6cm</var>
+			<var name="case_height">9cm</var>
+			<var name="case_depth">3cm</var>
+			<var name="case_flap_big">2cm</var>
+			<var name="case_flap_small">1.3cm</var>
+			<var name="case_gap_big">8mm</var>
+			<var name="case_gap_small">4mm</var>
+		</template>
+		<!-- template de constitution de l'etui -->
+		<template id="etui" template="cardcase_init">
+			<box x="$CARDCASE_A_X + 5mm" y="$CARDCASE_A_Y + 5mm"
+			 width="$CARDCASE_A_W - 1cm" height="$CARDCASE_A_H - 1cm"
+			 fill-color="#0000ff"/>
+			<box x="$CARDCASE_B_X + 5mm" y="$CARDCASE_B_Y + 5mm"
+			 width="$CARDCASE_B_W - 1cm" height="$CARDCASE_B_H - 1cm"
+			 fill-color="#00ff00"/>
+			<box x="$CARDCASE_C_X + 5mm" y="$CARDCASE_C_Y + 5mm"
+			 width="$CARDCASE_C_W - 1cm" height="$CARDCASE_C_H - 1cm"
+			 fill-color="#0000ff"/>
+			<box x="$CARDCASE_D_X + 5mm" y="$CARDCASE_D_Y + 5mm"
+			 width="$CARDCASE_D_W - 1cm" height="$CARDCASE_D_H - 1cm"
+			 fill-color="#00ff00"/>
+			<box x="$CARDCASE_E_X + 5mm" y="$CARDCASE_E_Y + 5mm"
+			 width="$CARDCASE_E_W - 1cm" height="$CARDCASE_E_H - 1cm"
+			 fill-color="#0000ff"/>
+			<box x="$CARDCASE_F_X + 5mm" y="$CARDCASE_F_Y + 5mm"
+			 width="$CARDCASE_F_W - 1cm" height="$CARDCASE_F_H - 1cm"
+			 fill-color="#ffff00"/>
+			<box x="$CARDCASE_G_X + 5mm" y="$CARDCASE_G_Y + 5mm"
+			 width="$CARDCASE_G_W - 1cm" height="$CARDCASE_G_H - 1cm"
+			 fill-color="#ffff00"/>
+		</template>
+	</templates>
+	<includes>
+		<!-- inclusion du template -->
+		<include file="../../../resources/inc_cardcase.xml"/>
+	</includes>
+	<deck>
+		<paper type="a4" landscape="yes" margin="0mm"/>
+		<cardsize type="a4" landscape="yes"/>
+		<hidden-ditch odd="#800000"/>
+		<card template="init,etui,cardcase"/>
+	</deck>
+</pandocreon:carta-genius>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+	un document XML incluant un autre
+-->
+<pandocreon:carta-genius>
+	<templates>
+		<template id="init">
+			<var name="taille">width($CARD) * 2 / 3</var>
+		</template>
+	</templates>
+	<includes>
+		<include file="33-inclusion_inclus.xml"/>
+	</includes>
+	<deck>
+		<paper type="a4" margin="2cm"/>
+		<cardsize width="16cm" height="8cm"/>
+		<card template="init,fond">
+			<circle x="width($CARD) / 2" y="height($CARD) / 2"
+			 radius="width($MARGIN)" fill-color="#ff0000"/>
+		</card>
+	</deck>
+</pandocreon:carta-genius>

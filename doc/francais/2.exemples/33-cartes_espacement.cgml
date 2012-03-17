@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+	deux cartes de forme carree, et espacees
+-->
+<pandocreon:carta-genius>
+	<deck>
+		<paper type="a4" margin="4cm"/>
+		<cardsize width="8cm" height="8cm" space="3cm"/>
+		<card>
+			<circle x="3cm" y="5cm" radius="20mm" fill-color="#0000ff"/>
+		</card>
+		<card>
+			<box x="2cm" y="3cm" width="3cm" height="3cm" fill-color="#00ff00"/>
+		</card>
+	</deck>
+</pandocreon:carta-genius>

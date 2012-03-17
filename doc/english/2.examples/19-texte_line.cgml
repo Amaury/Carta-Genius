@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+	text underlined, overlined, strikeout'ed
+-->
+<pandocreon:carta-genius>
+	<deck>
+		<paper type="a4" margin="2cm"/>
+		<cardsize type="a6"/>
+		<card>
+			<text x="5mm" y="5mm" width="8cm" height="3cm"
+			 font="Helvetica" size="20pt" color="#000000"
+			 underline="yes">
+				Underlined text.
+			</text>
+			<text x="5mm" y="40mm" width="8cm" height="3cm"
+			 font="Helvetica" size="20pt" color="#000000"
+			 overline="yes">
+				Overlined text.
+			</text>
+			<text x="5mm" y="75mm" width="8cm" height="3cm"
+			 font="Helvetica" size="20pt" color="#000000"
+			 strikeout="yes">
+				Strikeout'ed text.
+			</text>
+			<text x="5mm" y="110mm" width="8cm" height="3cm"
+			 font="Helvetica" size="20pt" color="#000000"
+			 underline="yes" overline="yes" strikeout="yes">
+				The three together.
+			</text>
+		</card>
+	</deck>
+</pandocreon:carta-genius>

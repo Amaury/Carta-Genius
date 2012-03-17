@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!--
+	Trois cartes, avec chacune un rectangle :
+	- avec un fond gris
+	- avec une ligne rouge
+	- avec une ligne verte et un fond bleu
+-->
+<pandocreon:carta-genius>
+	<!-- definition du jeu de cartes -->
+	<deck>
+		<!-- definition du papier -->
+		<paper type="a4" margin="2cm"/>
+		<!-- definition de la taille des cartes -->
+		<cardsize type="a7"/>
+		<!-- premiere carte -->
+		<card>
+			<!-- rectangle -->
+			<box x="1cm" y="1cm" width="3cm" height="4cm"
+			 fill-color="#808080"/>
+		</card>
+		<!-- deuxieme carte -->
+		<card>
+			<!-- rectangle -->
+			<box x="25mm" y="2.3cm" width="3cm" height="3cm"
+			 line-width="2mm" line-color="#ff0000"/>
+		</card>
+		<!-- troisieme carte -->
+		<card>
+			<!-- rectangle -->
+			<box x="20mm" y="2cm" width="3cm" height="4cm"
+			 line-color="#00ff00" fill-color="#0000ff"/>
+		</card>
+	</deck>
+</pandocreon:carta-genius>

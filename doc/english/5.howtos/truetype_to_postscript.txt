@@ -1,0 +1,8 @@
+How to convert TrueType fonts to Postscript Type 1 fonts
+========================================================
+
+1. Get and install ttf2pt1 program (http://ttf2pt1.sourceforge.net).
+2. Type 'ttf2pt -e font.ttf'.
+3. You get a font.pfa file and a font.afm file.
+4. Open the font.afm file, and remove the line which begins with 'Characters'.
+5. It is done.

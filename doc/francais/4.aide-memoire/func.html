@@ -1,0 +1,327 @@
+<html>
+<head>
+	<title>Pandocréon Carta Genius : Aide mémoire</title>
+	<style>
+		a.r { color: #800000 }
+		a.g { color: #008000 }
+		a.b { color: #000080 }
+	</style>
+</head>
+<body bgcolor="#ffffff">
+	<center>
+	  <h2>Pandocr&eacute;on Carta Genius</h2>
+	  <h3>Aide-m&eacute;moire</h3>
+	</center>
+
+<br />
+
+<a name="var"></a>
+<b>var</b>($var)
+<blockquote>
+Retourne une variable dont le nom est pass&eacute; en param&egrave;tre.
+</blockquote>
+<br />
+
+<a name="string"></a>
+<b>string</b>($var)
+<blockquote>
+Transforme en cha&icirc;ne de caract&egrave;res une variable ou une expression.
+</blockquote>
+<br />
+
+<a name="scalar"></a>
+<b>scalar</b>($var)
+<blockquote>
+Transforme en scalaire une variable ou une expression.
+</blockquote>
+<br />
+
+<a name="value"></a>
+<b>value</b>($var)
+<blockquote>
+Transforme en valeur une variable ou une expression.
+</blockquote>
+<br />
+
+<a name="element"></a>
+<b>element</b>($var)
+<blockquote>
+Transforme en &eacute;l&eacute;ment une variable ou une expression.
+</blockquote>
+<br />
+
+<a name="bool"></a>
+<b>bool</b>($var)
+<blockquote>
+Transforme en bool&eacute;en une variable ou une expression.
+</blockquote>
+<br />
+
+<a name="eq"></a>
+<b>eq</b>($var1, $var2)
+<blockquote>
+Vaut $TRUE si les deux variables ou expressions sont &eacute;gales.<br />
+Les deux expressions doivent &ecirc;tre du m&ecirc;me type.
+</blockquote>
+<br />
+
+<a name="lt"></a>
+<b>lt</b>($var1, $var2)
+<blockquote>
+Vaut $TRUE si la premi&egrave;re variable est inf&eacute;rieure &agrave; la seconde.<br />
+Les deux expressions doivent &ecirc;tre du m&ecirc;me type.
+</blockquote>
+<br />
+
+<a name="gt"></a>
+<b>gt</b>($var1, $var2)
+<blockquote>
+Vaut $TRUE si la premi&egrave;re variable est sup&eacute;rieure &agrave; la seconde.<br />
+Les deux expressions doivent &ecirc;tre du m&ecirc;me type.
+</blockquote>
+<br />
+
+<a name="not"></a>
+<b>not</b>($bool)
+<blockquote>
+Retourne la valeur bool&eacute;enne inverse &agrave; celle pass&eacute;e en param&egrave;tre.
+</blockquote>
+<br />
+
+<a name="and"></a>
+<b>and</b>($bool1, $bool2)
+<blockquote>
+Retourne $TRUE si les deux param&egrave;tres valent $TRUE.
+</blockquote>
+<br />
+
+<a name="or"></a>
+<b>or</b>($bool1, $bool2)
+<blockquote>
+Retourne $TRUE si un des deux param&egrave;tres valent $TRUE.
+</blockquote>
+<br />
+
+<a name="plus"></a>
+<b>plus</b>($var1, $var2)
+<blockquote>
+Additionne deux variables.
+</blockquote>
+<br />
+
+<a name="minus"></a>
+<b>minus</b>($var1, var2)
+<blockquote>
+Soustrait une variable &agrave; une autre.
+</blockquote>
+<br />
+
+<a name="mult"></a>
+<b>mult</b>($var1, $var2)
+<blockquote>
+Multiplie deux variables.
+</blockquote>
+<br />
+
+<a name="div"></a>
+<b>div</b>($var1, $var2)
+<blockquote>
+Divise une variable par une autre.
+</blockquote>
+<br />
+
+<a name="mod"></a>
+<b>mod</b>($var1, $var2)
+<blockquote>
+Calcule le modulo (reste de la division enti&egrave;re) d'une variable par une autre.
+</blockquote>
+<br />
+
+<a name="sqrt"></a>
+<b>sqrt</b>($var)
+<blockquote>
+Calcule la racine carr&eacute;e d'une variable.
+</blockquote>
+<br />
+
+<a name="pow"></a>
+<b>pow</b>($var1, $var2)
+<blockquote>
+El&egrave;ve une variable &agrave; la puissance donn&eacute;e en second param&egrave;tre.
+</blockquote>
+<br />
+
+<a name="sin"></a>
+<b>sin</b>(<a href="type.html#scalar" class="b">$scal</a>)
+<blockquote>
+Retourne le sinus d'un scalaire (<a href="type.html#scalar" class="b">scalaire</a>).
+</blockquote>
+<br />
+
+<a name="cos"></a>
+<b>cos</b>(<a href="type.html#scalar" class="b">$scal</a>)
+<blockquote>
+Retourne le cosinus d'un scalaire (<a href="type.html#scalar" class="b">scalaire</a>).
+</blockquote>
+<br />
+
+<a name="tan"></a>
+<b>tan</b>(<a href="type.html#scalar" class="b">$scal</a>)
+<blockquote>
+Retourne la tangente d'un scalaire (<a href="type.html#scalar" class="b">scalaire</a>).
+</blockquote>
+<br />
+
+<a name="asin"></a>
+<b>asin</b>(<a href="type.html#scalar" class="b">$scal</a>)
+<blockquote>
+Retourne l'arc-sinus d'un scalaire (<a href="type.html#scalar" class="b">scalaire</a>).
+</blockquote>
+<br />
+
+<a name="acos"></a>
+<b>acos</b>(<a href="type.html#scalar" class="b">$scal</a>)
+<blockquote>
+Retourne l'arc-cosinus d'un scalaire (<a href="type.html#scalar" class="b">scalaire</a>).
+</blockquote>
+<br />
+
+<a name="atan"></a>
+<b>atan</b>(<a href="type.html#scalar" class="b">$scal</a>)
+<blockquote>
+Retourne l'arc-tangente d'un scalaire (<a href="type.html#scalar" class="b">scalaire</a>).
+</blockquote>
+<br />
+
+<a name="width"></a>
+<b>width</b>(<a href="type.html#element" class="b">$elem</a>)
+<blockquote>
+Retourne la largeur d'un &eacute;l&eacute;ment (<a href="type.html#value" class="b">valeur</a>).
+</blockquote>
+<br />
+
+<a name="height"></a>
+<b>height</b>(<a href="type.html#element" class="b">$elem</a>)
+<blockquote>
+Retourne la hauteur d'un &eacute;l&eacute;ment (<a href="type.html#value" class="b">valeur</a>).
+</blockquote>
+<br />
+
+<a name="landscape"></a>
+<b>landscape</b>(<a href="type.html#element" class="b">$elem</a>)
+<blockquote>
+Retourne un &eacute;l&eacute;ment dont la hauteur et la largeur sont invers&eacute;es par rapport &agrave; celui pass&eacute; en param&egrave;tre.
+</blockquote>
+<br />
+
+<a name="strlen"></a>
+<b>strlen</b>(<a href="type.html#string" class="b">$str</a>)
+<blockquote>
+Retourne le nombre de caract&egrave;res d'une cha&icirc;ne.
+</blockquote>
+<br />
+
+<a name="strwidth"></a>
+<b>strwidth</b>(<a href="type.html#string" class="b">$str</a>, <a href="type.html#value" class="b">$val</a>, <a href="type.html#string" class="b">$str</a>)
+<blockquote>
+Retourne une valeur correspondant &agrave; la largeur d'un texte, en fonction de la police et de la taille des caract&egrave;res.
+<ul>
+	<li>param&egrave;tre 1 : une cha&icirc;ne contenant le nom de la police</li>
+	<li>param&egrave;tre 2 : une valeur repr&eacute;sentant la taille des caract&egrave;res</li>
+	<li>param&egrave;tre 3 : le texte</li>
+</ul>
+</blockquote>
+<br />
+
+<a name="min"></a>
+<b>min</b>($var1, $var2)
+<blockquote>
+Retourne une variable &eacute;gale &agrave; la plus faible des 2 variables pass&eacute;es en param&egrave;tre.
+</blockquote>
+<br />
+
+<a name="max"></a>
+<b>max</b>($var1, $var2)
+<blockquote>
+Retourne une variable &eacute;gale &agrave; la plus grande des 2 variables pass&eacute;es en param&egrave;tre.
+</blockquote>
+<br />
+
+<a name="time"></a>
+<b>time</b>(<a href="type.html#scalar" class="b">scalaire</a>)
+<blockquote>
+Retourne un timestamp Unix (le nombre de seconde depuis le 1er janvier 1970 &agrave minuit). Le nombre pass&eacute; en param&egrave;tre
+repr&eacute;sente le d&eacute;calage horaire (un nombre d'heures positif ou n&eacute;gatif) ; doit &ecirc;tre mis &agrave; z&eacute;ro
+pour avoir l'heure courante GMT.
+</blockquote>
+<br />
+
+<a name="strftime"></a>
+<b>strftime</b>(<a href="type.html#scalar" class="b">$scal</a>, <a href="type.html#string" class="b">$str</a>)
+<blockquote>
+Formate une cha&icirc;ne de caract&egrave;res correspondant au timestamp Unix pass&eacute; en premier param&egrave;tre. Le deuxi&egrave;me
+param&egrave;tre est une cha&icirc;ne de caract&egrave;res qui d&eacute;fini la cha&icirc;ne produite ; elle peut &ecirc;tre constitu&eacute;e
+de :
+<ul>
+	<li>%a : Le jour de la semaine abr&eacute;g&eacute;.</li>
+	<li>%A : Le jour de la semaine.</li>
+	<li>%b : Le nom du mois abr&eacute;g&eacute;.</li>
+	<li>%B : Le nom du mois.</li>
+	<li>%C : Le si&egrave;cle (ann&eacute;e / 100) sur 2 chiffres.</li>
+	<li>%d : Le jour du mois (01 &agrave; 31).</li>
+	<li>%D : Equivalent &agrave; "%m/%d/%y".</li>
+	<li>%e : Comme %d, sauf que le z&eacute;ro du d&eacute;but est remplac&eacute; par un espace.</li>
+	<li>%F : Equivalent &agrave; "%Y-%m-%d" (le format de date ISO 8601).</li>
+	<li>%G : Le num&eacute;ro de semaine dans l'ann&eacute;e (comme %V) sauf si on d&eacute;borde sur une autre ann&eacute;e, auquel cas le num&eacute;ro de l'ann&eacute;e est utilis&eacute;).</li>
+	<li>%g : Comme %G, mais sur 2 chiffres.</li>
+	<li>%h : Equivalent &agrave; %b.</li>
+	<li>%H : L'heure (00 &agrave; 23).</li>
+	<li>%I : L'heure (01 &agrave; 12).</li>
+	<li>%j : Le jour de l'ann&eacute;e (001 &agrave; 366).</li>
+	<li>%k : Comme %H, sauf que le z&eacute;ro du d&eacute;but est remplac&eacute; par un espace.</li>
+	<li>%l : Comme %I, sauf que le z&eacute;ro du d&eacute;but est remplac&eacute; par un espace.</li>
+	<li>%m : Le mois (01 &agrave; 12).</li>
+	<li>%M : La minute (00 &agrave; 59).</li>
+	<li>%n : Un retour &agrave; la ligne.</li>
+	<li>%p : `AM' ou `PM'.</li>
+	<li>%P : `am' ou `pm'.</li>
+	<li>%r : L'heure dans la notation AM/PM. Equivalent &agrave; "%I:%M:%S %p".</li>
+	<li>%R : L'heure compl&egrave;te (%H:%M).</li>
+	<li>%s : Le timestamp Unix.</li>
+	<li>%S : Les secondes (00 &agrave; 61).</li>
+	<li>%t : Une tabulation.</li>
+	<li>%T : L'heure compl&egrave;te avec les secondes (%H:%M:%S).</li>
+	<li>%u : Le jour de la semaine (1 &agrave; 7).</li>
+	<li>%U : Le num&eacute;ro de la semaine (00 &agrave; 53), avec le premier Dimanche comme premier jour de la semaine 01.</li>
+	<li>%V : Le num&eacute;ro de la semaine ISO 8601:1988 (01 &agrave; 53), avec la semaine 01 &eacute;tant la premi&egrave;re semaine avec au moins 4 jours dans l'ann&eacute;e courante, et Lundi comme premier jour de la semaine.</li>
+	<li>%w : Le jour de la semaine (0 &agrave; 6).</li>
+	<li>%W : Le num&eacute;ro de la semaine (00 &agrave; 53), avec le premier Lundi comme premier jour de la semaine 01.</li>
+	<li>%y : L'ann&eacute;e sur 2 chiffres (00 &agrave; 99).</li>
+	<li>%Y : L'ann&eacute;e sur 4 chiffres.</li>
+	<li>%z : Le d&eacute;calage horaire par rapport au temps universel.</li>
+	<li>%% : Un caract&egrave;re '%'.</li>
+</ul>
+</blockquote>
+<br />
+
+<a name="srand"></a>
+<b>srand</b>(<a href="type.html#scalar" class="b">scalaire</a>)
+<blockquote>
+Initialise le g&eacute;n&eacute;rateur de nombres al&eacute;atoires. Le nombre donn&eacute; en param&egrave;tre sert de base. Retourne
+un nombre au hasard entre 0 et 1.
+</blockquote>
+<br />
+
+<a name="rand"></a>
+<b>rand</b>(<a href="type.html#scalar" class="b">scalaire</a>)
+<blockquote>
+Retourne un nombre al&eacute;atoire entre z&eacute;ro et le nombre pass&eacute; en param&egrave;tre.
+</blockquote>
+<br />
+
+<br /><hr />
+<font size="-2">Copyright (c) 2004-2005, Amaury Bouchard<br />
+Cette documentation est plac&eacute;e sous les termes de la <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation License</a></font>
+
+</body>
+</html>

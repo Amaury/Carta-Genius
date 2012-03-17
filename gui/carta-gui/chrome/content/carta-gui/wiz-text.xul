@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<window id="main-window" title="Texte" orient="vertical"
+ xmlns:html="http://www.w3.org/1999/xhtml"
+ xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+ onload="wizInit()">
+
+  <script src="chrome://carta-gui/content/wiz-text.js"/>
+  <script src="chrome://carta-gui/content/tools.js"/>
+
+  <grid>
+    <rows>
+      <row/>
+      <row/>
+    </rows>
+    <columns>
+      <column>
+
+        <vbox>
+          <groupbox flex="0">
+            <caption label="Caractères"/>
+            <grid flex="0">
+              <columns>
+                <column flex="0"/>
+                <column flex="1"/>
+                <column flex="0"/>
+              </columns>
+              <rows>
+                <row>
+                  <label value="Fonte :"/>
+                  <menulist id="menulist-font">
+	  	    <menupopup>
+	  	      <menuitem label="Courier" oncommand="font = &quot;Courier&quot;"/>
+	  	      <menuitem label="Helvetica" oncommand="font = &quot;Helvetica&quot;"/>
+	  	      <menuitem label="Times-Roman" oncommand="font = &quot;Times-Roman&quot;"/>
+	  	      <menuitem label="Courier-Bold" oncommand="font = &quot;Courier-Bold&quot;"/>
+	  	      <menuitem label="Helvetica-Bold" oncommand="font = &quot;Helvetica-Bold&quot;"/>
+	  	      <menuitem label="Times-Bold" oncommand="font = &quot;Times-Bold&quot;"/>
+	  	      <menuitem label="Courier-Oblique" oncommand="font = &quot;Courier-Oblique&quot;"/>
+	  	      <menuitem label="Helvetica-Oblique" oncommand="font = &quot;Helvetica-Oblique&quot;"/>
+	  	      <menuitem label="Times-Italic" oncommand="font = &quot;Times-Italic&quot;"/>
+	  	      <menuitem label="Courier-BoldOblique" oncommand="font = &quot;Courier-BoldOblique&quot;"/>
+	  	      <menuitem label="Helvetica-BoldOblique" oncommand="font = &quot;Helvetica-BoldOblique&quot;"/>
+	  	      <menuitem label="Times-BoldItalic" oncommand="font = &quot;Times-BoldItalic&quot;"/>
+	  	      <menuitem label="Symbol" oncommand="font = &quot;Symbol&quot;"/>
+	  	      <menuitem label="ZapfDingbats" oncommand="font = &quot;ZapfDingbats&quot;"/>
+	  	    </menupopup>
+                  </menulist>
+                </row>
+                <row>
+                  <label value="Taille :"/>
+                  <textbox id="edit-size" value="12"/>
+                  <menulist id="menulist-size">
+                    <menupopup>
+                      <menuitem label="points" oncommand="unit_size = &quot;pt&quot;"/>
+                      <menuitem label="mm" oncommand="unit_size = &quot;mm&quot;"/>
+                      <menuitem label="cm" oncommand="unit_size = &quot;cm&quot;"/>
+                      <menuitem label="pouces" oncommand="unit_size = &quot;in&quot;"/>
+                    </menupopup>
+                  </menulist>
+                </row>
+                <row>
+                  <label value="Couleur :"/>
+                  <textbox id="edit-color" value="#000000"/>
+                </row>
+                <row>
+                  <label value="Alignement :"/>
+                  <menulist id="menulist-align">
+                    <menupopup>
+                      <menuitem label="à gauche" oncommand="align = &quot;left&quot;"/>
+                      <menuitem label="à droite" oncommand="align = &quot;right&quot;"/>
+                      <menuitem label="centré" oncommand="align = &quot;center&quot;"/>
+                      <menuitem label="justifié" oncommand="align = &quot;justify&quot;"/>
+                    </menupopup>
+                  </menulist>
+                </row>
+                <row>
+                  <label value="Interlignage :"/>
+                  <textbox id="edit-space" value="1.0"/>
+                </row>
+                <row>
+                  <label value="Décoration :"/>
+                  <hbox>
+                    <checkbox id="check-underline" label="Souligné"/>
+                    <checkbox id="check-overline" label="Surligné"/>
+                    <checkbox id="check-strikeout" label="Barré"/>
+                  </hbox>
+                </row>
+              </rows>
+            </grid>
+          </groupbox>
+	  <groupbox>
+	    <caption label="Attributs optionnels"/>
+	    <grid flex="1">
+	      <columns>
+		<column flex="1"/>
+		<column flex="0"/>
+		<column flex="0"/>
+	      </columns>
+	      <rows>
+	        <row>
+	          <checkbox id="check-charspace" label="Espacement carac. :" oncommand="checkCharSpace()"/>
+	          <textbox id="edit-charspace" disabled="true"/>
+	          <menulist id="menulist-charspace" disabled="true">
+		    <menupopup>
+		      <menuitem label="mm" oncommand="unit_charspace = &quot;mm&quot;"/>
+		      <menuitem label="cm" oncommand="unit_charspace = &quot;cm&quot;"/>
+		      <menuitem label="pouces" oncommand="unit_charspace = &quot;in&quot;"/>
+		      <menuitem label="points" oncommand="unit_charspace = &quot;pt&quot;"/>
+		    </menupopup>
+		  </menulist>
+	        </row>
+	        <row>
+	          <checkbox id="check-hscale" label="Echelle horiz. :" oncommand="checkHscale()"/>
+	          <textbox id="edit-hscale" disabled="true"/>
+	          <label value="%"/>
+	        </row>
+	        <row>
+	          <checkbox id="check-border" label="Bordure :" oncommand="checkBorder()"/>
+	          <textbox id="edit-border" disabled="true"/>
+	          <menulist id="menulist-border" disabled="true">
+		    <menupopup>
+		      <menuitem label="mm" oncommand="unit_border = &quot;mm&quot;"/>
+		      <menuitem label="cm" oncommand="unit_border = &quot;cm&quot;"/>
+		      <menuitem label="pouces" oncommand="unit_border = &quot;in&quot;"/>
+		      <menuitem label="points" oncommand="unit_border = &quot;pt&quot;"/>
+		    </menupopup>
+		  </menulist>
+	        </row>
+		<row>
+		  <checkbox id="check-radius" label="Rayon des coins :" oncommand="checkRadius()"/>
+		  <textbox id="edit-radius" disabled="true"/>
+		  <menulist id="menulist-radius" disabled="true">
+		    <menupopup>
+		      <menuitem label="mm" oncommand="unit_radius = &quot;mm&quot;"/>
+		      <menuitem label="cm" oncommand="unit_radius = &quot;cm&quot;"/>
+		      <menuitem label="pouces" oncommand="unit_radius = &quot;in&quot;"/>
+		      <menuitem label="points" oncommand="unit_radius = &quot;pt&quot;"/>
+		    </menupopup>
+		  </menulist>
+		</row>
+		<row>
+		  <checkbox id="check-linewidth" label="Epaisseur de ligne :" oncommand="checkLineWidth()"/>
+		  <textbox id="edit-linewidth" disabled="true"/>
+		  <menulist id="menulist-linewidth" disabled="true">
+		    <menupopup>
+		      <menuitem label="mm" oncommand="unit_linewidth = &quot;mm&quot;"/>
+		      <menuitem label="cm" oncommand="unit_linewidth = &quot;cm&quot;"/>
+		      <menuitem label="pouces" oncommand="unit_linewidth = &quot;in&quot;"/>
+		      <menuitem label="points" oncommand="unit_linewidth = &quot;pt&quot;"/>
+		    </menupopup>
+		  </menulist>
+		</row>
+		<row>
+		  <checkbox id="check-linecolor" label="Couleur de ligne :" oncommand="checkLineColor()"/>
+		  <textbox id="edit-linecolor" disabled="true"/>
+		</row>
+		<row>
+		  <checkbox id="check-fillcolor" label="Couleur de remplissage :" oncommand="checkFill()"/>
+		  <textbox id="edit-fillcolor" disabled="true"/>
+		</row>
+		<row>
+		  <checkbox id="check-dash" label="Pointillés" oncommand="checkDash()"/>
+		  <hbox>
+		    <label value="Longueur 1 :"/>
+		    <textbox id="edit-dash1" disabled="true" size="5"/>
+		  </hbox>
+		  <menulist id="menulist-dash1" disabled="true">
+		    <menupopup>
+		      <menuitem label="mm" oncommand="unit_dash1 = &quot;mm&quot;"/>
+		      <menuitem label="cm" oncommand="unit_dash1 = &quot;cm&quot;"/>
+		      <menuitem label="pouces" oncommand="unit_dash1 = &quot;in&quot;"/>
+		      <menuitem label="points" oncommand="unit_dash1 = &quot;pt&quot;"/>
+		    </menupopup>
+		  </menulist>
+		</row>
+		<row>
+		  <label value=" "/>
+		  <hbox>
+		    <label value="Longueur 2 :"/>
+		    <textbox id="edit-dash2" disabled="true" size="5"/>
+		  </hbox>
+		  <menulist id="menulist-dash2" disabled="true">
+		    <menupopup>
+		      <menuitem label="mm" oncommand="unit_dash2 = &quot;mm&quot;"/>
+		      <menuitem label="cm" oncommand="unit_dash2 = &quot;cm&quot;"/>
+		      <menuitem label="pouces" oncommand="unit_dash2 = &quot;in&quot;"/>
+		      <menuitem label="points" oncommand="unit_dash2 = &quot;pt&quot;"/>
+		    </menupopup>
+		  </menulist>
+		</row>
+		<row>
+		  <checkbox id="check-opacity" label="Opacité :" oncommand="checkOpacity()"/>
+		  <textbox id="edit-opacity" disabled="true"/>
+		</row>
+		<row>
+		  <checkbox id="check-blendmode" label="Mélange des couleurs :" oncommand="checkBlendmode()"/>
+		  <menulist id="menulist-blendmode" disabled="true">
+		    <menupopup>
+		      <menuitem label="Multiply" oncommand="blendmode = &quot;Multiply&quot;"/>
+		      <menuitem label="Screen" oncommand="blendmode = &quot;Screen&quot;"/>
+		      <menuitem label="Overlay" oncommand="blendmode = &quot;Overlay&quot;"/>
+		      <menuitem label="SoftLight" oncommand="blendmode = &quot;SoftLight&quot;"/>
+		      <menuitem label="HardLight" oncommand="blendmode = &quot;HardLight&quot;"/>
+		      <menuitem label="ColorDodge" oncommand="blendmode = &quot;ColorDodge&quot;"/>
+		      <menuitem label="ColorBurn" oncommand="blendmode = &quot;ColorBurn&quot;"/>
+		      <menuitem label="Darken" oncommand="blendmode = &quot;Darken&quot;"/>
+		      <menuitem label="Lighten" oncommand="blendmode = &quot;Lighten&quot;"/>
+		      <menuitem label="Difference" oncommand="blendmode = &quot;Difference&quot;"/>
+		      <menuitem label="Exclusion" oncommand="blendmode = &quot;Exclusion&quot;"/>
+		      <menuitem label="Hue" oncommand="blendmode = &quot;Hue&quot;"/>
+		      <menuitem label="Saturation" oncommand="blendmode = &quot;Saturation&quot;"/>
+		      <menuitem label="Color" oncommand="blendmode = &quot;Color&quot;"/>
+		      <menuitem label="Luminosity" oncommand="blendmode = &quot;Luminosity&quot;"/>
+		    </menupopup>
+		  </menulist>
+		</row>
+		<row>
+		  <checkbox id="check-rotation" label="Rotation :" oncommand="checkRotation()"/>
+		  <textbox id="edit-rotation" disabled="true"/>
+		  <label value="degré(s)"/>
+		</row>
+	      </rows>
+	    </grid>
+	  </groupbox>
+          <hbox flex="0">
+	    <spacer flex="1"/>
+	    <button id="btn-ok" label="OK" oncommand="wizValid()" flex="1"/>
+	    <button id="btn-cancel" label="Annuler" oncommand="window.close()" flex="0"/>
+	  </hbox>
+        </vbox>
+
+      </column>
+      <column>
+        <vbox>
+          <groupbox flex="0">
+            <caption label="Positionnement"/>
+            <grid>
+              <columns>
+                <column/>
+                <column/>
+                <column/>
+              </columns>
+              <rows>
+                <row>
+                  <label value="Coordonnée x :"/>
+                  <textbox id="edit-x"/>
+                  <menulist>
+                    <menupopup>
+                      <menuitem label="mm" oncommand="unit_x = &quot;mm&quot;"/>
+                      <menuitem label="cm" oncommand="unit_x = &quot;cm&quot;"/>
+                      <menuitem label="pouces" oncommand="unit_x = &quot;in&quot;"/>
+                      <menuitem label="points" oncommand="unit_x = &quot;pt&quot;"/>
+                    </menupopup>
+                  </menulist>
+                </row>
+                <row>
+                  <label value="Coordonnée y :"/>
+                  <textbox id="edit-y"/>
+                  <menulist>
+                    <menupopup>
+                      <menuitem label="mm" oncommand="unit_y = &quot;mm&quot;"/>
+                      <menuitem label="cm" oncommand="unit_y = &quot;cm&quot;"/>
+                      <menuitem label="pouces" oncommand="unit_y = &quot;in&quot;"/>
+                      <menuitem label="points" oncommand="unit_y = &quot;pt&quot;"/>
+                    </menupopup>
+                  </menulist>
+                </row>
+                <row>
+                  <label value="Largeur :"/>
+                  <textbox id="edit-width"/>
+                  <menulist>
+                    <menupopup>
+                      <menuitem label="mm" oncommand="unit_width = &quot;mm&quot;"/>
+                      <menuitem label="cm" oncommand="unit_width = &quot;cm&quot;"/>
+                      <menuitem label="pouces" oncommand="unit_width = &quot;in&quot;"/>
+                      <menuitem label="points" oncommand="unit_width = &quot;pt&quot;"/>
+                    </menupopup>
+                  </menulist>
+                </row>
+                <row>
+                  <label value="Hauteur :"/>
+                  <textbox id="edit-height"/>
+                  <menulist>
+                    <menupopup>
+                      <menuitem label="mm" oncommand="unit_height = &quot;mm&quot;"/>
+                      <menuitem label="cm" oncommand="unit_height = &quot;cm&quot;"/>
+                      <menuitem label="pouces" oncommand="unit_height = &quot;in&quot;"/>
+                      <menuitem label="points" oncommand="unit_height = &quot;pt&quot;"/>
+                    </menupopup>
+                  </menulist>
+                </row>
+              </rows>
+            </grid>
+            <checkbox id="check-adapt" label="Adaptation de la taille du texte"/>
+          </groupbox>
+          <groupbox flex="1">
+            <caption label="Contenu"/>
+            <textbox id="edit-text" multiline="true" flex="1"/>
+          </groupbox>
+
+        </vbox>
+        
+      </column>
+    </columns>
+  </grid>
+
+</window>

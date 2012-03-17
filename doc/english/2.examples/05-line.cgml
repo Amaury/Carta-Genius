@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+	a card with a black line
+-->
+<pandocreon:carta-genius>
+	<deck>
+		<paper type="a4" margin="2cm"/>
+		<cardsize type="a6"/>
+		<card>
+			<line x1="5mm" y1="5mm" x2="8cm" y2="10cm" width="1mm"
+			 color="#000000"/>
+		</card>
+	</deck>
+</pandocreon:carta-genius>

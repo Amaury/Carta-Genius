@@ -1,0 +1,155 @@
+v 5.2.0 Jun 20 2006:
+	Variables declaration section added.
+	New function: strftime().
+	"Card count" added.
+	Bug fix on time difference.
+	Bug fix on image mask declaration.
+	Bug fix on operators priority in expression evaluation.
+
+v 5.0.0 Oct 16 2005:
+	<template> tag added.
+	<log> tag added.
+	<if> tag added.
+	<while> tag added.
+	New data type added: boolean.
+	New comparison functions: eq(), lt() and gt().
+	New logical functions: not(), and(), or().
+
+v 4.0.0 Sep 30 2005:
+	Real graphical user interface, based on XUL.
+	Support of log files.
+	Support of quiet execution.
+
+v 3.12.1 Dec 13 2004:
+	Bug fix on text ladders' width.
+	Bug fix on font paths searching.
+
+v 3.12.0 Dec 07 2004:
+	Support of text ladder added.
+	Bug fix on text rounded-boxes with rotation.
+
+v 3.10.0 Oct 15 2004:
+	GUI front-end program added (CartaGUI) for Windows and Linux.
+	Installer program for Windows.
+
+v 3.8.0 Aug 24 2004:
+	Bug fix when using multiple templates as cards' back.
+	New functions added: min(), max(), time(), srand() and rand().
+
+v 3.6.0 Jul 01 2004:
+	Bug fix of hidden-ditch on even side.
+	New functions added: sqrt() and pow().
+
+v 3.4.0 Jun 21 2004:
+	Support of paths declaration for images search.
+	Support of paths declaration for font search.
+	Support of hexagons.
+	Support of grids.
+
+v 3.2.0 Jun 08 2004:
+	Support of reusable image masks.
+	Support of PDF meta-data (author, title, ...).
+	Support of dash lines in all graphic objects.
+	Line number in error messages added.
+
+v 3.0.0 May 16 2004:
+	Text that flow over multiple boxes (even in different cards).
+	More precise conversions (cm, mm, inch, pt).
+	Functions asin(), acos() and atan() added.
+	Support of 'radius' parameter in box.
+	Set round-box as the same as box.
+	Support of 'radius' parameter in text.
+	Types added to Quick Guide documentation.
+
+v 2.4.0 May 07 2004:
+	Support of include path declarations in XML and command line.
+	Alternative variable names added (more explicit, less concise).
+	Bug fix in expression parser.
+	Variables and functions added in the Quick Guide documentation.
+
+v 2.2.1 Apr 29 2004:
+	French and english Quick Guide added.
+
+v 2.2.0 Apr 21 2004:
+	Support of Bezier curves.
+	Support of polygons (shapes of lines and curves)
+	Support of image adapatation to the entire image box.
+	Support of text underline/overline/strikeout.
+	Support of colors in the expressions and variables engine.
+	Add access to internal variables during card case creation.
+	Support of variable of variable.
+	Modification of cut-lines' color with dark hidden-ditchs.
+	Support of characters spacing.
+	Support of text horizontal scaling.
+
+v 2.0.0 Apr 14 2004:
+	Bug fix in XML parser (memory leaks).
+	Support of &#XX; (latin1 characters value) in texts.
+	Expressions and variables parser.
+	Support of border in text boxes.
+	Support of XML files inclusion.
+	Full user-guide in english and french.
+	External XML file for card case creation.
+
+v 1.14.0 Mar 24 2004:
+	Support of in-line image declaration.
+	Support of several color blend modes.
+
+v 1.12.0 Mar 23 2004:
+	Bug fix for cards bigger than paper size.
+	Bug fix for empty documents.
+
+v 1.11.0 Mar 19 2004:
+	Support of non-adjoining cards.
+	Add script for PDF to bitmap conversion.
+
+v 1.10.2 Mar 03 2004:
+	Support of more paper types added.
+	Support of more command line options added.
+
+v 1.10.1 Feb 29 2004:
+	Modification of cut-lines and hidden-ditchs sizes.
+
+v 1.10.0 Dec 10 2003:
+	Support of graphic objets' opacity.
+
+v 1.8.0 Dec 07 2003:
+	Support of <br/>, <p/> and &nbsp; in texts.
+	Bug fix in text size adaptation.
+
+v 1.6.0 Dec 05 2003:
+	Support of hidden ditch.
+
+v 1.4.0 Oct 17 2003:
+	Support of reverse page order.
+
+v 1.2.0 Sep 29 2003:
+	Support of different margins on width and height.
+	Support of text's line spacing definition.
+
+v 1.0.0 Aug 27 2003:
+	Support of multi-level templates.
+
+v 0.9.0 Aug 21 2003:
+	Support of explicit PDF version.
+	Support of PDF protection by password.
+	Configuration script.
+	English and french short documentation and example.
+
+v 0.7.0 Aug 20 2003:
+	Support of transparency by image mask.
+
+v 0.5.0 Aug 19 2003:
+	Support of card's back.
+	Support of template of templates.
+
+v 0.3.0 Aug 18 2003:
+	Support of cards' template.
+
+v 0.1.0 Aug 17 2003:
+	Support of circle, box, round-box, line, text, image.
+
+v 0.0.1 Aug 16 2003:
+	Import XML files, create empty PDF with cut lines.
+
+Project started Aug 16 2003

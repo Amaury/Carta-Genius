@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<window id="main-window" title="Image" orient="vertical"
+ xmlns:html="http://www.w3.org/1999/xhtml"
+ xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+ onload="wizInit()">
+
+  <script src="chrome://carta-gui/content/wiz-image.js"/>
+  <script src="chrome://carta-gui/content/tools.js"/>
+
+
+  <groupbox>
+    <caption label="Attributs obligatoires"/>
+    <grid flex="1">
+      <columns>
+        <column flex="0"/>
+        <column flex="1"/>
+        <column flex="0"/>
+      </columns>
+      <rows>
+        <row>
+          <label value="Coordonnée x :"/>
+          <textbox id="edit-x"/>
+          <menulist id="menulist-x">
+	    <menupopup>
+	      <menuitem label="mm" oncommand="unit_x = &quot;mm&quot;"/>
+	      <menuitem label="cm" oncommand="unit_x = &quot;cm&quot;"/>
+	      <menuitem label="pouces" oncommand="unit_x = &quot;in&quot;"/>
+	      <menuitem label="points" oncommand="unit_x = &quot;pt&quot;"/>
+	    </menupopup>
+          </menulist>
+        </row>
+        <row>
+          <label value="Coordonnée y :"/>
+          <textbox id="edit-y"/>
+          <menulist id="menulist-y">
+	    <menupopup>
+	      <menuitem label="mm" oncommand="unit_y = &quot;mm&quot;"/>
+	      <menuitem label="cm" oncommand="unit_y = &quot;cm&quot;"/>
+	      <menuitem label="pouces" oncommand="unit_y = &quot;in&quot;"/>
+	      <menuitem label="points" oncommand="unit_y = &quot;pt&quot;"/>
+	    </menupopup>
+          </menulist>
+        </row>
+        <row>
+          <label value="Largeur :"/>
+          <textbox id="edit-width"/>
+          <menulist id="menulist-width">
+	    <menupopup>
+	      <menuitem label="mm" oncommand="unit_width = &quot;mm&quot;"/>
+	      <menuitem label="cm" oncommand="unit_width = &quot;cm&quot;"/>
+	      <menuitem label="pouces" oncommand="unit_width = &quot;in&quot;"/>
+	      <menuitem label="points" oncommand="unit_width = &quot;pt&quot;"/>
+	    </menupopup>
+          </menulist>
+        </row>
+        <row>
+          <label value="Hauteur :"/>
+          <textbox id="edit-height"/>
+          <menulist id="menulist-height">
+	    <menupopup>
+	      <menuitem label="mm" oncommand="unit_height = &quot;mm&quot;"/>
+	      <menuitem label="cm" oncommand="unit_height = &quot;cm&quot;"/>
+	      <menuitem label="pouces" oncommand="unit_height = &quot;in&quot;"/>
+	      <menuitem label="points" oncommand="unit_height = &quot;pt&quot;"/>
+	    </menupopup>
+          </menulist>
+        </row>
+        <row>
+          <label value="Fichier :"/>
+          <textbox id="edit-file"/>
+          <button label="Rechercher" oncommand="searchFile()"/>
+        </row>
+      </rows>
+    </grid>
+  </groupbox>
+  
+  <groupbox>
+    <caption label="Attributs optionnels"/>
+    <grid flex="1">
+      <columns>
+        <column flex="0"/>
+        <column flex="1"/>
+        <column flex="0"/>
+      </columns>
+      <rows>
+        <row>
+          <checkbox id="check-entire" label="Remplir tout l'espace"/>
+        </row>
+        <row>
+          <checkbox id="check-rotation" label="Rotation :" oncommand="checkRotation()"/>
+          <textbox id="edit-rotation" disabled="true"/>
+          <label id="label-rotation" value="degré(s)"/>
+        </row>
+      </rows>
+    </grid>
+  </groupbox>
+
+  <hbox>
+    <spacer flex="1"/>
+    <button id="btn-ok" label="OK" oncommand="wizValid()" flex="0"/>
+    <button id="btn-cancel" label="Annuler" oncommand="window.close()" flex="0"/>
+  </hbox>
+
+</window>

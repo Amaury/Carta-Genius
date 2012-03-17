@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+	a card with a Bezier curve and another one
+	with the same curve, showing the control points
+-->
+<pandocreon:carta-genius>
+	<deck>
+		<paper type="a4" margin="2cm"/>
+		<cardsize type="a6"/>
+		<card>
+			<bezier x1="5mm" y1="5mm" x2="8cm" y2="10cm"
+			 cp-x1="8cm" cp-y1="5mm"
+			 cp-x2="5mm" cp-y2="10cm"
+			 width="5mm" color="#800000"/>
+		</card>
+		<card>
+			<bezier x1="5mm" y1="5mm" x2="8cm" y2="10cm"
+			 cp-x1="8cm" cp-y1="5mm"
+			 cp-x2="5mm" cp-y2="10cm"
+			 width="5mm" color="#800000"/>
+			<circle x="8cm" y="5mm" radius="5mm"
+			 fill-color="#0000ff"/>
+			<circle x="5mm" y="10cm" radius="5mm"
+			 fill-color="#0000ff"/>
+			<line x1="5mm" y1="5mm" x2="8cm" y2="5mm"
+			 color="#00ff00"/>
+			<line x1="8cm" y1="10cm" x2="5mm" y2="10cm"
+			 color="#00ff00"/>
+		</card>
+	</deck>
+</pandocreon:carta-genius>

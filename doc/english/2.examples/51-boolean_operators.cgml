@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<pandocreon:carta-genius>
+	<templates>
+		<template id="gabarit">
+			<if test="($CARD_INDEX = 2 | $CARD_INDEX = 3) &amp; $position &gt; 3cm">
+				<circle x="$position" y="5cm" radius="20mm" fill-color="#0000ff"/>
+			</if>
+			<var name="fill">#00ff00</var>
+			<if test="$CARD_INDEX = 2 | $CARD_INDEX = 4">
+				<var name="fill">#ff0000</var>
+			</if>
+			<box x="2cm" y="3cm" width="3cm" height="3cm" fill-color="$fill"/>
+		</template>
+	</templates>
+	<deck>
+		<paper type="a4" margin="2cm"/>
+		<cardsize type="a7"/>
+		<card>
+			<var name="position">2cm</var>
+			<template id="gabarit"/>
+		</card>
+		<card>
+			<var name="position">4cm</var>
+			<template id="gabarit"/>
+		</card>
+		<card template="gabarit"/>
+		<card template="gabarit"/>
+	</deck>
+</pandocreon:carta-genius>

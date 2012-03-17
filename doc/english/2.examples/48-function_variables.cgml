@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+	var() function use
+-->
+<pandocreon:carta-genius>
+	<templates>
+		<template id="init">
+			<var name="couleur1">#800000</var>
+			<var name="couleur2">#008000</var>
+		</template>
+	</templates>
+	<deck>
+		<paper type="a4" margin="2cm"/>
+		<cardsize width="16cm" height="8cm"/>
+		<card template="init">
+			<var name="fond" precision="0">"couleur" + $CARD_INDEX</var>
+			<box x="0mm" y="0mm" width="width($CARD)" height="height($CARD) / 2"
+			 fill-color="var($fond)"/>
+		</card>
+		<card template="init">
+			<var name="fond" precision="0">"couleur" + $CARD_INDEX</var>
+			<box x="0mm" y="0mm" width="width($CARD)" height="height($CARD) / 2"
+			 fill-color="var($fond)"/>
+		</card>
+	</deck>
+</pandocreon:carta-genius>

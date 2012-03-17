@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+	Une carte avec opacite variable.
+-->
+<pandocreon:carta-genius>
+	<deck>
+		<paper type="a4" margin="4cm"/>
+		<cardsize width="8cm" height="8cm"/>
+		<card>
+			<box x="0cm" y="0cm" width="4cm" height="4cm"
+			 fill-color="#0080ff"/>
+			<circle x="4cm" y="4cm" radius="25mm" fill-color="#00ffff"
+			 opacity="0.5"/>
+			<box x="5cm" y="5cm" width="3cm" height="3cm"
+			 fill-color="#ff0000" opacity="0.6"/>
+		</card>
+	</deck>
+</pandocreon:carta-genius>

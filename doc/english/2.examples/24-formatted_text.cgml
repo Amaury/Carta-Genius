@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<pandocreon:carta-genius>
+	<deck>
+		<paper type="a4" margin="2cm"/>
+		<cardsize width="8.5cm" height="12cm"/>
+		<card>
+			<text-define id="txt1">
+				<block font="Helvetica-Bold" size="24pt" color="#800000">
+					Text of the first<br/>block.
+				</block>
+				<block font="Courier-Oblique" size="20pt" color="#00ff00">
+					&nbsp;Text of the second block,<p/>in two parts.
+				</block>
+				<block font="Helvetica" size="24pt" color="#0000ff">
+					And a last block to finish...
+				</block>
+			</text-define>
+			<text-area id="txt1" x="5mm" y="5mm"
+			 width="5cm" height="5cm" font="Helvetica" size="12pt"
+			 color="#000000" line-color="#000080" border="3mm"
+			 fill-color="#ffaaaa" radius="5mm"/>
+		</card>
+		<card>
+			<text-area id="txt1" x="5mm" y="5mm"
+			 width="5cm" height="5cm" font="Helvetica" size="12pt"
+			 color="#000000" line-color="#000080" rotation="10"/>
+		</card>
+		<card>
+			<text-area id="txt1" x="5mm" y="5mm"
+			 width="5cm" height="5cm" font="Helvetica" size="12pt"
+			 color="#000000" line-color="#000080" rotation="-5"
+			 dash1="4mm" dash2="3mm"/>
+		</card>
+	</deck>
+</pandocreon:carta-genius>

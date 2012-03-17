@@ -1,0 +1,125 @@
+=pod
+
+=head1 NAME
+
+Carta Genius - Playing cards PDF generator.
+
+=head1 SYNOPSIS
+
+carta-genius B<-i> I<input_file.xml> B<-o> I<output_file.pdf> [B<-p> I<paper_type>] [B<-w> I<paper_width>] [B<-h> I<paper_height>] [B<-l> I<landscape_mode>] [B<-m> I<margin_size>] [B<-x> I<margin_width>] [B<-y> I<margin_height>] [B<-b> I<flip_side>] [B<-v> I<pdf_version>] [B<-r> I<inverse_order>] [B<-e> I<author>] [B<-t> I<title>] [B<-d> I<include_path>] [B<-f> I<font_path>] [B<-g> I<image_path>] [B<-L> I<log_file>] [B<-q>]
+
+=head1 DESCRIPTION
+
+B<Carta Genius> is a software that helps you when you want to generate PDF files with playing cards inside. All output characteristics are set in the XML input file, but can be overriden with command line options.
+
+=head1 OPTIONS
+
+=over 4
+
+=item B<-i> I<input_file.xml>
+
+The name of the XML input file. The file must be written regarding the Carta Genius' syntax.
+
+=item B<-o> I<output_file.pdf>
+
+The name of the PDF file to create.
+
+=item B<-p> I<paper_type>
+
+The type of paper to use.
+Possible values are: 4a0, 2a0, a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, ra0, ra1, ra2, ra3, ra4, sra0, sra1, sra2, sra3, sra4, b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, c0, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, letter, legal, ledger, semi-letter, executive, tabloid, dl, com10, monarch, e-a3, e-a3/2, e-a4, e-a4/2, e-a5, e-a5/2, e-a6, e-a7, e-b4, e-b4/2, e-b5, e-b6, e-b7, e-b8, id1, id2, id3, business-card.
+
+=item B<-w> I<paper_width>, B<-h> I<paper_height>
+
+The paper size, in case of uncommon paper. These two parameters must be used together, when the B<-p> option is not used.
+Examples: 450mm, 32cm, 12in
+
+=item B<-l> I<landscape_mode>
+
+Set the paper in landscape mode. In fact, when this option is set to "YES", the paper's width and height are inverted.
+Possible values are: yes, YES, no, NO
+
+=item B<-m> I<margin_size>
+
+Set the paper's margin size, with the same size on width and height.
+Examples: 10mm, 0.5in
+
+=item B<-x> I<margin_width>, B<-y> I<margin_height>
+
+Set precise margin sizes.
+Examples: 1.2cm, 8mm
+
+=item B<-b> I<flip_side>
+
+Set the flip side. Could be set to "NO" (the cards doesn't have any back), "WIDTH" (paper flip on its vertical side) or "HEIGHT" (paper flip on its horizontal side).
+Possible values are: width, WIDTH, height, HEIGHT, no, NO
+
+=item B<-v> I<pdf_version>
+
+Set the PDF version.
+Possible values are: 1.3, 1.4, 1.5
+
+=item B<-r> I<inverse_order>
+
+Inverse the pages order (last page first, first page last) if set to "YES".
+Possible values are: yes, YES, no, NO
+
+=item B<-e> I<author>
+
+Set the PDF's author.
+
+=item B<-t> I<title>
+
+Set the PDF's title.
+
+=item B<-d> I<include_path>
+
+Set one or many path that the program must use to find include files. If there are many directories, they must be set together, separated with semi-colons (';' character). All directories must be ended with a '/' character (or a '\' character on Windows). Carta Genius try first to find include files in his current working directory, and after it tries in each defined include directories (and stops at the first match).
+
+=item B<-f> I<font_path>
+
+Set one or many path that the program must use to find fonts. If there are many directories, they must be set together, separated with semi-colons (';' character). All directories must be ended with a '/' character (or a '\' character on Windows).
+
+=item B<-g> I<image_path>
+
+Set one or many path that the program must use to find images. If there are many directories, they must be set together, separated with semi-colons (';' character). All directories must be ended with a '/' character (or a '\' character on Windows).
+
+=item B<-L> I<log_file>
+
+Set the file where all logs must be written in addition to the error output.
+
+=item B<-q>
+
+Quiet output. No output log will be written on error output.
+
+=back
+
+=head1 RETURN VALUE
+
+0 (zero) if succes, another value if an error occurs.
+
+=head1 VERSION
+
+This manual page documents the 4.0.0 version of B<Carta Genius>.
+
+=head1 SEE ALSO
+
+B<Carta Genius> is a part of the B<Pandocreon> project, which aims to provide some games (boardgmaes, card games, web games, ...) under free licenses. More information on the website I<http://www.pandocreon.com>.
+
+B<Carta Genius> uses the B<PDFLib> functions library to create PDF files. More information on I<http://www.pdflib.com>.
+
+The B<ghostscript> program could be used to do some conversion from PDF to many formats. It is useful to create some bitmap pictures from PDF pages. If your PDF file contains transparency, use version 8.14 and above of B<ghostscript>. More information on I<http://www.ghostscript.com>.
+
+=head1 AUTHOR
+
+Amaury Bouchard (amaury@amaury.net)
+
+=head1 COPYRIGHT
+
+Copyright (c) 2003-2005 Amaury Bouchard
+
+This manual is distributed under the terms of the GNU B<Free Documentation License> (I<http://www.gnu.org/licenses/fdl.html>).
+
+The B<Carta Genius> program is distributed under the terms of the GNU B<General Public License> (I<http://www.gnu.org/licenses/gpl.html>).
+
+=cut

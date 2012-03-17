@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+	une carte, papier avec un fond-perdu fonce
+	la couleur des traits de coupe s'adapte au fond-perdu
+-->
+<pandocreon:carta-genius>
+	<deck>
+		<paper type="a4" margin="4.5cm"/>
+		<cardsize type="a6"/>
+		<hidden-ditch odd="#100000"/>
+		<card>
+			<box x="0" y="0" width="7cm" height="10cm" fill-color="#0000ff"/>
+		</card>
+	</deck>
+</pandocreon:carta-genius>

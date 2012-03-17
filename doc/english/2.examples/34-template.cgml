@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+	two cards usign the same template
+-->
+<pandocreon:carta-genius>
+	<!-- templates declaration -->
+	<templates>
+		<!-- definition of one template -->
+		<template id="fond">
+			<box x="0mm" y="0mm" width="6cm" height="6cm"
+			 fill-color="#ff0000"/>
+			<box x="2cm" y="2cm" width="6cm" height="6cm"
+			 fill-color="#0000ff"/>
+		</template>
+	</templates>
+	<deck>
+		<paper type="a4" margin="4cm"/>
+		<cardsize width="8cm" height="8cm"/>
+		<!-- first card using the template -->
+		<card template="fond">
+			<circle x="4cm" y="4cm" radius="25mm" fill-color="#00ffff"/>
+		</card>
+		<!-- second card using the same template -->
+		<card template="fond">
+			<circle x="4cm" y="4cm" radius="25mm" fill-color="#ffff00"/>
+		</card>
+	</deck>
+</pandocreon:carta-genius>

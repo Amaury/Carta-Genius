@@ -1,0 +1,95 @@
+======================================================================
+||                  Installation de Carta-Genius                    ||
+||                                                                  ||
+||            Auteur: Amaury Bouchard (amaury@amaury.net)           ||
+||                Dernière modification: 04 juin 2004               ||
+======================================================================
+
+I. PDFLib
+---------
+Vous devez avoir la PDFLib d'installée. Cette bibliothèque de
+fonctions est gratuite lorsqu'elle est utilisée avec un logiciel libre
+comme Carta-Genius. Vous pouvez récupérer la version gratuite de la
+PDFLib ici : http://www.pdflib.com/products/pdflib/download-source.html
+(faites attention à télécharger la version 6 ou supérieure)
+
+  1. Téléchargez et decompressez le fichier.
+
+  2. Configurez PDFLib : `./configure --prefix=/usr'
+     (attention : sous Mac OS X, consultez la section V. de ce document)
+
+  3. Compilez la bibliothèque : `make'
+
+  4. Installez-la : `make install'
+
+Vous devez être root pour exécuter la quatrième étape. Si vous ne
+pouvez pas l'installer en tant qu'utilisateur root, lisez le
+paragraphe "Compilation statique" ci-dessous.
+
+
+II. Compilation dynamique
+-------------------------
+Une fois que la PDFLib est compilée et installée à un endroit connu
+du système (comme /usr/lib), vous pouvez faire :
+
+  1. Allez dans le répertoire de Carta-Genius et tapez `./configure'
+     afin de verifier que la configuration du système est correcte.
+
+  2. Tapez `make dynamic' pour compiler l'application.
+
+Le fichier exécutable appelé `carta-genius' se trouve dans le
+répertoire `bin'.
+Vous pouvez effacer le binaire du programme et tous les fichiers
+objets du répertoire source en tapant `make clean'.  
+
+
+III. Compilation statique
+-------------------------
+Si vous avez compilé la PDFLib mais que vous ne pouvez pas l'installer
+en étant root, il est possible de compiler Carta-Genius lié statiquement
+à la PDFLib.
+
+  1. Compilez la PDFLib. Vous trouverez la version statique de la
+     bibliothèque dans le sous-répertoire `libs/pdflib/.libs/'. Le
+     fichier se nomme `libpdf.a'. Vous trouverez aussi le fichier
+     d'en-tête `pdflib.h' dans le sous-répertoire `libs/pdflib/'.
+
+  2. Copiez libpdf.a dans le répertoire `lib' de Carta-Genius. Copiez
+     pdflib.h dans le répertoire `include' de Carta-Genius.
+
+  3. Dans le répertoire de Carta-Genius, tapez `make static'.
+
+Le fichier exécutable appelé `carta-genius' se trouve dans le
+répertoire `bin'.
+Vous pouvez effacer le binaire du programme et tous les fichiers
+objets du répertoire source en tapant `make clean'.  
+
+
+IV. Compilation sous Windows
+----------------------------
+Pour compiler et installer Carta-Genius sous Windows, vous devez
+utiliser l'environnement Cygwin, disponible sur http://www.cygwin.com
+
+Sous l'environnement Cygwin, vous pouvez compiler et installer la
+PDFLib comme sous Linux (voir le paragraphe "I. PDFLib").
+
+Pour compiler Carta-Genius, tapez `make cygwin' dans le répertoire
+de Carta-Genius.
+
+
+V. Compilation sous Mac OS X
+----------------------------
+La compilation et l'installation sous Mac OS X est identique a Linux,
+sauf l'étape de configuration qui est différente. Au lieu de taper
+simplement `./configure --prefix=/usr', vous devez entrer la commande
+suivante (tout sur une seule ligne):
+
+CFLAGS=-I/Developer/Headers/FlatCarbon
+LDFLAGS="-framework CoreServices -framework ApplicationServices"
+./configure
+
+Attention, la compilation de la PDFLib ne fonctionne pas si un élément
+du chemin (nom du disque, répertoire, ...) contient un espace.
+
+Par la suite, tapez `make macosx' dans le répertoire de Carta-Genius
+(prévu pour une compilation statique).

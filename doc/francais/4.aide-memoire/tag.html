@@ -1,0 +1,582 @@
+<html>
+<head>
+	<title>Pandocréon Carta Genius : Aide mémoire</title>
+	<style>
+		a.r { color: #800000 }
+		a.g { color: #008000 }
+		a.b { color: #000080 }
+	</style>
+</head>
+<body bgcolor="#ffffff">
+	<center>
+	  <h2>Pandocr&eacute;on Carta Genius</h2>
+	  <h3>Aide-m&eacute;moire</h3>
+	</center>
+
+Entre crochets, le nombre d'&eacute;l&eacute;ments.<br />
+Entre parenth&egrave;ses, l'&eacute;l&eacute;ment conteneur.<br />
+<br />
+
+<font color="#800000">obligatoire</font><br />
+<font color="#008000">optionnel</font><br />
+<br />
+
+<a name="carta-genius"></a>
+<font color="#800000"><b>pandocreon:carta-genius</b></font> [1]
+<blockquote>
+Cet &eacute;l&eacute;ment doit &ecirc;tre place au plus haut niveau du document XML.
+</blockquote>
+<br />
+
+<a name="info"></a>
+<font color="#008000"><b>info</b></font> [0, 1] ((carta-genius))
+<blockquote>
+Informations sur le document.
+<ul>
+	<li><font color="#008000">author</font> : nom de l'auteur</li>
+	<li><font color="#008000">title</font> : titre du document (par d&eacute;faut : "Cards generated using Pandocr&eacute;on Carta-Genius (http://www.pandocreon.com)"</li>
+	<li><font color="#008000">subject</font> : sujet</li>
+	<li><font color="#008000">keywords</font> : mots-cl&eacute;s</li>
+	<li><font color="#008000">copyright</font> : informations sur le copyright (et la licence)</li>
+	<li><font color="#008000">version</font> : version du document</li>
+	<li><font color="#008000">lang</font> : langue</li>
+	<li><font color="#008000">note</font> : toute autre information</li>
+</ul>
+</blockquote>
+<br />
+
+<a name="pdf"></a>
+<font color="#008000"><b>pdf</b></font> [0,1] ((carta-genius))
+<blockquote>
+<ul>
+	<li><font color="#008000">version</font> : version du standard PDF [<a href="type.html#pdf" class="b">1.3, 1.4, 1.5</a>]</li>
+	<li><font color="#008000">master-password</font> : mot de passe PDF administrateur</li>
+	<li><font color="#008000">user-password</font> : mot de passe PDF utilisateur</li>
+</ul>
+</blockquote>
+<br />
+
+<a name="unit"></a>
+<font color="#008000"><b>unit</b></font> [0,1] ((carta-genius))
+<blockquote>
+<ul>
+	<li><font color="#008000">base</font> : unit&eacute; de base [<a href="type.html#unit" class="b">mm, cm, in, pt</a>]</li>
+</ul>
+</blockquote>
+<br />
+
+<a name="back"></a>
+<font color="#008000"><b>back</b></font> [0,1] ((carta-genius))
+<blockquote>
+<ul>
+	<li><font color="#008000">side</font> : c&ocirc;t&eacute; de retournement [<a href="type.html#side" class="b">NONE, WIDTH, HEIGHT</a>]</li>
+	<li><font color="#008000">reverse</font> : inverser l'ordre des pages [<a href="type.html#bool" class="b">YES, NO</a>]</li>
+</ul>
+</blockquote>
+<br />
+
+<a name="fonts"></a>
+<font color="#008000"><b>fonts</b></font> [0,1] ((carta-genius))
+<blockquote>
+D&eacute;clarations de polices de caract&egrave;res Postscript Type 1.
+<ul>
+	<li><font color="#008000">default</font> : nom de la police par d&eacute;faut</li>
+</ul>
+</blockquote>
+<br />
+
+<a name="font"></a>
+<font color="#008000"><b>font</b></font> [0...x] ((fonts))
+<blockquote>
+<ul>
+	<li><font color="#800000">id</font> : nom Postscript de la police</li>
+	<li><font color="#800000">outline</font> : chemin vers le fichier d'outline</li>
+	<li><font color="#800000">metrics</font> : chemin vers le fichier de metrics</li>
+</ul>
+</blockquote>
+<br />
+
+<a name="fontpath"></a>
+<font color="#008000"><b>path</b></font> [0...x] ((fonts))
+<blockquote>
+Ajoute un chemin de recherche des fichiers de police.
+<ul>
+	<li><font color="#800000">dir</font> : chemin vers le r&eacute;pertoire</li>
+</ul>
+</blockquote>
+<br />
+
+<a name="images"></a>
+<font color="#008000"><b>images</b></font> [0,1] ((carta-genius))
+<blockquote>
+D&eacute;clarations d'images et de masques d'image.
+</blockquote>
+<br />
+
+<a name="mask"></a>
+<font color="#008000"><b>mask</b></font> [0...x] ((images))
+<blockquote>
+<ul>
+	<li><font color="#800000">id</font> : nom donn&eacute; au masque d'image</li>
+	<li><font color="#800000">file</font> : chemin vers l'image (doit &ecirc;tre une image PNG en noir et blanc)</li>
+</ul>
+</blockquote>
+<br />
+
+<a name="image"></a>
+<font color="#008000"><b>image</b></font> [0...x] ((images))
+<blockquote>
+<ul>
+	<li><font color="#800000">id</font> : nom donn&eacute; &agrave; l'image</li>
+	<li><font color="#800000">file</font> : chemin vers l'image</li>
+	<li><font color="#800000">width</font> : largeur par d&eacute;faut [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#800000">height</font> : hauteur par d&eacute;faut [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">mask</font> : chemin vers l'image de masque de transparente (doit &ecirc;tre une image PNG en noir et blanc)</li>
+	<li><font color="#008000">mask-id</font> : identifiant d'un masque d'image pr&eacute;alablement d&eacute;finie, &agrave; utiliser comme masque de transparence</li>
+</ul>
+</blockquote>
+<br />
+
+<a name="imagepath"></a>
+<font color="#008000"><b>path</b></font> [0...x] ((images))
+<blockquote>
+Ajoute un chemin de recherche des fichiers d'image.
+<ul>
+	<li><font color="#800000">dir</font> : chemin vers le r&eacute;pertoire</li>
+</ul>
+</blockquote>
+<br />
+
+<a name="templates"></a>
+<font color="#008000"><b>templates</b></font> [0,1] ((carta-genius))
+<blockquote>
+D&eacute;clarations de gabarits.
+</blockquote>
+<br />
+
+<a name="template"></a>
+<font color="#008000"><b>template</b></font> [0...x] ((template))
+<blockquote>
+<ul>
+	<li><font color="#800000">id</font> : nom du gabarit</li>
+	<li><font color="#008000">template</font> : nom du ou des gabarits &agrave; traiter avant celui-ci</li>
+</ul>
+</blockquote>
+<br />
+
+<a name="includes"></a>
+<font color="#008000"><b>includes</b></font> [0,1] ((carta-genius))
+<blockquote>
+D&eacute;clarations de fichiers &agrave; inclure.
+</blockquote>
+<br />
+
+<a name="include"></a>
+<font color="#008000"><b>include</b></font> [0...x] ((includes))
+<blockquote>
+<ul>
+	<li><font color="#800000">file</font> : chemin vers le fichier &agrave; inclure</li>
+</ul>
+</blockquote>
+<br />
+
+<a name="includepath"></a>
+<font color="#008000"><b>path</b></font> [0...x] ((includes))
+<blockquote>
+Ajoute un chemin de recherche des fichiers &agrave; inclure.
+<ul>
+	<li><font color="#800000">dir</font> : chemin vers le r&eacute;pertoire</li>
+</ul>
+</blockquote>
+<br />
+
+<a name="variables"></a>
+<font color="#008000"><b>variables</b></font> [0,1] ((carta-genius))
+<blockquote>
+D&eacute;claration de variables qui sont interpr&aecute;t&eacute;es au d&eacute;but du document.
+</blockquote>
+<br />
+
+<a name="deck"></a>
+<font color="#800000"><b>deck</b></font> [1...x] ((carta-genius))
+<blockquote>
+Ensemble de cartes.
+</blockquote>
+<br />
+
+<a name="paper"></a>
+<font color="#800000"><b>paper</b></font> [1] ((deck))
+<blockquote>
+<ul>
+	<li><font color="#008000">type</font> : format de papier standard (A0, LETTER, ...)</li>
+	<li><font color="#008000">landscape</font> : mode paysage, inversion de la largeur et la hauteur du papier [<a href="type.html#bool" class="b">YES, NO</a>]</li>
+	<li><font color="#008000">width</font> : largeur du papier (si non standard) [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">height</font> : hauteur du papier (si non standard) [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">margin</font> : taille de marge sur tout le tour du papier [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">margin-width</font> : taille de marge &agrave; gauche et &agrave; droite (si non uniforme) [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">margin-height</font> : taille de marge en haut et en bas (si non uniforme) [<a href="type.html#value" class="b">valeur</a>]</li>
+</ul>
+</blockquote>
+<br />
+
+<a name="ditch"></a>
+<font color="#008000"><b>hidden-ditch</b></font> [0,1] ((deck))
+<blockquote>
+<ul>
+	<li><font color="#008000">odd</font> : couleur du fond-perdu des pages recto [<a href="type.html#color" class="b">couleur</a>]</li>
+	<li><font color="#008000">even</font> : couleur du fond-perdu des pages verso [<a href="type.html#color" class="b">couleur</a>]</li>
+</ul>
+</blockquote>
+<br />
+
+<a name="cardsize"></a>
+<font color="#800000"><b>cardsize</b></font> [1] ((deck))
+<blockquote>
+<ul>
+	<li><font color="#008000">type</font> : format de carte (papier standard A0, LETTER, ...)</li>
+	<li><font color="#008000">landscape</font> : mode paysage, inversion de la largeur et la hauteur des cartes [<a href="type.html#bool" class="b">YES, NO</a>]</li>
+	<li><font color="#008000">width</font> : largeur des cartes (si non standard) [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">height</font> : hauteur des cartes (si non standard) [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">space</font> : espacement entre les cartes, verticalement et horizontalement [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">space-width</font> : espacement horizontal entre les cartes (si non uniforme) [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">space-height</font> : espacement vertical entre les cartes (si non uniforme) [<a href="type.html#value" class="b">valeur</a>]</li>
+</ul>
+</blockquote>
+<br />
+
+<a name="card"></a>
+<font color="#800000"><b>card</b></font> [1...x] ((deck))
+<blockquote>
+<ul>
+	<li><font color="#008000">count</font> : nombre de fois o&ugrave; la carte doit s'afficher</li>
+	<li><font color="#008000">template</font> : nom du ou des gabarits &agrave; traiter avant la carte</li>
+	<li><font color="#008000">back</font> : nom du ou des gabarits servant de dos &agrave; la carte</li>
+</ul>
+</blockquote>
+<br />
+
+<a name="circle"></a>
+<font color="#008000"><b>circle</b></font> [0...x] ((card, template))
+<blockquote>
+<ul>
+	<li><font color="#800000">x</font> : abscisse du centre du cercle [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#800000">y</font> : ordonn&eacute;e du centre du cercle [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#800000">radius</font> : rayon du centre [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">line-width</font> : &eacute;paisseur de la ligne [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">line-color</font> : couleur de la ligne [<a href="type.html#color" class="b">couleur</a>]</li>
+	<li><font color="#008000">fill-color</font> : couleur de fond [<a href="type.html#couleur" class="b">couleur</a>]</li>
+	<li><font color="#008000">dash1</font> : longueur des pointill&eacute;s pleins (doit &ecirc;tre utilis&eacute; avec 'dash2') [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">dash2</font> : longueur des pointill&eacute;s vides (doit &ecirc;tre utilis&eacute; avec 'dash1') [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">opacity</font> : opacit&eacute; (0.0 &lt;= x &lt;= 1.0) [<a href="type.html#scalar" class="b">scalaire</a>]</li>
+	<li><font color="#008000">blendmode</font> : m&eacute;thode de m&eacute;lange des couleurs (Multiply, Overlay, ...) [<a href="type.html#blenmode" class="b">blendmode</a>]</li>
+</ul>
+</blockquote>
+<br />
+
+<a name="box"></a>
+<font color="#008000"><b>box</b></font> [0...x] ((card, template))
+<blockquote>
+<ul>
+	<li><font color="#800000">x</font> : abscisse du coin inf&eacute;rieur-gauche du rectangle [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#800000">y</font> : ordonn&eacute;e du coin inf&eacute;rieur-gauche du rectangle [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#800000">width</font> : largeur du rectangle [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#800000">height</font> : hauteur du rectangle [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">radius</font> : rayon des coins du rectangle [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">line-width</font> : &eacute;paisseur de la ligne [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">line-color</font> : couleur de la ligne [<a href="type.html#color" class="b">couleur</a>]</li>
+	<li><font color="#008000">fill-color</font> : couleur de fond [<a href="type.html#color" class="b">couleur</a>]</li>
+	<li><font color="#008000">rotation</font> : angle de rotation en degr&eacute;s [<a href="type.html#scalar" class="b">scalaire</a>]</li>
+	<li><font color="#008000">dash1</font> : longueur des pointill&eacute;s pleins (doit &ecirc;tre utilis&eacute; avec 'dash2') [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">dash2</font> : longueur des pointill&eacute;s vides (doit &ecirc;tre utilis&eacute; avec 'dash1') [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">opacity</font> : opacit&eacute; (0.0 &lt;= x &lt;= 1.0) [<a href="type.html#scalar" class="b">scalaire</a>]</li>
+	<li><font color="#008000">blendmode</font> : m&eacute;thode de m&eacute;lange des couleurs (Multiply, Overlay, ...) [<a href="type.html#blendmode" class="b">blendmode</a>]</li>
+</ul>
+</blockquote>
+<br />
+
+<a name="line"></a>
+<font color="#008000"><b>line</b></font> [0...x] ((card, template))
+<blockquote>
+<ul>
+	<li><font color="#800000">x1</font> : abscisse du premier point de la ligne [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#800000">y1</font> : ordonn&eacute;e du premier point de la ligne [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#800000">x2</font> : abscisse du second point de la ligne [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#800000">y2</font> : ordonn&eacute;e du second point de la ligne [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">width</font> : &eacute;paisseur de la ligne [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#800000">color</font> : couleur de la ligne [<a href="type.html#color" class="b">couleur</a>]</li>
+	<li><font color="#008000">dash1</font> : longueur des pointill&eacute;s pleins (doit &ecirc;tre utilis&eacute; avec 'dash2') [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">dash2</font> : longueur des pointill&eacute;s vides (doit &ecirc;tre utilis&eacute; avec 'dash1') [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">opacity</font> : opacit&eacute; (0.0 &lt;= x &lt;= 1.0) [<a href="type.html#scalar" class="b">scalar</a>]</li>
+	<li><font color="#008000">blendmode</font> : m&eacute;thode de m&eacute;lange des couleurs (Multiply, Overlay, ...) [<a href="type.html#blendmode" class="b">blendmode</a>]</li>
+</ul>
+</blockquote>
+<br />
+
+<a name="bezier"></a>
+<font color="#008000"><b>bezier</b></font> [0...x] ((card, template))
+<blockquote>
+<ul>
+	<li><font color="#800000">x1</font> : abscisse du premier point de la ligne [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#800000">y1</font> : ordonn&eacute;e du premier point de la ligne [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#800000">x2</font> : abscisse du second point de la ligne [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#800000">y2</font> : ordonn&eacute;e du second point de la ligne [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#800000">cp-x1</font> : abscisse du premier point de controle [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#800000">cp-y1</font> : ordonn&eacute;e du premier point de controle [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#800000">cp-x2</font> : abscisse du second point de controle [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#800000">cp-y2</font> : ordonn&eacute;e du second point de controle [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">width</font> : &eacute;paisseur de la ligne [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#800000">color</font> : couleur de la ligne [<a href="type.html#color" class="b">couleur</a>]</li>
+	<li><font color="#008000">dash1</font> : longueur des pointill&eacute;s pleins (doit &ecirc;tre utilis&eacute; avec 'dash2') [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">dash2</font> : longueur des pointill&eacute;s vides (doit &ecirc;tre utilis&eacute; avec 'dash1') [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">opacity</font> : opacit&eacute; (0.0 &lt;= x &lt;= 1.0) [<a href="type.html#scalar" class="b">scalaire</a>]</li>
+	<li><font color="#008000">blendmode</font> : m&eacute;thode de m&eacute;lange des couleurs (Multiply, Overlay, ...) [<a href="type.html#blendmode" class="b">blendmode</a>]</li>
+</ul>
+</blockquote>
+<br />
+
+<a name="img"></a>
+<font color="#008000"><b>image</b></font> [0...x] ((card, template))
+<blockquote>
+<ul>
+	<li><font color="#008000">id</font> : nom de l'image d&eacute;ja d&eacute;clar&eacute;e</li>
+	<li><font color="#008000">file</font> : chemin vers l'image</li>
+	<li><font color="#008000">mask</font> : chemin vers l'image de masque de transparence</li>
+	<li><font color="#008000">mask-id</font> : nom du masque de transparence d&eacute;ja d&eacute;clar&eacute;</li>
+	<li><font color="#008000">entire</font> : d&eacute;former l'image pour remplir la zone [<a href="type.html#bool" class="b">YES, NO</a>]</li>
+	<li><font color="#800000">x</font> : abscisse du coin inf&eacute;rieur-gauche de l'image [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#800000">y</font> : ordonn&eacute;e du coin inf&eacute;rieur-gauche de l'image [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">width</font> : largeur de l'image [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">height</font> : hauteur de l'image [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">rotation</font> : angle de rotation en degr&eacute;s [<a href="type.html#scalar" class="b">scalaire</a>]</li>
+</ul>
+</blockquote>
+<br />
+
+<a name="polygon"></a>
+<font color="#008000"><b>polygon</b></font> [0...x] ((card, template))
+<blockquote>
+<ul>
+	<li><font color="#800000">x</font> : abscisse du premier point du polygone [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#800000">y</font> : ordonn&eacute;e du premier point du polygone [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">line-width</font> : &eacute;paisseur de la ligne [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">line-color</font> : couleur de la ligne [<a href="type.html#color" class="b">couleur</a>]</li>
+	<li><font color="#008000">fill-color</font> : couleur de fond [<a href="type.html#color" class="b">couleur</a>]</li>
+	<li><font color="#008000">rotation</font> : angle de rotation en degr&eacute;s [<a href="type.html#scalar" class="b">scalaire</a>]</li>
+	<li><font color="#008000">dash1</font> : longueur des pointill&eacute;s pleins (doit &ecirc;tre utilis&eacute; avec 'dash2') [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">dash2</font> : longueur des pointill&eacute;s vides (doit &ecirc;tre utilis&eacute; avec 'dash1') [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">opacity</font> : opacit&eacute; (0.0 &lt;= x &lt;= 1.0) [<a href="type.html#scalar" class="b">scalaire</a>]</li>
+	<li><font color="#008000">blendmode</font> : m&eacute;thode de m&eacute;lange des couleurs (Multiply, Overlay, ...) [<a href="type.html#blendmode" class="b">blendmode</a>]</li>
+</ul>
+</blockquote>
+<br />
+
+<a name="poly-line"></a>
+<font color="#008000"><b>line</b></font> [0...x] ((polygon))
+<blockquote>
+<ul>
+	<li><font color="#800000">x</font> : abscisse du point suivant [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#800000">y</font> : ordonn&eacute;e du point suivant [<a href="type.html#value" class="b">valeur</a>]</li>
+</ul>
+</blockquote>
+<br />
+
+<a name="poly-bezier"></a>
+<font color="#008000"><b>bezier</b></font> [0...x] ((polygon))
+<blockquote>
+<ul>
+	<li><font color="#800000">x</font> : abscisse du point suivant [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#800000">y</font> : ordonn&eacute;e du point suivant [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#800000">cp-x1</font> : abscisse du premier point de contr&ocirc;le [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#800000">cp-y1</font> : ordonn&eacute;e du premier point de contr&ocirc;le [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#800000">cp-x2</font> : abscisse du second point de contr&ocirc;le [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#800000">cp-y2</font> : ordonn&eacute;e du second point de contr&ocirc;le [<a href="type.html#value" class="b">valeur</a>]</li>
+</ul>
+</blockquote>
+<br />
+
+<a name="grid"></a>
+<font color="#008000"><b>grid</b></font> [0...x] ((card, template))
+<blockquote>
+<ul>
+	<li><font color="#800000">x</font> : abscisse du coin inf&eacute;rieur-gauche de la grille [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#800000">y</font> : ordonn&eacute;e du coin inf&eacute;rieur-gauche de la grille [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#800000">cell-width</font> : largeur des cellules [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#800000">cell-height</font> : hauteur des cellules [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#800000">nbr-width</font> : nombre de cellules horizontalement [entier]</li>
+	<li><font color="#800000">nbr-height</font> : nombre de cellules verticalement [entier]</li>
+	<li><font color="#008000">line-width</font> : &eacute;paisseur de la ligne [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">line-color</font> : couleur de la ligne [<a href="type.html#color" class="b">couleur</a>]</li>
+	<li><font color="#008000">fill-color</font> : couleur de fond [<a href="type.html#color" class="b">couleur</a>]</li>
+	<li><font color="#008000">rotation</font> : angle de rotation en degr&eacute;s [<a href="type.html#scalar" class="b">scalaire</a>]</li>
+	<li><font color="#008000">dash1</font> : longueur des pointill&eacute;s pleins (doit &ecirc;tre utilis&eacute; avec 'dash2') [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">dash2</font> : longueur des pointill&eacute;s vides (doit &ecirc;tre utilis&eacute; avec 'dash1') [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">opacity</font> : opacit&eacute; (0.0 &lt;= x &lt;= 1.0) [<a href="type.html#scalar" class="b">scalaire</a>]</li>
+	<li><font color="#008000">blendmode</font> : m&eacute;thode de m&eacute;lange des couleurs (Multiply, Overlay, ...) [<a href="type.html#blendmode" class="b">blendmode</a>]</li>
+</ul>
+</blockquote>
+<br />
+
+<a name="hexagon"></a>
+<font color="#008000"><b>hexagon</b></font> [0...x] ((card, template))
+<blockquote>
+<ul>
+	<li><font color="#800000">x</font> : abscisse du bord gauche de l'hexagone [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#800000">y</font> : ordonn&eacute;e du bord inf&eacute;rieur de l'hexagone [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#800000">width</font> : largeur de l'hexagone [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">line-width</font> : &eacute;paisseur de la ligne [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">line-color</font> : couleur de la ligne [<a href="type.html#color" class="b">couleur</a>]</li>
+	<li><font color="#008000">fill-color</font> : couleur de fond [<a href="type.html#color" class="b">couleur</a>]</li>
+	<li><font color="#008000">rotation</font> : angle de rotation en degr&eacute;s [<a href="type.html#scalar" class="b">scalaire</a>]</li>
+	<li><font color="#008000">dash1</font> : longueur des pointill&eacute;s pleins (doit &ecirc;tre utilis&eacute; avec 'dash2') [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">dash2</font> : longueur des pointill&eacute;s vides (doit &ecirc;tre utilis&eacute; avec 'dash1') [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">opacity</font> : opacit&eacute; (0.0 &lt;= x &lt;= 1.0) [<a href="type.html#scalar" class="b">scalaire</a>]</li>
+	<li><font color="#008000">blendmode</font> : m&eacute;thode de m&eacute;lange des couleurs (Multiply, Overlay, ...) [<a href="type.html#blendmode" class="b">blendmode</a>]</li>
+</ul>
+</blockquote>
+<br />
+
+<a name="text"></a>
+<font color="#008000"><b>text</b></font> [0...x] ((card, template))
+<blockquote>
+<ul>
+	<li><font color="#008000">font</font> : nom de la police (sauf si police par d&eacute;faut)</li>
+	<li><font color="#800000">size</font> : taille des caract&egrave;res [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#800000">color</font> : couleur des caract&egrave;res [<a href="type.html#color" class="b">couleur</a>]</li>
+	<li><font color="#800000">align</font> : alignement du texte [<a href="type.html#align" class="b">left, right, center, justify</a>]</li>
+	<li><font color="#800000">x</font> : abscisse du coin inf&eacute;rieur-gauche de la zone de texte [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#800000">y</font> : ordonn&eacute;e du coin inf&eacute;rieur-gauche de la zone de texte [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#800000">width</font> : largeur de la zone de texte [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#800000">height</font> : hauteur de la zone de texte [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">radius</font> : rayon de l'arrondi des coins [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">adapt</font> : adaptation de la taille du texte [<a href="type.html#bool" class="b">YES, NO</a>]</li>
+	<li><font color="#008000">space</font> : taille de l'interlignage par rapport &agrave; la taille des caract&egrave;res [<a href="type.html#scalar" class="b">scalaire</a>]</li>
+	<li><font color="#008000">rotation</font> : angle de rotation en degr&eacute;s [<a href="type.html#scalar" class="b">scalaire</a>]</li>
+	<li><font color="#008000">dash1</font> : longueur des pointill&eacute;s pleins (doit &ecirc;tre utilis&eacute; avec 'dash2') [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">dash2</font> : longueur des pointill&eacute;s vides (doit &ecirc;tre utilis&eacute; avec 'dash1') [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">opacity</font> : opacit&eacute; (0.0 &lt;= x &lt;= 1.0) [<a href="type.html#scalar" class="b">scalaire</a>]</li>
+	<li><font color="#008000">blendmode</font> : m&eacute;thode de m&eacute;lange des couleurs (Multiply, Overlay, ...) [<a href="type.html#blendmode" class="b">blendmode</a>]</li>
+	<li><font color="#008000">fill-color</font> : couleur de fond [<a href="type.html#color" class="b">couleur</a>]</li>
+	<li><font color="#008000">line-color</font> : couleur de la ligne [<a href="type.html#color" class="b">couleur</a>]</li>
+	<li><font color="#008000">line-width</font> : &eacute;paisseur de la ligne [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">border</font> : taille de la bordure [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">underline</font> : souslignage [<a href="type.html#bool" class="b">YES, NO</a>]</li>
+	<li><font color="#008000">overligne</font> : surlignage [<a href="type.html#bool" class="b">YES, NO</a>]</li>
+	<li><font color="#008000">strikeout</font> : texte barr&eacute; [<a href="type.html#bool" class="b">YES, NO</a>]</li>
+	<li><font color="#008000">char-space</font> : espacement entre les caract&egrave;res [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">h-scale</font> : &eacute;chelle horizontale (en pourcentage) [<a href="type.html#scalar" class="b">scalaire</a>]</li>
+	<li><font color="#008000">ladder-color</font> : couleur des rayures horizontales [<a href="type.html#color" class="b">couleur</a>]</li>
+	<li><font color="#008000">ladder-bottom</font> : placer les rayures sous l'empattement des caract&egrave;res [<a href="type.html#bool" class="b">YES, NO</a>]</li>
+	<li><font color="#008000">ladder-rise</font> : distance de d&eacute;placement vertical des rayures [<a href="type.html#value" class="b">valeur</a>]</li>
+</ul>
+</blockquote>
+
+<a name="br"></a>
+<font color="#008000"><b>br</b></font> [0...x] ((text))
+<blockquote>
+Ins&egrave;re un retour &agrave; la ligne.
+</blockquote>
+
+<a name="p"></a>
+<font color="#008000"><b>p</b></font> [0...x] ((text))
+<blockquote>
+Ins&egrave;re deux retours &agrave; la ligne.
+</blockquote>
+
+<a name="value"></a>
+<font color="#008000"><b>value</b></font> [0...x] ((text))
+<blockquote>
+Ins&egrave;re le r&eacute;sultat d'une expression (qui peut &ecirc;tre une simple variable).
+<ul>
+	<li><font color="#008000">precision</font> : nombre de chiffre apr&egrave;s la virgule &agrave; afficher [<a href="type.html#scalar" class="b">scalaire</a>]</li>
+</ul>
+</blockquote>
+
+<a name="var"></a>
+<font color="#008000"><b>var</b></font> [0...x] ((variables, card, template))
+<blockquote>
+D&eacute;fini une variable et lui affecte le r&eacute;sultat d'une expression.
+<ul>
+	<li><font color="#800000">name</font> : nom de la variable</li>
+	<li><font color="#008000">precision</font> : nombre de chiffre apr&egrave;s la virgule &agrave; utiliser dans l'expression [<a href="type.html#scalar" class="b">scalaire</a>]</li>
+</ul>
+</blockquote>
+
+<a name="text-define"></a>
+<font color="#008000"><b>text-define</b></font> [0...x] ((card, template))
+<blockquote>
+D&eacute;fini une portion de texte enrichi.
+<ul>
+	<li><font color="#800000">id</font> : identifiant du texte</li>
+</ul>
+</blockquote>
+
+<a name="block"></a>
+<font color="#800000"><b>block</b></font> [1...x] ((text-define))
+<blockquote>
+<ul>
+	<li><font color="#008000">font</font> : nom de la police (sauf si police par d&eacute;faut)</li>
+	<li><font color="#800000">size</font> : taille des caract&egrave;res [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">color</font> : couleur des caract&egrave;res [<a href="type.html#color" class="b">couleur</a>]</li>
+	<li><font color="#008000">space</font> : taille de l'interlignage par rapport &agrave; la taille des caract&egrave;res [<a href="type.html#scalar" class="b">scalaire</a>]</li>
+	<li><font color="#008000">underline</font> : souslignage [<a href="type.html#bool" class="b">YES, NO</a>]</li>
+	<li><font color="#008000">overligne</font> : surlignage [<a href="type.html#bool" class="b">YES, NO</a>]</li>
+	<li><font color="#008000">strikeout</font> : texte barr&eacute; [<a href="type.html#bool" class="b">YES, NO</a>]</li>
+	<li><font color="#008000">char-space</font> : espacement entre les caract&egrave;res [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">h-scale</font> : &eacute;chelle horizontale (en pourcentage) [<a href="type.html#scalar" class="b">scalaire</a>]</li>
+</ul>
+</blockquote>
+
+<a name="text-area"></a>
+<font color="#008000"><b>text-area</b></font> [0...x] ((card, template))
+<blockquote>
+<ul>
+	<li><font color="#800000">id</font> : identifiant du texte</li>
+	<li><font color="#800000">x</font> : abscisse du coin inf&eacute;rieur-gauche de la zone de texte [<a href="type.html#value" class="b">valeur</a>]</li>
+        <li><font color="#800000">y</font> : ordonn&eacute;e du coin inf&eacute;rieur-gauche de la zone de texte [<a href="type.html#value" class="b">valeur</a>]</li>
+        <li><font color="#800000">width</font> : largeur de la zone de texte [<a href="type.html#value" class="b">valeur</a>]</li>
+        <li><font color="#800000">height</font> : hauteur de la zone de texte [<a href="type.html#value" class="b">valeur</a>]</li>
+        <li><font color="#008000">rotation</font> : angle de rotation en degr&eacute;s [<a href="type.html#scalar" class="b">scalaire</a>]</li>
+	<li><font color="#008000">dash1</font> : longueur des pointill&eacute;s pleins (doit &ecirc;tre utilis&eacute; avec 'dash2') [<a href="type.html#value" class="b">valeur</a>]</li>
+	<li><font color="#008000">dash2</font> : longueur des pointill&eacute;s vides (doit &ecirc;tre utilis&eacute; avec 'dash1') [<a href="type.html#value" class="b">valeur</a>]</li>
+        <li><font color="#008000">opacity</font> : opacit&eacute; (0.0 &lt;= x &lt;= 1.0) [<a href="type.html#scalar" class="b">scalaire</a>]</li>
+        <li><font color="#008000">blendmode</font> : m&eacute;thode de m&eacute;lange des couleurs (Multiply, Overlay, ...) [<a href="type.html#blendmode" class="b">blendmode</a>]</li>
+        <li><font color="#008000">fill-color</font> : couleur de fond [<a href="type.html#color" class="b">couleur</a>]</li>
+	<li><font color="#008000">line-color</font> : couleur de la ligne [<a href="type.html#color" class="b">couleur</a>]</li>
+        <li><font color="#008000">line-width</font> : &eacute;paisseur de la ligne [<a href="type.html#value" class="b">valeur</a>]</li>
+        <li><font color="#008000">border</font> : taille de la bordure [<a href="type.html#value" class="b">valeur</a>]</li>
+</ul>
+</blockquote>
+
+<a name="if"></a>
+<font color="#008000"><b>if</b></font> [0...x] ((card, template))
+<blockquote>
+Bloc d'instruction conditionnel.
+<ul>
+	<li><font color="#800000">test</font> : test conditionnel [<a href="type.html#bool" class="b">bool&eacute;en</a>]</li>
+</ul>
+</blockquote>
+
+<a name="while"></a>
+<font color="#008000"><b>while</b></font> [0...x] ((card, template))
+<blockquote>
+Boucle d'instruction.
+<ul>
+	<li><font color="#800000">test</font> : test conditionnel [<a href="type.html#bool" class="b">bool&eacute;en</a>]</li>
+</ul>
+</blockquote>
+
+<a name="log"></a>
+<font color="#008000"><b>log</b></font> [0...x] ((card, template))
+<blockquote>
+Ecriture d'une variable sur la sortie d'erreur.
+<ul>
+	<li><font color="#008000">precision</font> : nombre de chiffre apr&egrave;s la virgule &agrave; utiliser dans l'expression [<a href="type.html#scalar" class="b">scalaire</a>]</li>
+</ul>
+</blockquote>
+
+<br /><hr />
+<font size="-2">Copyright (c) 2004-2005, Amaury Bouchard<br />
+Cette documentation est plac&eacute;e sous les termes de la <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation License</a></font>
+
+</body>
+</html>

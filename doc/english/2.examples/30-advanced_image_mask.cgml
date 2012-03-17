@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+	three cards, images with explicit transparency
+-->
+<pandocreon:carta-genius>
+	<!-- images declaration -->
+	<images>
+		<!-- definition of an image mask -->
+		<mask id="blackwhite" file="../../../resources/masque_dogmes.png"/>
+		<!-- definition of one image with a mask -->
+		<image id="nature" file="../../../resources/nature.png"
+		 mask-id="blackwhite" width="5cm" height="5cm"/>
+	</images>
+	<deck>
+		<paper type="a4" margin="2cm"/>
+		<cardsize type="a7"/>
+		<card>
+			<!-- the mask alone -->
+			<image file="../../../resources/masque_dogmes.png"
+			 x="5mm" y="5mm" width="5cm" height="5cm"/>
+		</card>
+		<card>
+			<!-- image using, default size -->
+			<image id="nature" x="5mm" y="5mm"/>
+		</card>
+		<card>
+			<!-- image using, special size, same mask -->
+			<image file="../../../resources/chaos.png"
+			 mask-id="blackwhite" x="5mm" y="5mm"
+			 width="5cm" height="5cm"/>
+		</card>
+	</deck>
+</pandocreon:carta-genius>

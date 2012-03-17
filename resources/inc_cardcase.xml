@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<pandocreon:carta-genius>
+	<templates>
+		<!-- case init -->
+		<template id="cardcase_init">
+			<var name="CARDCASE_A_X">0mm</var>
+			<var name="CARDCASE_A_Y">$case_flap_big + $case_depth</var>
+			<var name="CARDCASE_A_W">$case_depth</var>
+			<var name="CARDCASE_A_H">$case_height</var>
+			<var name="CARDCASE_B_X">$case_depth</var>
+			<var name="CARDCASE_B_Y">$case_flap_big + $case_depth</var>
+			<var name="CARDCASE_B_W">$case_width</var>
+			<var name="CARDCASE_B_H">$case_height</var>
+			<var name="CARDCASE_C_X">$case_depth + $case_width</var>
+			<var name="CARDCASE_C_Y">$case_flap_big + $case_depth</var>
+			<var name="CARDCASE_C_W">$case_depth</var>
+			<var name="CARDCASE_C_H">$case_height</var>
+			<var name="CARDCASE_D_X">($case_depth * 2) + $case_width</var>
+			<var name="CARDCASE_D_Y">$case_flap_big + $case_depth</var>
+			<var name="CARDCASE_D_W">$case_width</var>
+			<var name="CARDCASE_D_H">$case_height</var>
+			<var name="CARDCASE_E_X">($case_depth * 2) + ($case_width * 2)</var>
+			<var name="CARDCASE_E_Y">$case_flap_big + $case_depth</var>
+			<var name="CARDCASE_E_W">$case_depth</var>
+			<var name="CARDCASE_E_H">$case_height</var>
+			<var name="CARDCASE_F_X">$case_depth</var>
+			<var name="CARDCASE_F_Y">$case_flap_big</var>
+			<var name="CARDCASE_F_W">$case_width</var>
+			<var name="CARDCASE_F_H">$case_depth</var>
+			<var name="CARDCASE_G_X">$case_depth</var>
+			<var name="CARDCASE_G_Y">$case_flap_big + $case_depth + $case_height</var>
+			<var name="CARDCASE_G_W">$case_width</var>
+			<var name="CARDCASE_G_H">$case_depth</var>
+		</template>
+		<!-- case creation -->
+		<template id="cardcase" template="cardcase_init">
+			<!-- A -->
+			<box x="$CARDCASE_A_X" y="$CARDCASE_A_Y"
+			 width="$CARDCASE_A_W" height="$CARDCASE_A_H"
+			 line-width="0.05mm" line-color="#aaaaaa"/>
+			<!-- B -->
+			<box x="$CARDCASE_B_X" y="$CARDCASE_B_Y"
+			 width="$CARDCASE_B_W" height="$CARDCASE_B_H"
+			 line-width="0.05mm" line-color="#aaaaaa"/>
+			<!-- C -->
+			<box x="$CARDCASE_C_X" y="$CARDCASE_C_Y"
+			 width="$CARDCASE_C_W" height="$CARDCASE_C_H"
+			 line-width="0.05mm" line-color="#aaaaaa"/>
+			<!-- D -->
+			<box x="$CARDCASE_D_X" y="$CARDCASE_D_Y"
+			 width="$CARDCASE_D_W" height="$CARDCASE_D_H"
+			 line-width="0.05mm" line-color="#aaaaaa"/>
+			<!-- E -->
+			<box x="$CARDCASE_E_X" y="$CARDCASE_E_Y"
+			 width="$CARDCASE_E_W" height="$CARDCASE_E_H"
+			 line-width="0.05mm" line-color="#aaaaaa"/>
+			<!-- F -->
+			<box x="$CARDCASE_F_X" y="$CARDCASE_F_Y"
+			 width="$CARDCASE_F_W" height="$CARDCASE_F_H"
+			 line-width="0.05mm" line-color="#aaaaaa"/>
+			<!-- G -->
+			<box x="$CARDCASE_G_X" y="$CARDCASE_G_Y"
+			 width="$CARDCASE_G_W" height="$CARDCASE_G_H"
+			 line-width="0.05mm" line-color="#aaaaaa"/>
+			<!-- H -->
+			<line x1="$case_depth + $case_gap_big" y1="0mm"
+			 x2="$case_depth + $case_width - $case_gap_big" y2="0mm"
+			 width="0.05mm" color="#aaaaaa"/>
+			<line x1="$case_depth + $case_gap_big" y1="0mm"
+			 x2="$case_depth" y2="$case_flap_big"
+			 width="0.05mm" color="#aaaaaa"/>
+			<line x1="$case_depth + $case_width - $case_gap_big" y1="0mm"
+			 x2="$case_depth + $case_width" y2="$case_flap_big"
+			 width="0.05mm" color="#aaaaaa"/>
+			<!-- I -->
+			<line x1="$case_depth + $case_gap_big" y1="($case_flap_big * 2) + ($case_depth * 2) + $case_height"
+			 x2="$case_depth + $case_width - $case_gap_big" y2="($case_flap_big * 2) + ($case_depth * 2) + $case_height"
+			 width="0.05mm" color="#aaaaaa"/>
+			<line x1="$case_depth + $case_gap_big" y1="($case_flap_big * 2) + ($case_depth * 2) + $case_height"
+			 x2="$case_depth" y2="$case_flap_big + ($case_depth * 2) + $case_height"
+			 width="0.05mm" color="#aaaaaa"/>
+			<line x1="$case_depth + $case_width - $case_gap_big" y1="($case_flap_big * 2) + ($case_depth * 2) + $case_height"
+			 x2="$case_depth + $case_width" y2="$case_flap_big + ($case_depth * 2) + $case_height"
+			 width="0.05mm" color="#aaaaaa"/>
+			<!-- J -->
+			<line x1="$case_gap_small" y1="$case_flap_big + $case_depth - $case_flap_small"
+			 x2="$case_depth - $case_gap_small" y2="$case_flap_big + $case_depth - $case_flap_small"
+			 width="0.05mm" color="#aaaaaa"/>
+			<line x1="$case_gap_small" y1="$case_flap_big + $case_depth - $case_flap_small"
+			 x2="0mm" y2="$case_flap_big + $case_depth"
+			 width="0.05mm" color="#aaaaaa"/>
+			<line x1="$case_depth - $case_gap_small" y1="$case_flap_big + $case_depth - $case_flap_small"
+			 x2="$case_depth" y2="$case_flap_big + $case_depth"
+			 width="0.05mm" color="#aaaaaa"/>
+			<!-- K -->
+			<line x1="$case_gap_small" y1="$case_flap_big + $case_depth + $case_height + $case_flap_small"
+			 x2="$case_depth - $case_gap_small" y2="$case_flap_big + $case_depth + $case_height + $case_flap_small"
+			 width="0.05mm" color="#aaaaaa"/>
+			<line x1="$case_gap_small" y1="$case_flap_big + $case_depth + $case_height + $case_flap_small"
+			 x2="0mm" y2="$case_flap_big + $case_depth + $case_height"
+			 width="0.05mm" color="#aaaaaa"/>
+			<line x1="$case_depth - $case_gap_small" y1="$case_flap_big + $case_depth + $case_height + $case_flap_small"
+			 x2="$case_depth" y2="$case_flap_big + $case_depth + $case_height"
+			 width="0.05mm" color="#aaaaaa"/>
+			<!-- L -->
+			<line x1="$case_depth + $case_width + $case_gap_small" y1="$case_flap_big + $case_depth - $case_flap_small"
+			 x2="($case_depth * 2) + $case_width - $case_gap_small" y2="$case_flap_big + $case_depth - $case_flap_small"
+			 width="0.05mm" color="#aaaaaa"/>
+			<line x1="$case_depth + $case_width + $case_gap_small" y1="$case_flap_big + $case_depth - $case_flap_small"
+			 x2="$case_depth + $case_width" y2="$case_flap_big + $case_depth"
+			 width="0.05mm" color="#aaaaaa"/>
+			<line x1="($case_depth * 2) + $case_width - $case_gap_small" y1="$case_flap_big + $case_depth - $case_flap_small"
+			 x2="($case_depth * 2) + $case_width" y2="$case_flap_big + $case_depth"
+			 width="0.05mm" color="#aaaaaa"/>
+			<!-- M -->
+			<line x1="$case_depth + $case_width + $case_gap_small" y1="$case_flap_big + $case_depth + $case_height + $case_flap_small"
+			 x2="($case_depth * 2) + $case_width - $case_gap_small" y2="$case_flap_big + $case_depth + $case_height + $case_flap_small"
+			 width="0.05mm" color="#aaaaaa"/>
+			<line x1="$case_depth + $case_width + $case_gap_small" y1="$case_flap_big + $case_depth + $case_height + $case_flap_small"
+			 x2="$case_depth + $case_width" y2="$case_flap_big + $case_depth + $case_height"
+			 width="0.05mm" color="#aaaaaa"/>
+			<line x1="($case_depth * 2) + $case_width - $case_gap_small" y1="$case_flap_big + $case_depth + $case_height + $case_flap_small"
+			 x2="($case_depth * 2) + $case_width" y2="$case_flap_big + $case_depth + $case_height"
+			 width="0.05mm" color="#aaaaaa"/>
+		</template>
+	</templates>
+</pandocreon:carta-genius>

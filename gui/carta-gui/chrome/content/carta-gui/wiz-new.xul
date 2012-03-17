@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<window id="main-window" title="Nouveau document" orient="vertical"
+ xmlns:html="http://www.w3.org/1999/xhtml"
+ xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+ onload="wizInit()">
+
+  <script src="chrome://carta-gui/content/wiz-new.js"/>
+  <script src="chrome://carta-gui/content/tools.js"/>
+
+  <grid>
+    <rows>
+      <row/>
+      <row/>
+    </rows>
+    <columns>
+      <column>
+
+        <vbox>
+          <groupbox flex="1">
+            <caption label="Informations générales"/>
+            <grid flex="0">
+              <columns>
+                <column flex="0"/>
+                <column flex="1"/>
+              </columns>
+              <rows>
+                <row>
+                  <label value="Auteur :"/>
+                  <textbox id="edit-author"/>
+                </row>
+                <row>
+                  <label value="Titre :"/>
+                  <textbox id="edit-title"/>
+                </row>
+                <row>
+                  <label value="Sujet :"/>
+                  <textbox id="edit-subject"/>
+                </row>
+                <row>
+                  <label value="Mots-clés :"/>
+                  <textbox id="edit-keywords"/>
+                </row>
+                <row>
+                  <label value="Copyright :"/>
+                  <textbox id="edit-copyright"/>
+                </row>
+                <row>
+                  <label value="Version :"/>
+                  <textbox id="edit-version"/>
+                </row>
+                <row>
+                  <label value="Langue :"/>
+                  <textbox id="edit-lang"/>
+                </row>
+              </rows>
+            </grid>
+            <label value="Notes :" control="edit-note"/>
+            <textbox id="edit-note" multiline="true" flex="1"/>
+          </groupbox>
+          <groupbox flex="0">
+            <caption label="Recto/verso"/>
+            <grid>
+              <columns>
+                <column/>
+                <column/>
+              </columns>
+              <rows>
+                <row>
+                  <label value="Côté de retournement :"/>
+                  <menulist>
+	  	    <menupopup>
+	  	      <menuitem label="Aucun" oncommand="back_side = &quot;NONE&quot;"/>
+	  	      <menuitem label="Largeur" oncommand="back_side = &quot;WIDTH&quot;"/>
+	  	      <menuitem label="Hauteur" oncommand="back_side = &quot;HEIGHT&quot;"/>
+	  	    </menupopup>
+                  </menulist>
+                </row>
+                <row>
+                  <label value="Ordre des pages :"/>
+                  <menulist>
+                    <menupopup>
+                      <menuitem label="Normal" oncommand="back_reverse = &quot;NO&quot;"/>
+                      <menuitem label="Inversé" oncommand="back_reverse = &quot;YES&quot;"/>
+                    </menupopup>
+                  </menulist>
+                </row>
+              </rows>
+            </grid>
+          </groupbox>
+          <groupbox flex="0">
+            <caption label="Fond-perdu"/>
+            <grid>
+              <columns>
+                <column/>
+                <column/>
+              </columns>
+              <rows>
+                <row>
+                  <checkbox id="check-odd" label="Couleur recto :" oncommand="checkOdd()"/>
+                  <textbox id="edit-odd" disabled="true"/>
+                </row>
+                <row>
+                  <checkbox id="check-even" label="Couleur verso :" oncommand="checkEven()"/>
+                  <textbox id="edit-even" disabled="true"/>
+                </row>
+              </rows>
+            </grid>
+          </groupbox>
+          <hbox flex="0">
+	    <spacer flex="1"/>
+	    <button id="btn-ok" label="OK" oncommand="wizValid()" flex="1"/>
+	    <button id="btn-cancel" label="Annuler" oncommand="window.close()" flex="0"/>
+	  </hbox>
+        </vbox>
+
+      </column>
+      <column>
+        <vbox>
+          <groupbox>
+            <caption label="Format papier"/>
+            <grid>
+              <rows>
+                <row flex="0"/>
+                <row flex="0"/>
+                <row flex="0"/>
+              </rows>
+              <columns>
+                <radiogroup>
+                  <column>
+                    <radio label="Format standard" selected="true" oncommand="checkFormat(&quot;standard&quot;)"/>
+                    <label value=" "/>
+                    <radio label="Format spécial" oncommand="checkFormat(&quot;special&quot;)"/>
+                  </column>
+                </radiogroup>
+                <column>
+                  <spacer/>
+                  <label value="Orientation :"/>
+                  <label value="Largeur :"/>
+                  <label value="Hauteur :"/>
+                </column>
+                <column>
+                  <menulist id="menulist-papertype" flex="0">
+                    <menupopup>
+                      <menuitem label="4A0" oncommand="paper_type = &quot;4A0&quot;"/>
+                      <menuitem label="2A0" oncommand="paper_type = &quot;2A0&quot;"/>
+                      <menuitem label="A0" oncommand="paper_type = &quot;A0&quot;"/>
+                      <menuitem label="A1" oncommand="paper_type = &quot;A1&quot;"/>
+                      <menuitem label="A2" oncommand="paper_type = &quot;A2&quot;"/>
+                      <menuitem label="A3" oncommand="paper_type = &quot;A3&quot;"/>
+                      <menuitem label="A4" oncommand="paper_type = &quot;A4&quot;" selected="true"/>
+                      <menuitem label="A5" oncommand="paper_type = &quot;A5&quot;"/>
+                      <menuitem label="A6" oncommand="paper_type = &quot;A6&quot;"/>
+                      <menuitem label="A7" oncommand="paper_type = &quot;A7&quot;"/>
+                      <menuitem label="A8" oncommand="paper_type = &quot;A8&quot;"/>
+                      <menuitem label="A9" oncommand="paper_type = &quot;A9&quot;"/>
+                      <menuitem label="A10" oncommand="paper_type = &quot;A10&quot;"/>
+                      <menuitem label="RA0" oncommand="paper_type = &quot;RA0&quot;"/>
+                      <menuitem label="RA1" oncommand="paper_type = &quot;RA1&quot;"/>
+                      <menuitem label="RA2" oncommand="paper_type = &quot;RA2&quot;"/>
+                      <menuitem label="RA3" oncommand="paper_type = &quot;RA3&quot;"/>
+                      <menuitem label="RA4" oncommand="paper_type = &quot;RA4&quot;"/>
+                      <menuitem label="SRA0" oncommand="paper_type = &quot;SRA0&quot;"/>
+                      <menumtem label="SRA1" oncommand="paper_type = &quot;SRA1&quot;"/>
+                      <menuitem label="SRA2" oncommand="paper_type = &quot;SRA2&quot;"/>
+                      <menuitem label="SRA3" oncommand="paper_type = &quot;SRA3&quot;"/>
+                      <menuitem label="SRA4" oncommand="paper_type = &quot;SRA4&quot;"/>
+                      <menuitem label="B0" oncommand="paper_type = &quot;B0&quot;"/>
+                      <menuitem label="B1" oncommand="paper_type = &quot;B1&quot;"/>
+                      <menuitem label="B2" oncommand="paper_type = &quot;B2&quot;"/>
+                      <menuitem label="B3" oncommand="paper_type = &quot;B3&quot;"/>
+                      <menuitem label="B4" oncommand="paper_type = &quot;B4&quot;"/>
+                      <menuitem label="B5" oncommand="paper_type = &quot;B5&quot;"/>
+                      <menuitem label="B6" oncommand="paper_type = &quot;B6&quot;"/>
+                      <menuitem label="B7" oncommand="paper_type = &quot;B7&quot;"/>
+                      <menuitem label="B8" oncommand="paper_type = &quot;B8&quot;"/>
+                      <menuitem label="B9" oncommand="paper_type = &quot;B9&quot;"/>
+                      <menuitem label="B10" oncommand="paper_type = &quot;B10&quot;"/>
+                      <menuitem label="C0" oncommand="paper_type = &quot;C0&quot;"/>
+                      <menuitem label="C1" oncommand="paper_type = &quot;C1&quot;"/>
+                      <menuitem label="C2" oncommand="paper_type = &quot;C2&quot;"/>
+                      <menuitem label="C3" oncommand="paper_type = &quot;C3&quot;"/>
+                      <menuitem label="C4" oncommand="paper_type = &quot;C4&quot;"/>
+                      <menuitem label="C5" oncommand="paper_type = &quot;C5&quot;"/>
+                      <menuitem label="C6" oncommand="paper_type = &quot;C6&quot;"/>
+                      <menuitem label="C7" oncommand="paper_type = &quot;C7&quot;"/>
+                      <menuitem label="C8" oncommand="paper_type = &quot;C8&quot;"/>
+                      <menuitem label="C9" oncommand="paper_type = &quot;C9&quot;"/>
+                      <menuitem label="C10" oncommand="paper_type = &quot;C10&quot;"/>
+                      <menuitem label="D0" oncommand="paper_type = &quot;D0&quot;"/>
+                      <menuitem label="D1" oncommand="paper_type = &quot;D1&quot;"/>
+                      <menuitem label="D2" oncommand="paper_type = &quot;D2&quot;"/>
+                      <menuitem label="D3" oncommand="paper_type = &quot;D3&quot;"/>
+                      <menuitem label="D4" oncommand="paper_type = &quot;D4&quot;"/>
+                      <menuitem label="D5" oncommand="paper_type = &quot;D5&quot;"/>
+                      <menuitem label="D6" oncommand="paper_type = &quot;D6&quot;"/>
+                      <menuitem label="D7" oncommand="paper_type = &quot;D7&quot;"/>
+                      <menuitem label="D8" oncommand="paper_type = &quot;D8&quot;"/>
+                      <menuitem label="D9" oncommand="paper_type = &quot;D9&quot;"/>
+                      <menuitem label="D10" oncommand="paper_type = &quot;D10&quot;"/>
+                      <menuitem label="LETTER" oncommand="paper_type = &quot;LETTER&quot;"/>
+                      <menuitem label="LEGAL" oncommand="paper_type = &quot;LEGAL&quot;"/>
+                      <menuitem label="LEDGER" oncommand="paper_type = &quot;LEDGER&quot;"/>
+                      <menuitem label="SEMI_LETTER" oncommand="paper_type = &quot;SEMI_LETTER&quot;"/>
+                      <menuitem label="EXECUTIVE" oncommand="paper_type = &quot;EXECUTIVE&quot;"/>
+                      <menuitem label="TABLOID" oncommand="paper_type = &quot;TABLOID&quot;"/>
+                      <menuitem label="DL" oncommand="paper_type = &quot;DL&quot;"/>
+                      <menuitem label="COM10" oncommand="paper_type = &quot;COM10&quot;"/>
+                      <menuitem label="MONARCH" oncommand="paper_type = &quot;MONARCH&quot;"/>
+                      <menuitem label="E0" oncommand="paper_type = &quot;E0&quot;"/>
+                      <menuitem label="E1" oncommand="paper_type = &quot;E1&quot;"/>
+                      <menuitem label="E2" oncommand="paper_type = &quot;E2&quot;"/>
+                      <menuitem label="E3" oncommand="paper_type = &quot;E3&quot;"/>
+                      <menuitem label="E4" oncommand="paper_type = &quot;E4&quot;"/>
+                      <menuitem label="E5" oncommand="paper_type = &quot;E5&quot;"/>
+                      <menuitem label="E6" oncommand="paper_type = &quot;E6&quot;"/>
+                      <menuitem label="E7" oncommand="paper_type = &quot;E7&quot;"/>
+                      <menuitem label="E8" oncommand="paper_type = &quot;E8&quot;"/>
+                      <menuitem label="E9" oncommand="paper_type = &quot;E8&quot;"/>
+                      <menuitem label="E10" oncommand="paper_type = &quot;E10&quot;"/>
+                      <menuitem label="ID1" oncommand="paper_type = &quot;ID1&quot;"/>
+                      <menuitem label="ID2" oncommand="paper_type = &quot;ID2&quot;"/>
+                      <menuitem label="ID3" oncommand="paper_type = &quot;ID3&quot;"/>
+                      <menuitem label="BUSINESS_CARD" oncommand="paper_type = &quot;BUSINESS_CARD&quot;"/>
+                    </menupopup>
+                  </menulist>
+                  <menulist id="menulist-landscape">
+                    <menupopup>
+                      <menuitem label="Portrait" selected="true" oncommand="paper_landscape = &quot;NO&quot;"/>
+                      <menuitem label="Paysage" oncommand="paper_landscape = &quot;YES&quot;"/>
+                    </menupopup>
+                  </menulist>
+                  <textbox id="edit-width" disabled="true"/>
+                  <textbox id="edit-height" disabled="true"/>
+                </column>
+                <column>
+                  <label value=" "/>
+                  <label value=" "/>
+                  <hbox>
+                    <menulist id="menulist-width" disabled="true">
+                      <menupopup>
+                        <menuitem label="mm" oncommand="unit_width = &quot;mm&quot;"/>
+                        <menuitem label="cm" oncommand="unit_width = &quot;cm&quot;"/>
+                        <menuitem label="pouces" oncommand="unit_width = &quot;in&quot;"/>
+                        <menuitem label="points" oncommand="unit_width = &quot;pt&quot;"/>
+                      </menupopup>
+                    </menulist>
+                  </hbox>
+                  <hbox>
+                    <menulist id="menulist-height" disabled="true">
+                      <menupopup>
+                        <menuitem label="mm" oncommand="unit_height = &quot;mm&quot;"/>
+                        <menuitem label="cm" oncommand="unit_height = &quot;cm&quot;"/>
+                        <menuitem label="pouces" oncommand="unit_height = &quot;in&quot;"/>
+                        <menuitem label="points" oncommand="unit_height = &quot;pt&quot;"/>
+                      </menupopup>
+                    </menulist>
+                  </hbox>
+                </column>
+              </columns>
+            </grid>
+          </groupbox>
+
+          <groupbox>
+            <caption label="Marges papier"/>
+            <radiogroup>
+            <grid>
+              <columns>
+                <column flex="0"/>
+                <column flex="0"/>
+                <column flex="0"/>
+                <column flex="0"/>
+              </columns>
+              <rows>
+                <row>
+                  <radio label="Pas de marge" selected="true" oncommand="checkMargin(&quot;no&quot;)"/>
+                </row>
+                <row>
+                  <radio label="Marge uniforme" oncommand="checkMargin(&quot;same&quot;)"/>
+                  <spacer/>
+                  <textbox id="edit-margin" disabled="true"/>
+                  <menulist id="menulist-margin" disabled="true">
+                    <menupopup>
+                      <menuitem label="mm" oncommand="unit_margin = &quot;mm&quot;"/>
+                      <menuitem label="cm" oncommand="unit_margin = &quot;cm&quot;"/>
+                      <menuitem label="pouces" oncommand="unit_margin = &quot;in&quot;"/>
+                      <menuitem label="points" oncommand="unit_margin = &quot;pt&quot;"/>
+                    </menupopup>
+                  </menulist>
+                </row>
+                <row>
+                  <radio label="Marges spécifiques" oncommand="checkMargin(&quot;special&quot;)"/>
+                  <label value="Largeur :"/>
+                  <textbox id="edit-marginwidth" disabled="true"/>
+                  <menulist id="menulist-marginwidth" disabled="true">
+                    <menupopup>
+                      <menuitem label="mm" oncommand="unit_marginwidth = &quot;mm&quot;"/>
+                      <menuitem label="cm" oncommand="unit_marginwidth = &quot;cm&quot;"/>
+                      <menuitem label="pouces" oncommand="unit_marginwidth = &quot;in&quot;"/>
+                      <menuitem label="points" oncommand="unit_marginwidth = &quot;pt&quot;"/>
+                    </menupopup>
+                  </menulist>
+                </row>
+                <row>
+                  <spacer/>
+                  <label value="Hauteur :"/>
+                  <textbox id="edit-marginheight" disabled="true"/>
+                  <menulist id="menulist-marginheight" disabled="true">
+                    <menupopup>
+                      <menuitem label="mm" oncommand="unit_marginheight = &quot;mm&quot;"/>
+                      <menuitem label="cm" oncommand="unit_marginheight = &quot;cm&quot;"/>
+                      <menuitem label="pouces" oncommand="unit_marginheight = &quot;in&quot;"/>
+                      <menuitem label="points" oncommand="unit_marginheight = &quot;pt&quot;"/>
+                    </menupopup>
+                  </menulist>
+                </row>
+              </rows>
+            </grid>
+            </radiogroup>
+          </groupbox>
+
+          <groupbox>
+            <caption label="Format cartes"/>
+           <grid>
+             <rows>
+               <row flex="0"/>
+               <row flex="0"/>
+               <row flex="0"/>
+             </rows>
+             <columns>
+               <radiogroup>
+                 <column>
+                   <radio label="Format standard" selected="true" oncommand="checkCard(&quot;standard&quot;)"/>
+                   <label value=" "/>
+                   <radio label="Format spécial" oncommand="checkCard(&quot;special&quot;)"/>
+                 </column>
+               </radiogroup>
+               <column>
+                 <spacer/>
+                 <label value="Orientation :"/>
+                 <label value="Largeur :"/>
+                 <label value="Hauteur :"/>
+               </column>
+               <column>
+                 <menulist id="menulist-cardtype" flex="0">
+                   <menupopup>
+                     <menuitem label="4A0" oncommand="card_type = &quot;4A0&quot;"/>
+                     <menuitem label="2A0" oncommand="card_type = &quot;2A0&quot;"/>
+                     <menuitem label="A0" oncommand="card_type = &quot;A0&quot;"/>
+                     <menuitem label="A1" oncommand="card_type = &quot;A1&quot;"/>
+                     <menuitem label="A2" oncommand="card_type = &quot;A2&quot;"/>
+                     <menuitem label="A3" oncommand="card_type = &quot;A3&quot;"/>
+                     <menuitem label="A4" oncommand="card_type = &quot;A4&quot;"/>
+                     <menuitem label="A5" oncommand="card_type = &quot;A5&quot;"/>
+                     <menuitem label="A6" oncommand="card_type = &quot;A6&quot;"/>
+                     <menuitem label="A7" oncommand="card_type = &quot;A7&quot;" selected="true"/>
+                     <menuitem label="A8" oncommand="card_type = &quot;A8&quot;"/>
+                     <menuitem label="A9" oncommand="card_type = &quot;A9&quot;"/>
+                     <menuitem label="A10" oncommand="card_type = &quot;A10&quot;"/>
+                     <menuitem label="RA0" oncommand="card_type = &quot;RA0&quot;"/>
+                     <menuitem label="RA1" oncommand="card_type = &quot;RA1&quot;"/>
+                     <menuitem label="RA2" oncommand="card_type = &quot;RA2&quot;"/>
+                     <menuitem label="RA3" oncommand="card_type = &quot;RA3&quot;"/>
+                     <menuitem label="RA4" oncommand="card_type = &quot;RA4&quot;"/>
+                     <menuitem label="SRA0" oncommand="card_type = &quot;SRA0&quot;"/>
+                     <menumtem label="SRA1" oncommand="card_type = &quot;SRA1&quot;"/>
+                     <menuitem label="SRA2" oncommand="card_type = &quot;SRA2&quot;"/>
+                     <menuitem label="SRA3" oncommand="card_type = &quot;SRA3&quot;"/>
+                     <menuitem label="SRA4" oncommand="card_type = &quot;SRA4&quot;"/>
+                     <menuitem label="B0" oncommand="card_type = &quot;B0&quot;"/>
+                     <menuitem label="B1" oncommand="card_type = &quot;B1&quot;"/>
+                     <menuitem label="B2" oncommand="card_type = &quot;B2&quot;"/>
+                     <menuitem label="B3" oncommand="card_type = &quot;B3&quot;"/>
+                     <menuitem label="B4" oncommand="card_type = &quot;B4&quot;"/>
+                     <menuitem label="B5" oncommand="card_type = &quot;B5&quot;"/>
+                     <menuitem label="B6" oncommand="card_type = &quot;B6&quot;"/>
+                     <menuitem label="B7" oncommand="card_type = &quot;B7&quot;"/>
+                     <menuitem label="B8" oncommand="card_type = &quot;B8&quot;"/>
+                     <menuitem label="B9" oncommand="card_type = &quot;B9&quot;"/>
+                     <menuitem label="B10" oncommand="card_type = &quot;B10&quot;"/>
+                     <menuitem label="C0" oncommand="card_type = &quot;C0&quot;"/>
+                     <menuitem label="C1" oncommand="card_type = &quot;C1&quot;"/>
+                     <menuitem label="C2" oncommand="card_type = &quot;C2&quot;"/>
+                     <menuitem label="C3" oncommand="card_type = &quot;C3&quot;"/>
+                     <menuitem label="C4" oncommand="card_type = &quot;C4&quot;"/>
+                     <menuitem label="C5" oncommand="card_type = &quot;C5&quot;"/>
+                     <menuitem label="C6" oncommand="card_type = &quot;C6&quot;"/>
+                     <menuitem label="C7" oncommand="card_type = &quot;C7&quot;"/>
+                     <menuitem label="C8" oncommand="card_type = &quot;C8&quot;"/>
+                     <menuitem label="C9" oncommand="card_type = &quot;C9&quot;"/>
+                     <menuitem label="C10" oncommand="card_type = &quot;C10&quot;"/>
+                     <menuitem label="D0" oncommand="card_type = &quot;D0&quot;"/>
+                     <menuitem label="D1" oncommand="card_type = &quot;D1&quot;"/>
+                     <menuitem label="D2" oncommand="card_type = &quot;D2&quot;"/>
+                     <menuitem label="D3" oncommand="card_type = &quot;D3&quot;"/>
+                     <menuitem label="D4" oncommand="card_type = &quot;D4&quot;"/>
+                     <menuitem label="D5" oncommand="card_type = &quot;D5&quot;"/>
+                     <menuitem label="D6" oncommand="card_type = &quot;D6&quot;"/>
+                     <menuitem label="D7" oncommand="card_type = &quot;D7&quot;"/>
+                     <menuitem label="D8" oncommand="card_type = &quot;D8&quot;"/>
+                     <menuitem label="D9" oncommand="card_type = &quot;D9&quot;"/>
+                     <menuitem label="D10" oncommand="card_type = &quot;D10&quot;"/>
+                     <menuitem label="LETTER" oncommand="card_type = &quot;LETTER&quot;"/>
+                     <menuitem label="LEGAL" oncommand="card_type = &quot;LEGAL&quot;"/>
+                     <menuitem label="LEDGER" oncommand="card_type = &quot;LEDGER&quot;"/>
+                     <menuitem label="SEMI_LETTER" oncommand="card_type = &quot;SEMI_LETTER&quot;"/>
+                     <menuitem label="EXECUTIVE" oncommand="card_type = &quot;EXECUTIVE&quot;"/>
+                     <menuitem label="TABLOID" oncommand="card_type = &quot;TABLOID&quot;"/>
+                     <menuitem label="DL" oncommand="card_type = &quot;DL&quot;"/>
+                     <menuitem label="COM10" oncommand="card_type = &quot;COM10&quot;"/>
+                     <menuitem label="MONARCH" oncommand="card_type = &quot;MONARCH&quot;"/>
+                     <menuitem label="E0" oncommand="card_type = &quot;E0&quot;"/>
+                     <menuitem label="E1" oncommand="card_type = &quot;E1&quot;"/>
+                     <menuitem label="E2" oncommand="card_type = &quot;E2&quot;"/>
+                     <menuitem label="E3" oncommand="card_type = &quot;E3&quot;"/>
+                     <menuitem label="E4" oncommand="card_type = &quot;E4&quot;"/>
+                     <menuitem label="E5" oncommand="card_type = &quot;E5&quot;"/>
+                     <menuitem label="E6" oncommand="card_type = &quot;E6&quot;"/>
+                     <menuitem label="E7" oncommand="card_type = &quot;E7&quot;"/>
+                     <menuitem label="E8" oncommand="card_type = &quot;E8&quot;"/>
+                     <menuitem label="E9" oncommand="card_type = &quot;E8&quot;"/>
+                     <menuitem label="E10" oncommand="card_type = &quot;E10&quot;"/>
+                     <menuitem label="ID1" oncommand="card_type = &quot;ID1&quot;"/>
+                     <menuitem label="ID2" oncommand="card_type = &quot;ID2&quot;"/>
+                     <menuitem label="ID3" oncommand="card_type = &quot;ID3&quot;"/>
+                     <menuitem label="BUSINESS_CARD" oncommand="card_type = &quot;BUSINESS_CARD&quot;"/>
+                   </menupopup>
+                 </menulist>
+                 <menulist id="menulist-cardlandscape">
+                   <menupopup>
+                     <menuitem label="Portrait" selected="true" oncommand="card_landscape = &quot;NO&quot;"/>
+                     <menuitem label="Paysage" oncommand="card_landscape = &quot;YES&quot;"/>
+                   </menupopup>
+                 </menulist>
+                 <textbox id="edit-cardwidth" disabled="true"/>
+                 <textbox id="edit-cardheight" disabled="true"/>
+               </column>
+               <column>
+                 <label value=" "/>
+                 <label value=" "/>
+                 <hbox>
+                   <menulist id="menulist-cardwidth" disabled="true">
+                     <menupopup>
+                       <menuitem label="mm" oncommand="unit_cardwidth = &quot;mm&quot;"/>
+                       <menuitem label="cm" oncommand="unit_cardwidth = &quot;cm&quot;"/>
+                       <menuitem label="pouces" oncommand="unit_cardwidth = &quot;in&quot;"/>
+                       <menuitem label="points" oncommand="unit_cardwidth = &quot;pt&quot;"/>
+                     </menupopup>
+                   </menulist>
+                 </hbox>
+                 <hbox>
+                   <menulist id="menulist-cardheight" disabled="true">
+                     <menupopup>
+                       <menuitem label="mm" oncommand="unit_cardheight = &quot;mm&quot;"/>
+                       <menuitem label="cm" oncommand="unit_cardheight = &quot;cm&quot;"/>
+                       <menuitem label="pouces" oncommand="unit_cardheight = &quot;in&quot;"/>
+                       <menuitem label="points" oncommand="unit_cardheight = &quot;pt&quot;"/>
+                     </menupopup>
+                   </menulist>
+                 </hbox>
+               </column>
+             </columns>
+            </grid>
+          </groupbox>
+
+          <groupbox>
+            <caption label="Espacement cartes"/>
+            <radiogroup>
+            <grid>
+              <columns>
+                <column flex="0"/>
+                <column flex="0"/>
+                <column flex="0"/>
+                <column flex="0"/>
+              </columns>
+              <rows>
+                <row>
+                  <radio label="Pas d'espace" selected="true" oncommand="checkSpace(space_type = &quot;no&quot;)"/>
+                </row>
+                <row>
+                  <radio label="Espace uniforme" oncommand="checkSpace(&quot;same&quot;)"/>
+                  <spacer/>
+                  <textbox id="edit-space" disabled="true"/>
+                  <menulist id="menulist-space" disabled="true">
+                    <menupopup>
+                      <menuitem label="mm" oncommand="unit_space = &quot;mm&quot;"/>
+                      <menuitem label="cm" oncommand="unit_space = &quot;cm&quot;"/>
+                      <menuitem label="pouces" oncommand="unit_space = &quot;in&quot;"/>
+                      <menuitem label="points" oncommand="unit_space = &quot;pt&quot;"/>
+                    </menupopup>
+                  </menulist>
+                </row>
+                <row>
+                  <radio label="Espaces spécifiques" oncommand="checkSpace(&quot;special&quot;)"/>
+                  <label value="Largeur :"/>
+                  <textbox id="edit-spacewidth" disabled="true"/>
+                  <menulist id="menulist-spacewidth" disabled="true">
+                    <menupopup>
+                      <menuitem label="mm" oncommand="unit_spacewidth = &quot;mm&quot;"/>
+                      <menuitem label="cm" oncommand="unit_spacewidth = &quot;cm&quot;"/>
+                      <menuitem label="pouces" oncommand="unit_spacewidth = &quot;in&quot;"/>
+                      <menuitem label="points" oncommand="unit_spacewidth = &quot;pt&quot;"/>
+                    </menupopup>
+                  </menulist>
+                </row>
+                <row>
+                  <spacer/>
+                  <label value="Hauteur :"/>
+                  <textbox id="edit-spaceheight" disabled="true"/>
+                  <menulist id="menulist-spaceheight" disabled="true">
+                    <menupopup>
+                      <menuitem label="mm" oncommand="unit_spaceheight = &quot;mm&quot;"/>
+                      <menuitem label="cm" oncommand="unit_spaceheight = &quot;cm&quot;"/>
+                      <menuitem label="pouces" oncommand="unit_spaceheight = &quot;in&quot;"/>
+                      <menuitem label="points" oncommand="unit_spaceheight = &quot;pt&quot;"/>
+                    </menupopup>
+                  </menulist>
+                </row>
+              </rows>
+            </grid>
+            </radiogroup>
+          </groupbox>
+
+        </vbox>
+        
+      </column>
+    </columns>
+  </grid>
+
+</window>

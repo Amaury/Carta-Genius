@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!--
+	une carte simple avec un cercle turquoise
+-->
+<pandocreon:carta-genius>
+	<deck>
+		<paper type="a4" margin="2cm"/>
+		<cardsize type="a6"/>
+		<card>
+			<circle x="5cm" y="7cm" radius="3cm" fill-color="#00ffff"/>
+		</card>
+	</deck>
+</pandocreon:carta-genius>

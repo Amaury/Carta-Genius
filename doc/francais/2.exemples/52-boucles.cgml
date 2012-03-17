@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<pandocreon:carta-genius>
+	<deck>
+		<paper type="a4" landscape="yes" margin="2cm"/>
+		<cardsize type="a7"/>
+		<card>
+			<circle x="3cm" y="5cm" radius="20mm" fill-color="#0000ff"/>
+			<var name="offset">5.0</var>
+			<while test="$offset < 25.0">
+				<if test="($offset % 2) > 0">
+					<var name="dedans">#aaaaaa</var>
+					<var name="dehors">#cccccc</var>
+				</if>
+				<if test="($offset - 1) % 2) = 0">
+					<var name="dedans">#cccccc</var>
+					<var name="dehors">#aaaaaa</var>
+				</if>
+				<var name="temp">string(($offset / 2) + 10) + "cm"</var>
+				<var name="y">2cm * cos($offset * 20)</var>
+				<circle x="var($temp)" y="8cm + $y" radius="2.2cm" fill-color="$dedans" line-color="$dehors"/>
+				<var name="offset">$offset + 1</var>
+			</while>
+		</card>
+	</deck>
+</pandocreon:carta-genius>

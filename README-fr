@@ -1,0 +1,98 @@
+======================================================================
+||                    Pandocreon Carta-Genius                       ||
+||                                                                  ||
+||              Auteur: Amaury Bouchard (amaury@amaury.net)         ||
+||                Derniere Modification: 13 avril 2004              ||
+======================================================================
+
+Carta-Genius est un logiciel qui vous aide a generer des fichiers PDF
+contenant des cartes de jeu.
+Carta-Genius fait partie du projet Pandocreon, dont le but est de
+fournir des jeux (de carte, de plateau, ...) sous licence libre. Pour
+plus de renseignements, allez sur le site web http://www.pandocreon.com
+
+Il est place sous les termes de la Licence Publique Generale GNU.
+(http://www.gnu.org/licenses/gpl.html).
+
+Tous les fichiers sont fournis tels quels.
+Copyright (c) 2003-2004, Amaury Bouchard <amaury@amaury.net>
+
+Carta-Genius utilise la bibliotheque PDFLib Lite (http://www.pdflib.com).
+
+======================================================================
+
+Voir le fichier INSTALL-fr pour les instructions (de compilation et)
+d'installation.
+Vous trouverez dans le repertoire 'doc' une documentation utilisateur
+complete et plusieurs exemples directement utilisables.
+
+======================================================================
+
+Apres la compilation, vous obtenez un fichier binaire executable nomme
+'carta-genius' dans le repertoire 'bin'.
+
+Pour l'utiliser, tapez :
+cd bin
+./carta-genius -i file.xml -o result.pdf
+
+file.xml doit etre un fichier XML que Carta-Genius peut comprendre.
+result.pdf sera le fichier PDF résultant.
+
+======================================================================
+
+Vous pouvez aussi utiliser l'interface graphique CartaGUI, qui est une
+surcouche graphique par-dessus Carta-Genius. Les informations relatives
+a cette interface se trouvent dans le repertoire 'gui'.
+
+======================================================================
+
+Toutes les informations de configuration du fichier XML (taille du
+papier et de la margin, cote de retournement, ...) peuvent etre
+remplacees par des options sur la ligne de commande.
+
+Pour indiquer le type de papier (et donc la taille du papier) :
+-p TYPE-PAPIER		exemple: A4
+
+Pour indiquer la taille du papier, si format inhabituel
+(ces deux parametres peuvent etre utilises separement) :
+-w LARGEUR-PAPIER	exemple: 450mm
+-h HAUTEUR-PAPIER	exemple: 32cm
+
+Pour utiliser le papier en mode paysage (inversion de la hauteur et
+de la largeur du papier) :
+-l MODE-PAYSAGE		valeurs: yes, YES, no, NO
+
+Pour indiquer la taille de la marge (identique pour
+la largeur et la hauteur) :
+-m TAILLE-MARGE		exemple: 10mm
+
+Pour indiquer des tailles precises de marge
+(ces deux parametres peuvent etre utilises separement) :
+-x MARGE-LARGEUR	exemple: 1.2cm
+-y MARGE-HAUTEUR	exemple: 8mm
+
+Pour indiquer le cote de retournement des pages :
+-b COTE-RETOURNEMENT	valeurs: width, WIDTH, height, HEIGHT
+
+Pour indiquer la version PDF :
+-v VERSION-PDF		valeurs: 1.3, 1.4, 1.5
+
+Pour inverser l'ordre des pages (derniere page en premier,
+premiere page en dernier) :
+-r INVERSION		valeurs: yes, YES, no, NO
+
+Pour donner le nom de l'auteur du fichier :
+-e NOM-AUTEUR
+
+Pour donner le titre du fichier :
+-t TITRE
+
+Pour affecter des mots de passe PDF (le mot de passe utilisateur
+est necessaire pour ouvrir le fichier, le mot de passe
+administrateur sert pour modifier les permissions et changer les
+mots de passe) :
+-a MDP-ADMINISTRATEUR
+-u MDP-UTILISATEUR
+
+Pour ajouter des chemins d'inclusion de fichiers :
+-d CHEMINS_INCLUSION

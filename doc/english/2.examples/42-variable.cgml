@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+	three cards using the same template, with
+	different effects because of variables using
+-->
+<pandocreon:carta-genius>
+	<templates>
+		<template id="carre">
+			<box x="1.5cm * ($CARD_INDEX - 1)" y="0cm" width="4cm" height="4cm"
+			 fill-color="#000080"/>
+		</template>
+	</templates>
+	<deck>
+		<paper type="a4" margin="2cm"/>
+		<cardsize width="8cm" height="8cm"/>
+		<card template="carre">
+			<box x="0cm" y="0cm" width="8cm" height="8cm"
+			 line-color="#000000"/>
+		</card>
+		<card template="carre">
+			<box x="0cm" y="0cm" width="8cm" height="8cm"
+			 line-color="#000000"/>
+		</card>
+		<card template="carre">
+			<box x="0cm" y="0cm" width="8cm" height="8cm"
+			 line-color="#000000"/>
+		</card>
+	</deck>
+</pandocreon:carta-genius>

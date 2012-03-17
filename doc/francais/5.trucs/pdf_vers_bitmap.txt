@@ -1,0 +1,41 @@
+Dans le répertoire 'bin' de Carta Genius, il y a un script shell
+appelé "pdf_to_bitmap". Il sert à convertir un fichier PDF en 
+plusieurs images bitmap (une image par page).
+
+Exemples d'utilisation :
+- Vous avez besoin d'une image JPEG de vos cartes de jeu ? Créez un
+  document Carta Genius dont la marge est explicitement mise à 0
+  (zéro), avec la taille du papier égale à celle des cartes. Créez
+  le fichier PDF. Vous devriez avoir un fichier PDF avec une page
+  par carte. Maintenant, convertissez le PDF pour avoir autant de
+  fichiers JPEG que de cartes dans le PDF.
+- Vous voulez insérer un carte générée avec Carta Genius dans un
+  autre document Carta Genius ? Exportez la carte en JPEG (comme
+  expliqué ci-dessus), et utilisez-la dans votre nouveau document.
+
+Pour utiliser pdf_to_bitmap, vous devez avoir, installe sur votre
+ordinateur, le logiciel ghostscript (telechargeable sur
+http://www.ghostscript.com) version GNU ou APFL. Si votre document
+PDF contient de la transparence, vous devrez utiliser la version
+8.14 ou superieure.
+
+Comment utiliser pdf_to_bitmap
+==============================
+
+1. Vous devez décider la résolution en "points par pouces" des images
+   qui seront créées. Cela déterminera la taille de l'image en pixels.
+   Par exemple, si vos pages PDF font 2 pouces x 2 pouces, et que vous
+   spécifiez une résolution de 300 points par pouces (aussi appelé
+   "dpi", pour "dot per inch" en anglais), vous obtiendrez une
+   image de 600x600 pixels.
+2. Il y a plusieur options :
+   a. Le type d'image de sortie. Par défaut il s'agit du format JPEG,
+      mais vous pouvez choisir le BMP (bmp16m), le PBM (pbm), le PNG
+      (png16m) ou le TIFF (tiff24nc).
+   b. Vous pouvez choisir la première et la dernière page à traiter
+      dans le PDF.
+   c. Il est possible de demander un anti-aliasing sur les textes
+      et/ou les graphiques pour obtenir un meilleur résultat.
+3. Tapez "./pdf_to_bitmap -h" pour avoir les options exactes de la
+   ligne de commande.
+

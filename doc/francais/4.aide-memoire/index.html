@@ -1,0 +1,282 @@
+<html>
+<head>
+	<title>Pandocréon Carta Genius : Aide mémoire</title>
+	<style>
+		a.r { color: #800000 }
+		a.g { color: #008000 }
+		a.b { color: #000080 }
+	</style>
+</head>
+<body bgcolor="#ffffff">
+	<center>
+	  <h2>Pandocr&eacute;on Carta Genius</h2>
+	  <h3>Aide-m&eacute;moire</h3>
+	</center>
+
+Voici un petit aide-m&eacute;moire qui vous pr&eacute;sente rapidement les &eacute;l&eacute;ments accept&eacute;s
+dans les fichiers XML de Carta Genius.
+<br /><br />
+
+<font color="#800000">obligatoire</font><br />
+<font color="#008000">optionnel</font><br />
+
+<pre>
+&lt;?<font color="#800000">xml version="1.0"</font>?&gt;
+&lt;<a href="tag.html#carta-genius" class="r"><b>pandocreon:carta-genius</b></a>&gt;
+  &lt;<a href="tag.html#info" class="g"><b>info</b></a> <a href="tag.html#info" class="g">author</a> <a href="tag.html#info" class="g">title</a> <a href="tag.html#info" class="g">subject</a> <a href="tag.html#info" class="g">keywords</a> <a href="tag.html#info" class="g">copyright</a> <a href="tag.html#info" class="g">version</a> <a href="tag.html#info" class="g">lang</a> <a href="tag.html#info" class="g">note</a>/&gt;
+  &lt;<a href="tag.html#pdf" class="g"><b>pdf</b></a> <a href="tag.html#pdf" class="g">version</a> <a href="tag.html#pdf" class="g">master-password</a> <a href="tag.html#pdf" class="g">user-password</a>/&gt;
+  &lt;<a href="tag.html#unit" class="g"><b>unit</b></a> <a href="tag.html#unit" class="g">base</a>/&gt;
+  &lt;<a href="tag.html#back" class="g"><b>back</b></a> <a href="tag.html#back" class="g">side</a> <a href="tag.html#back" class="g">reverse</a>/&gt;
+  &lt;<a href="tag.html#fonts" class="g"><b>fonts</b></a> <a href="tag.html#fonts" class="g">default</a>&gt;
+    &lt;<a href="tag.html#font" class="g"><b>font</b></a> <a href="tag.html#font" class="r">id</a> <a href="tag.html#font" class="r">outline</a> <a href="#" class="r">metrics</a>/&gt;
+    &lt;<a href="tag.html#fontpath" class="g"><b>path</b></a> <a href="tag.html#fontpath" class="r">dir</a>/&gt;
+  &lt;<font color="#008000"><b>/fonts</b></font>&gt;
+  &lt;<a href="tag.html#images" class="g"><b>images</b></a>&gt;
+    &lt;<a href="tag.html#mask" class="g"><b>mask</b></a> <a href="tag.html#mask" class="r">id</a> <a href="tag.html#mask" class="r">file</a>/&gt;
+    &lt;<a href="tag.html#image" class="g"><b>image</b></a> <a href="tag.html#image" class="r">id</a> <a href="tag.html#image" class="r">file</a> <a href="tag.html#image" class="r">width</a> <a href="tag.html#image" class="r">height</a> <a href="tag.html#image" class="g">mask</a> <a href="tag.html#image" class="g">mask-id</a>/&gt;
+    &lt;<a href="tag.html#imagepath" class="g"><b>path</b></a> <a href="tag.html#imagepath" class="r">dir</a>/&gt;
+  &lt;<font color="#008000"><b>/images</b></font>&gt;
+  &lt;<a href="tag.html#templates" class="g"><b>templates</b></a>&gt;
+    &lt;<a href="tag.html#template" class="g"><b>template</b></a> <a href="tag.html#template" class="r">id</a> <a href="tag.html#template" class="g">template</a>&gt;
+      ...
+    &lt;<font color="#008000"><b>/template</b></font>&gt;
+  &lt;<font color="#008000"><b>/templates</b></font>&gt;
+  &lt;<a href="tag.html#includes" class="g"><b>includes</b></a>&gt;
+    &lt;<a href="tag.html#include" class="g"><b>include</b></a> <a href="tag.html#include" class="r">file</a>/&gt;
+    &lt;<a href="tag.html#includepath" class="g"><b>path</b></a> <a href="tag.html#includepath" class="r">dir</a>/&gt;
+  &lt;<font color="#008000"><b>/includes</b></font>&gt;
+  &lt;<a href="tag.html#variables" class="g"><b>variables</b></a>&gt;
+    &lt;<a href="tag.html#var" class="g"><b>var</b></a> <a href="tag.html#var" class="r">name</a> <a href="tag.html#var" class="g">precision</a>&gt;...&lt;<font color="#008000"><b>/var</b></font>&gt;
+  &lt;<font color="#008000"><b>/variables</b></font>&gt;
+  &lt;<a href="tag.html#deck" class="r"><b>deck</b></a>&gt;
+    &lt;<a href="tag.html#paper" class="r"><b>paper</b></a> <a href="tag.html#paper" class="g">type</a> <a href="tag.html#paper" class="g">landscape</a> <a href="tag.html#paper" class="g">width</a> <a href="tag.html#paper" class="g">height</a> <a href="tag.html#paper" class="g">margin</a> <a href="tag.html#paper" class="g">margin-width</a> <a href="tag.html#paper" class="g">margin-height</a>/&gt;
+    &lt;<a href="tag.html#ditch" class="g"><b>hidden-ditch</b></a> <a href="tag.html#ditch" class="g">odd</a> <a href="tag.html#ditch" class="g">even</a>/&gt;
+    &lt;<a href="tag.html#cardsize" class="r"><b>cardsize</b></a> <a href="tag.html#cardsize" class="g">type</a> <a href="tag.html#cardsize" class="g">landscape</a> <a href="tag.html#cardsize" class="g">width</a> <a href="tag.html#cardsize" class="g">height</a> <a href="tag.html#cardsize" class="g">space</a> <a href="tag.html#cardsize" class="g">space-width</a> <a href="tag.html#cardsize" class="g">space-height</a>/&gt;
+    &lt;<a href="tag.html#card" class="r"><b>card</b></a> <a href="tag.html#card" class="g">count</a> <a href="tag.html#card" class="g">template</a> <a href="tag.html#card" class="g">back</a>&gt;
+      &lt;<a href="tag.html#circle" class="g"><b>circle</b></a> <a href="tag.html#circle" class="r">x</a> <a href="tag.html#circle" class="r">y</a> <a href="tag.html#circle" class="r">radius</a> <a href="tag.html#circle" class="g">line-width</a> <a href="tag.html#circle" class="g">line-color</a> <a href="tag.html#circle" class="g">fill-color</a> <a href="tag.html#circle" class="g">dash1</a> <a href="tag.html#circle" class="g">dash2</a> <a href="tag.html#circle" class="g">opacity</a> <a href="tag.html#circle" class="g">blendmode</a>/&gt;
+      &lt;<a href="tag.html#box" class="g"><b>box</b></a> <a href="tag.html#box" class="r">x</a> <a href="tag.html#box" class="r">y</a> <a href="tag.html#box" class="r">width</a> <a href="tag.html#box" class="r">height</a> <a href="tag.html#box" class="g">radius</a> <a href="tag.html#box" class="g">line-width</a> <a href="tag.html#box" class="g">line-color</a> <a href="tag.html#box" class="g">fill-color</a> <a href="tag.html#box" class="g">rotation</a>
+       <a href="tag.html#box" class="g">dash1</a> <a href="tag.html#box" class="g">dash2</a> <a href="tag.html#box" class="g">opacity</a> <a href="tag.html#box" class="g">blendmode</a>/&gt;
+      &lt;<a href="tag.html#line" class="g"><b>line</b></a> <a href="tag.html#line" class="r">x1</a> <a href="tag.html#line" class="r">y1</a> <a href="tag.html#line" class="r">x2</a> <a href="tag.html#line" class="r">y2</a> <a href="tag.html#line" class="g">width</a> <a href="tag.html#line" class="r">color</a> <a href="tag.html#line" class="g">dash1</a> <a href="tag.html#line" class="g">dash2</a> <a href="tag.html#line" class="g">opacity</a> <a href="tag.html#line" class="g">blendmode</a>/&gt;
+      &lt;<a href="tag.html#bezier" class="g"><b>bezier</b></a> <a href="tag.html#bezier" class="r">x1</a> <a href="tag.html#bezier" class="r">y1</a> <a href="tag.html#bezier" class="r">x2</a> <a href="tag.html#bezier" class="r">y2</a> <a href="tag.html#bezier" class="r">cp-x1</a> <a href="tag.html#bezier" class="r">cp-y1</a> <a href="tag.html#bezier" class="r">cp-x2</a> <a href="tag.html#bezier" class="r">cp-y2</a> <a href="tag.html#bezier" class="g">width</a> <a href="tag.html#bezier" class="r">color</a> <a href="tag.html#bezier" class="g">dash1</a> <a href="tag.html#bezier" class="g">dash2</a> <a href="tag.html#bezier" class="g">opacity</a> <a href="tag.html#bezier" class="g">blendmode</a>/&gt;
+      &lt;<a href="tag.html#img" class="g"><b>image</b></a> <a href="tag.html#img" class="g">id</a> <a href="tag.html#img" class="g">file</a> <a href="tag.html#img" class="g">mask</a> <a href="tag.html#img" class="g">mask-id</a> <a href="tag.html#img" class="g">entire</a> <a href="tag.html#img" class="r">x</a> <a href="tag.html#img" class="r">y</a> <a href="tag.html#img" class="g">width</a> <a href="tag.html#img" class="g">height</a> <a href="tag.html#img" class="g">rotation</a>/&gt;
+      &lt;<a href="tag.html#polygon" class="g"><b>polygon</b></a> <a href="tag.html#polygon" class="r">x</a> <a href="tag.html#polygon" class="r">y</a> <a href="tag.html#polygon" class="g">line-width</a> <a href="tag.html#polygon" class="g">line-color</a> <a href="tag.html#polygon" class="g">fill-color</a> <a href="tag.html#polygon" class="g">rotation</a> <a href="tag.html#polygon" class="g">dash1</a> <a href="tag.html#polygon" class="g">dash2</a> <a href="tag.html#polygon" class="g">opacity</a> <a href="tag.html#polygon" class="g">blendmode</a>&gt;
+        &lt;<a href="tag.html#poly-line" class="g"><b>line</b></a> <a href="tag.html#poly-line" class="r">x</a> <a href="tag.html#poly-line" class="r">y</a>/&gt;
+        &lt;<a href="tag.html#poly-bezier" class="g"><b>bezier</b></a> <a href="tag.html#poly-bezier" class="r">x</a> <a href="tag.html#poly-bezier" class="r">y</a> <a href="tag.html#poly-bezier" class="r">cp-x1</a> <a href="tag.html#poly-bezier" class="r">cp-y1</a> <a href="tag.html#poly-bezier" class="r">cp-x2</a> <a href="tag.html#poly-bezier" class="r">cp-y2</a>/&gt;
+      &lt;<font color="#008000"><b>/polygon</b></font>&gt;
+      &lt;<a href="tag.html#grid" class="g"><b>grid</b></a> <a href="tag.html#grid" class="r">x</a> <a href="tag.html#grid" class="r">y</a> <a href="tag.html#grid" class="r">cell-width</a> <a href="tag.html" class="r">cell-height</a> <a href="tag.html#grid" class="r">nbr-width</a> <a href="tag.html#grid" class="r">nbr-height</a> <a href="tag.html#grid" class="g">line-width</a> <a href="tag.html#grid" class="g">line-color</a> <a href="tag.html#grid" class="g">fill-color</a> <a href="tag.html#grid" class="g">rotation</a> <a href="tag.html#grid" class="g">dash1</a> <a href="tag.html#grid" class="g">dash2</a> <a href="tag.html#grid" class="g">opacity</a> <a href="tag.html#grid" class="g">blendmode</a>/&gt;
+      &lt;<a href="tag.html#hexagon" class="g"><b>hexagon</b></a> <a href="tag.html#hexagon" class="r">x</a> <a href="tag.html#hexagon" class="r">y</a> <a href="tag.html#hexagon" class="r">width</a> <a href="tag.html#hexagon" class="g">line-width</a> <a href="tag.html#hexagon" class="g">line-color</a> <a href="tag.html#hexagon" class="g">fill-color</a> <a href="tag.html#hexagon" class="g">rotation</a> <a href="tag.html#hexagon" class="g">dash1</a> <a href="tag.html#hexagon" class="g">dash2</a> <a href="tag.html#hexagon" class="g">opacity</a> <a href="tag.html#hexagon" class="g">blendmode</a>/&gt;
+      &lt;<a href="tag.html#text" class="g"><b>text</b></a> <a href="tag.html#text" class="g">font</a> <a href="tag.html#text" class="r">size</a> <a href="tag.html#text" class="r">color</a> <a href="tag.html#text" class="r">align</a> <a href="tag.html#text" class="r">x</a> <a href="tag.html#text" class="r">y</a> <a href="tag.html#text" class="r">width</a> <a href="tag.html#text" class="r">height</a> <a href="tag.html#text" class="g">radius</a> <a href="tag.html#text" class="g">adapt</a> <a href="tag.html#text" class="g">space</a> <a href="tag.html#text" class="g">rotation</a>
+       <a href="tag.html#text" class="g">dash1</a> <a href="tag.html#text" class="g">dash2</a> <a href="tag.html#text" class="g">opacity</a> <a href="tag.html#text" class="g">blendmode</a> <a href="tag.html#text" class="g">fill-color</a> <a href="tag.html#text" class="g">line-color</a> <a href="tag.html#text" class="g">line-width</a> <a href="tag.html#text" class="g">border</a>
+       <a href="tag.html#text" class="g">underline</a> <a href="tag.html#text" class="g">overline</a> <a href="tag.html#text" class="g">strikeout</a> <a href="tag.html#text" class="g">char-space</a> <a href="tag.html#text" class="g">h-scale</a> <a href="tag.html#text" class="g">ladder-color</a> <a href="tag.html#text" class="g">ladder-bottom</a> <a href="tag.html#text" class="g">ladder-rise</a>&gt;
+        ...&lt;<a href="tag.html#br" class="g"><b>br</b></a>/&gt;
+        &lt;<a href="tag.html#p" class="g"><b>p</b></a>/&gt;
+        &lt;<a href="tag.html#value" class="g"><b>value</b></a> <a href="tag.html#value" class="g">precision</a>&gt;...&lt;<font color="#008000"><b>/value</b></font>&gt;
+      &lt;<font color="#008000"><b>/text</b></font>&gt;
+      &lt;<a href="tag.html#var" class="g"><b>var</b></a> <a href="tag.html#var" class="r">name</a> <a href="tag.html#var" class="g">precision</a>&gt;...&lt;<font color="#008000"><b>/var</b></font>&gt;
+      &lt;<a href="tag.html#text-define" class="g"><b>text-define</b></a> <a href="tag.html#text-define" class="r">id</a>&gt;
+        &lt;<a href="tag.html#block" class="r"><b>block</b></a> <a href="tag.html#block" class="g">font</a> <a href="tag.html#block" class="r">size</a> <a href="tag.html#block" class="g">color</a> <a href="tag.html#block" class="g">space</a> <a href="tag.html#block" class="g">underline</a> <a href="tag.html#block" class="g">overline</a> <a href="tag.html#block" class="g">strikeout</a> <a href="tag.html#block" class="g">char-space</a> <a href="tag.html#block" class="g">h-scale</a>&gt;
+          ...&lt;<a href="tag.html#br" class="g"><b>br</b></a>/&gt;
+          &lt;<a href="tag.html#p" class="g"><b>p</b></a>/&gt;
+        &lt;<font color="#800000"><b>/block</b></font>&gt;
+      &lt;<font color="#008000"><b>/text-define</b></font>&gt;
+      &lt;<a href="tag.html#text-area" class="g"><b>text-area</b></a> <a href="tag.html#text-area" class="r">id</a> <a href="tag.html#text-area" class="r">x</a> <a href="tag.html#text-area" class="r">y</a> <a href="tag.html#text-area" class="r">width</a> <a href="tag.html#text-area" class="r">height</a> <a href="tag.html#text-area" class="g">radius</a> <a href="tag.html#text-area" class="g">rotation</a> <a href="tag.html#text-area" class="g">dash1</a> <a href="tag.html#text-area" class="g">dash2</a> <a href="tag.html#text-area" class="g">opacity</a> <a href="tag.html#text-area" class="g">blendmode</a>
+       <a href="tag.html#text-area" class="g">fill-color</a> <a href="tag.html#text-area" class="g">line-color</a> <a href="tag.html#text-area" class="g">line-width</a> <a href="tag.html#text-area" class="g">border</a>/&gt;
+      &lt;<a href="tag.html#if" class="g"><b>if</b></a> <a href="tag.html#if" class="r">test</a>&gt;
+        ...
+      &lt;<font color="#008000"><b>/if</b></font>&gt;
+      &lt;<a href="tag.html#while" class="g"><b>while</b></a> <a href="tag.html#while" class="r">test</a>&gt;
+        ...
+      &lt;<font color="#008000"><b>/while</b></font>&gt;
+      &lt;<a href="tag.html#log" class="g"><b>log</b></a> <a href="tag.html#log" class="g">precision</a>&gt;...&lt;<font color="#008000"><b>/log</b></font>&gt;
+    &lt;<font color="#800000"><b>/card</b></font>&gt;
+  &lt;<font color="#800000"><b>/deck</b></font>&gt;
+&lt;<font color="#800000"><b>/pandocreon:carta-genius</b></font>&gt;
+</pre>
+<br /><br />
+
+<hr />
+<h3>Types</h3>
+<b>Standards</b>
+<ul>
+  <li><a href="type.html#scalar" class="b">scalaire</a> (12.5) [&eacute;valuateur d'expressions]</li>
+  <li><a href="type.html#value" class="b">valeur</a> (210.3mm) [&eacute;valuateur d'expressions]</li>
+  <li><a href="type.html#element" class="b">&eacute;l&eacute;ment</a> (21x29.7cm) [&eacute;valuateur d'expressions]</li>
+  <li><a href="type.html#color" class="b">couleur</a> (#803000) [&eacute;valuateur d'expressions]</li>
+  <li><a href="type.html#string" class="b">cha&icirc;ne</a> ("blabla") [&eacute;valuateur d'expressions]</li>
+  <li><a href="type.html#boolean" class="b">bool&eacute;en</a> ($TRUE, $FALSE) [&eacute;valuateur d'expressions]</li>
+  <li><a href="type.html#bool" class="b">bool&eacute;en</a> (yes, no) [param&egrave;tres]</li>
+</ul>
+
+<b>blendmodes</b>
+<ul>
+  <li><a href="type.html#multiply" class="b">Multiply</a></li>
+  <li><a href="type.html#screen" class="b">Screen</a></li>
+  <li><a href="type.html#overlay" class="b">Overlay</a></li>
+  <li><a href="type.html#softlight" class="b">SoftLight</a></li>
+  <li><a href="type.html#hardlight" class="b">HardLight</a></li>
+  <li><a href="type.html#colordodge" class="b">ColorDodge</a></li>
+  <li><a href="type.html#colorburn" class="b">ColorBurn</a></li>
+  <li><a href="type.html#darken" class="b">Darken</a></li>
+  <li><a href="type.html#lighten" class="b">Lighten</a></li>
+  <li><a href="type.html#difference" class="b">Difference</a></li>
+  <li><a href="type.html#exclusion" class="b">Exclusion</a></li>
+  <li><a href="type.html#hue" class="b">Hue</a></li>
+  <li><a href="type.html#saturation" class="b">Saturation</a></li>
+  <li><a href="type.html#blendmode-color" class="b">Color</a></li>
+  <li><a href="type.html#luminosity" class="b">Luminosity</a></li>
+</ul>
+
+<b>Version PDF</b>
+<ul>
+  <li><a href="type.html#pdf" class="b">1.3</a></li>
+  <li><a href="type.html#pdf" class="b">1.4</a> [d&eacute;faut]</li>
+  <li><a href="type.html#pdf" class="b">1.5</a></li>
+</ul>
+
+<b>Unit&eacute; de base</b>
+<ul>
+  <li><a href="type.html#unit" class="b">mm</a> (millim&egrave;tre) [d&eacute;faut]</li>
+  <li><a href="type.html#unit" class="b">cm</a> (centim&egrave;tre)</li>
+  <li><a href="type.html#unit" class="b">in</a> (pouce)</li>
+  <li><a href="type.html#unit" class="b">pt</a> (point)</li>
+</ul>
+
+<b>C&ocirc;t&eacute; de retournement</b>
+<ul>
+  <li><a href="type.html#side" class="b">none</a></li>
+  <li><a href="type.html#side" class="b">width</a></li>
+  <li><a href="type.html#side" class="b">height</a></li>
+</ul>
+
+<b>Alignement de texte</b>
+<ul>
+  <li><a href="type.html#left" class="b">left</a></li>
+  <li><a href="type.html#right" class="b">right</a></li>
+  <li><a href="type.html#center" class="b">center</a></li>
+  <li><a href="type.html#justify" class="b">justify</a></li>
+</ul>
+
+<b>Fontes int&eacute;gr&eacute;es</b>
+<ul>
+  <li><a href="type.html#font-courier" class="b">Courier</a>, <a href="type.html#font-courier" class="b">Courier-Bold</a>, <a href="type.html#font-courier" class="b">Courier-Oblique</a>, <a href="type.html#font-courier" class="b">Courier-BoldOblique</a></li>
+  <li><a href="type.html#font-helvetica" class="b">Helvetica</a>, <a href="type.html#font-helvetica" class="b">Helvetica-Bold</a>, <a href="type.html#font-helvetica" class="b">Helvetica-Oblique</a>, <a href="type.html#font-helvetica" class="b">Helvetica-BoldOblique</a></li>
+  <li><a href="type.html#font-times" class="b">Times-Roman</a>, <a href="type.html#font-times" class="b">Times-Bold</a>, <a href="type.html#font-times" class="b">Times-Italic</a>, <a href="type.html#font-times" class="b">Times-BoldItalic</a></li>
+  <li><a href="type.html#font-symbol" class="b">Symbol</a></li>
+  <li><a href="type.html#font-zapf" class="b">ZapfDingbats</a></li>
+</ul>
+<br />
+
+<hr />
+<h3>Variables</h3>
+<b>Contextuelles</b>
+<ul>
+  <li><a href="var.html#page">$PAGE</a> = <a href="var.html#page">$PAGE_DIM</a> = <a href="var.html#page">$PAGE_DIMENSION</a></li>
+  <li><a href="var.html#card">$CARD</a> = <a href="var.html#card">$CARD_DIM</a> = <a href="var.html#card">$CARD_DIMENSION</a></li>
+  <li><a href="var.html#margin">$MARGIN</a> = <a href="var.html#margin">$MARGIN_DIM</a> = <a href="var.html#margin">$MARGIN_DIMENSION</a></li>
+  <li><a href="var.html#space">$SPACE</a> = <a href="var.html#space">$SPACE_DIM</a> = <a href="var.html#space">$SPACE_DIMENSION</a></li>
+  <li><a href="var.html#card_index">$CARD_INDEX</a></li>
+  <li><a href="var.html#card_deck">$CARD_DECK</a> = <a href="var.html#card_deck">$CARDS_IN_DECK</a> = <a href="var.html#card_deck">$NBR_CARDS_IN_DECK</a></li>
+  <li><a href="var.html#deck_index">$DECK_INDEX</a></li>
+  <li><a href="var.html#deck_total">$DECK_TOTAL</a></li>
+</ul>
+
+<b>Formats papier</b>
+<blockquote>
+$4A0, $2A0, $A0, $A1, $A2, $A3, $A4, $A5, $A6, $A7, $A8, $A9, $A10, $RA0, $RA1, $RA2, $RA3, $RA4, $SRA0, $SRA1, $SRA2, $SRA3, $SRA4, $B0, $B1, $B2, $B3, $B4, $B5, $B6, $B7, $B8, $B9, $B10, $C0, $C1, $C2, $C3, $C4, $C5, $C6, $C7, $C8, $C9, $C10, $D0, $D1, $D2, $D3, $D4, $D5, $D6, $D7, $D8, $D9, $D10, $LETTER, $LEGAL, $LEDGER, $SEMI_LETTER, $EXECUTIVE, $TABLOID, $DL, $COM10, $MONARCH, $E0, $E1, $E2, $E3, $E4, $E5, $E6, $E7, $E8, $E9, $E10, $E_A3, $E_A3_2, $E_A4, $E_A4_2, $E_A5, $E_A5_2, $E_A6, $E_A7, $E_B4, $E_B4_2, $E_B5, $E_B6, $E_B7, $E_B8, $ID1, $ID2, $ID3, $BUSINESS_CARD
+</blockquote>
+<br />
+
+<b>Couleurs</b>
+<blockquote>
+$BLACK, $WHITE, $GREY, $RED, $GREEN, $BLUE, $YELLOW, $TURQUOISE, $PURPLE, $DARK_RED, $DARK_GREEN, $DARK_BLUE, $DARK_YELLOW, $DARK_TURQUOISE, $DARK_PURPLE
+</blockquote>
+<br />
+
+<b>Autres</b>
+<ul>
+  <li><a href="var.html#pi">$PI</a></li>
+  <li><a href="var.html#TRUE">$TRUE</a></li>
+  <li><a href="var.html#FALSE">$FALSE</a></li>
+</ul>
+<br />
+
+<hr />
+<h3>Fonctions</h3>
+<b>Transtypage</b>
+<ul>
+  <li><a href="func.html#var">var</a>($var)</li>
+  <li><a href="func.html#string">string</a>($var)</li>
+  <li><a href="func.html#scalar">scalar</a>($var)</li>
+  <li><a href="func.html#value">value</a>($var)</li>
+  <li><a href="func.html#element">element</a>($var)</li>
+  <li><a href="func.html#bool">bool</a>($var)</li>
+</ul>
+
+<b>Comparaison</b>
+<ul>
+  <li><a href="func.html#eq">eq</a>($var1, $var2)</li>
+  <li><a href="func.html#lt">lt</a>($var1, $var2)</li>
+  <li><a href="func.html#gt">gt</a>($var1, $var2)</li>
+</ul>
+
+<b>Op&eacute;rations bool&eacute;ennes</b>
+<ul>
+  <li><a href="func.html#not">not</a>($bool)</li>
+  <li><a href="func.html#and">and</a>($bool1, $bool2)</li>
+  <li><a href="func.html#or">or</a>($bool1, $bool2)</li>
+</ul>
+
+<b>Calcul</b>
+<ul>
+  <li><a href="func.html#plus">plus</a>($var1, $var2)</li>
+  <li><a href="func.html#minus">minus</a>($var1, $var2)</li>
+  <li><a href="func.html#mult">mult</a>($var1, $var2)</li>
+  <li><a href="func.html#div">div</a>($var1, $var2)</li>
+  <li><a href="func.html#mod">mod</a>($var1, $var2)</li>
+  <li><a href="func.html#sqrt">sqrt</a>($var)</li>
+  <li><a href="func.html#pow">pow</a>($var1, $var2)</li>
+  <li><a href="func.html#sin">sin</a>($scal)</li>
+  <li><a href="func.html#cos">cos</a>($scal)</li>
+  <li><a href="func.html#tan">tan</a>($scal)</li>
+  <li><a href="func.html#asin">asin</a>($scal)</li>
+  <li><a href="func.html#acos">acos</a>($scal)</li>
+  <li><a href="func.html#atan">atan</a>($scal)</li>
+</ul>
+
+<b>Elements</b>
+<ul>
+  <li><a href="func.html#width">width</a>($elem)</li>
+  <li><a href="func.html#height">height</a>($elem)</li>
+  <li><a href="func.html#landscape">landscape</a>($elem)</li>
+</ul>
+
+<b>Cha&icirc;nes</b>
+<ul>
+  <li><a href="func.html#strlen">strlen</a>($str)</li>
+  <li><a href="func.html#strwidth">strwidth</a>($str, $val, $str)</li>
+</ul>
+
+<b>Tests</b>
+<ul>
+  <li><a href="func.html#min">min</a>($var1, $var2)</li>
+  <li><a href="func.html#max">max</a>($var1, $var2)</li>
+</ul>
+
+<b>Date et heure</b>
+<ul>
+  <li><a href="func.html#time">time</a>($scal)</li>
+  <li><a href="func.html#strftime">strftime</a>($scal, $str)</li>
+</ul>
+
+<b>Al&eacute;a</b>
+<ul>
+  <li><a href="func.html#srand">srand</a>($scal)</li>
+  <li><a href="func.html#rand">rand</a>($scal)</li>
+</ul>
+
+<br /><hr />
+<font size="-2">Copyright (c) 2004-2005, Amaury Bouchard<br />
+Cette documentation est plac&eacute;e sous les termes de la <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation License</a></font>
+
+</body>
+</html>

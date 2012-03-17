@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+	une carte avec des elements graphiques
+	utilisant l'evaluateur d'expressions
+-->
+<pandocreon:carta-genius>
+	<deck>
+		<paper type="a4" margin="4cm"/>
+		<cardsize width="8cm" height="8cm"/>
+		<card>
+			<box x="0cm" y="0cm" width="2cm + 2cm" height="8cm - 40mm"
+			 fill-color="#0080ff"/>
+			<circle x="(8cm + 16cm / 2)/4" y="2cm * 2" radius="25mm" fill-color="#00ffff"/>
+		</card>
+	</deck>
+</pandocreon:carta-genius>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+	une carte contenant :
+	- un rectangle sur la moitie de sa hauteur
+	- un cercle qui soit centre et dont le rayon
+	  soit egale a la marge de la page
+	- un texte et son nombre de caracteres
+-->
+<pandocreon:carta-genius>
+	<deck>
+		<paper type="a4" margin="2cm"/>
+		<cardsize width="16cm" height="8cm"/>
+		<card>
+			<var name="texte">"ceci est un test"</var>
+			<!-- le rectangle -->
+			<box x="0mm" y="0mm" width="width($CARD)" height="height($CARD) / 2"
+			 fill-color="#0000ff"/>
+			<!-- le cercle -->
+			<circle x="width($CARD) / 2" y="height($CARD) / 2"
+			 radius="width($MARGIN)" fill-color="#ff0000"/>
+			<text font="Helvetica" size="20pt" color="#000000"
+			 x="1cm" y="1cm" width="10cm" height="6cm">
+				<value>$texte</value><p/>
+				<value precision="0">strlen($texte)</value> caracteres
+			</text>
+		</card>
+	</deck>
+</pandocreon:carta-genius>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<pandocreon:carta-genius>
+	<templates>
+		<template id="rouge">
+			<box x="0mm" y="0mm" width="6cm" height="6cm"
+			 fill-color="#ff0000"/>
+		</template>
+		<template id="vert">
+			<box x="1cm" y="1cm" width="6cm" height="6cm"
+			 fill-color="#00ff00"/>
+		</template>
+		<template id="bleu">
+			<box x="2cm" y="2cm" width="6cm" height="6cm"
+			 fill-color="#0000ff"/>
+		</template>
+	</templates>
+	<deck>
+		<paper type="a4" margin="2cm"/>
+		<cardsize width="8cm" height="8cm"/>
+		<card template="rouge,vert">
+			<circle x="4cm" y="4cm" radius="25mm" fill-color="#00ffff"/>
+		</card>
+		<card template="vert">
+			<circle x="4cm" y="4cm" radius="25mm" fill-color="#ffff00"/>
+			<template id="bleu"/>
+		</card>
+		<card>
+			<template id="rouge,bleu"/>
+			<circle x="6cm" y="2cm" radius="25mm" fill-color="#ff00ff"/>
+			<template id="vert"/>
+		</card>
+	</deck>
+</pandocreon:carta-genius>

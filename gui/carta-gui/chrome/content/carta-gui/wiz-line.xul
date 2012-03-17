@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<window id="main-window" title="Ligne" orient="vertical"
+ xmlns:html="http://www.w3.org/1999/xhtml"
+ xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+ onload="wizInit()">
+
+  <script src="chrome://carta-gui/content/wiz-line.js"/>
+  <script src="chrome://carta-gui/content/tools.js"/>
+
+
+  <groupbox>
+    <caption label="Attributs obligatoires"/>
+    <grid flex="1">
+      <columns>
+        <column flex="0"/>
+        <column flex="1"/>
+        <column flex="0"/>
+      </columns>
+      <rows>
+        <row>
+          <label value="Coordonnée x1 :"/>
+          <textbox id="edit-x1"/>
+          <menulist id="menulist-x1">
+	    <menupopup>
+	      <menuitem label="mm" oncommand="unit_x1 = &quot;mm&quot;"/>
+	      <menuitem label="cm" oncommand="unit_x1 = &quot;cm&quot;"/>
+	      <menuitem label="pouces" oncommand="unit_x1 = &quot;in&quot;"/>
+	      <menuitem label="points" oncommand="unit_x1 = &quot;pt&quot;"/>
+	    </menupopup>
+          </menulist>
+        </row>
+        <row>
+          <label value="Coordonnée y1 :"/>
+          <textbox id="edit-y1"/>
+          <menulist id="menulist-y1">
+	    <menupopup>
+	      <menuitem label="mm" oncommand="unit_y1 = &quot;mm&quot;"/>
+	      <menuitem label="cm" oncommand="unit_y1 = &quot;cm&quot;"/>
+	      <menuitem label="pouces" oncommand="unit_y1 = &quot;in&quot;"/>
+	      <menuitem label="points" oncommand="unit_y1 = &quot;pt&quot;"/>
+	    </menupopup>
+          </menulist>
+        </row>
+        <row>
+          <label value="Coordonnée x2 :"/>
+          <textbox id="edit-x2"/>
+          <menulist id="menulist-x2">
+	    <menupopup>
+	      <menuitem label="mm" oncommand="unit_x2 = &quot;mm&quot;"/>
+	      <menuitem label="cm" oncommand="unit_x2 = &quot;cm&quot;"/>
+	      <menuitem label="pouces" oncommand="unit_x2 = &quot;in&quot;"/>
+	      <menuitem label="points" oncommand="unit_x2 = &quot;pt&quot;"/>
+	    </menupopup>
+          </menulist>
+        </row>
+        <row>
+          <label value="Coordonnée y2 :"/>
+          <textbox id="edit-y2"/>
+          <menulist id="menulist-y2">
+	    <menupopup>
+	      <menuitem label="mm" oncommand="unit_y2 = &quot;mm&quot;"/>
+	      <menuitem label="cm" oncommand="unit_y2 = &quot;cm&quot;"/>
+	      <menuitem label="pouces" oncommand="unit_y2 = &quot;in&quot;"/>
+	      <menuitem label="points" oncommand="unit_y2 = &quot;pt&quot;"/>
+	    </menupopup>
+          </menulist>
+        </row>
+        <row>
+          <label value="Couleur :"/>
+          <textbox id="edit-color"/>
+        </row>
+      </rows>
+    </grid>
+  </groupbox>
+  
+  <groupbox>
+    <caption label="Attributs optionnels"/>
+    <grid flex="1">
+      <columns>
+        <column flex="0"/>
+        <column flex="1"/>
+        <column flex="0"/>
+      </columns>
+      <rows>
+        <row>
+          <checkbox id="check-width" label="Epaisseur de ligne :" oncommand="checkWidth()"/>
+          <textbox id="edit-width" disabled="true"/>
+          <menulist id="menulist-width" disabled="true">
+	    <menupopup>
+	      <menuitem label="mm" oncommand="unit_width = &quot;mm&quot;"/>
+	      <menuitem label="cm" oncommand="unit_width = &quot;cm&quot;"/>
+	      <menuitem label="pouces" oncommand="unit_width = &quot;in&quot;"/>
+	      <menuitem label="points" oncommand="unit_width = &quot;pt&quot;"/>
+	    </menupopup>
+          </menulist>
+        </row>
+        <row>
+          <checkbox id="check-dash" label="Pointillés" oncommand="checkDash()"/>
+          <hbox>
+            <label value="Longueur 1 :"/>
+            <textbox id="edit-dash1" disabled="true"/>
+          </hbox>
+          <menulist id="menulist-dash1" disabled="true">
+	    <menupopup>
+	      <menuitem label="mm" oncommand="unit_dash1 = &quot;mm&quot;"/>
+	      <menuitem label="cm" oncommand="unit_dash1 = &quot;cm&quot;"/>
+	      <menuitem label="pouces" oncommand="unit_dash1 = &quot;in&quot;"/>
+	      <menuitem label="points" oncommand="unit_dash1 = &quot;pt&quot;"/>
+	    </menupopup>
+          </menulist>
+        </row>
+        <row>
+          <label value=" "/>
+          <hbox>
+            <label value="Longueur 2 :"/>
+            <textbox id="edit-dash2" disabled="true"/>
+          </hbox>
+          <menulist id="menulist-dash2" disabled="true">
+	    <menupopup>
+	      <menuitem label="mm" oncommand="unit_dash2 = &quot;mm&quot;"/>
+	      <menuitem label="cm" oncommand="unit_dash2 = &quot;cm&quot;"/>
+	      <menuitem label="pouces" oncommand="unit_dash2 = &quot;in&quot;"/>
+	      <menuitem label="points" oncommand="unit_dash2 = &quot;pt&quot;"/>
+	    </menupopup>
+          </menulist>
+        </row>
+        <row>
+          <checkbox id="check-opacity" label="Opacité :" oncommand="checkOpacity()"/>
+          <textbox id="edit-opacity" disabled="true"/>
+        </row>
+        <row>
+          <checkbox id="check-blendmode" label="Mélange des couleurs :" oncommand="checkBlendmode()"/>
+          <menulist id="menulist-blendmode" disabled="true">
+	    <menupopup>
+	      <menuitem label="Multiply" oncommand="blendmode = &quot;Multiply&quot;"/>
+	      <menuitem label="Screen" oncommand="blendmode = &quot;Screen&quot;"/>
+	      <menuitem label="Overlay" oncommand="blendmode = &quot;Overlay&quot;"/>
+	      <menuitem label="SoftLight" oncommand="blendmode = &quot;SoftLight&quot;"/>
+	      <menuitem label="HardLight" oncommand="blendmode = &quot;HardLight&quot;"/>
+	      <menuitem label="ColorDodge" oncommand="blendmode = &quot;ColorDodge&quot;"/>
+	      <menuitem label="ColorBurn" oncommand="blendmode = &quot;ColorBurn&quot;"/>
+	      <menuitem label="Darken" oncommand="blendmode = &quot;Darken&quot;"/>
+	      <menuitem label="Lighten" oncommand="blendmode = &quot;Lighten&quot;"/>
+	      <menuitem label="Difference" oncommand="blendmode = &quot;Difference&quot;"/>
+	      <menuitem label="Exclusion" oncommand="blendmode = &quot;Exclusion&quot;"/>
+	      <menuitem label="Hue" oncommand="blendmode = &quot;Hue&quot;"/>
+	      <menuitem label="Saturation" oncommand="blendmode = &quot;Saturation&quot;"/>
+	      <menuitem label="Color" oncommand="blendmode = &quot;Color&quot;"/>
+	      <menuitem label="Luminosity" oncommand="blendmode = &quot;Luminosity&quot;"/>
+	    </menupopup>
+          </menulist>
+        </row>
+      </rows>
+    </grid>
+  </groupbox>
+
+  <hbox>
+    <spacer flex="1"/>
+    <button id="btn-ok" label="OK" oncommand="wizValid()" flex="0"/>
+    <button id="btn-cancel" label="Annuler" oncommand="window.close()" flex="0"/>
+  </hbox>
+
+</window>

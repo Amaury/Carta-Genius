@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+	exemple simple : une carte avec un cercle rouge,
+	une autre avec un carre bleu
+-->
+<pandocreon:carta-genius>
+	<!-- definition du jeu de cartes -->
+	<deck>
+		<!-- definition du papier -->
+		<paper type="a4" margin="2cm"/>
+		<!-- definition de la taille des cartes -->
+		<cardsize type="a7"/>
+		<!-- premiere carte -->
+		<card>
+			<!-- un cercle -->
+			<circle x="3cm" y="5cm" radius="20mm" fill-color="#0000ff"/>
+		</card>
+		<!-- deuxieme carte -->
+		<card>
+			<!-- un carre -->
+			<box x="2cm" y="3cm" width="3cm" height="3cm" fill-color="#00ff00"/>
+		</card>
+	</deck>
+</pandocreon:carta-genius>

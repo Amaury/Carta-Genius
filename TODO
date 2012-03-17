@@ -1,0 +1,37 @@
+- hexagones segmentes
+- arcs de cercle
+- ellipses
+
+v6.0.0:
+- Add font definition.
+  <font-defines>
+    <fontdef id="" font="" size="" .../>
+  </font-defines>
+- Add full featured text-areas.
+
+Text properties :
+(x) : mandatory
+(-) : optional
+- font		nom de la police (x)
+- size		taille des caracteres [valeur] (x)
+- color		couleur des caracteres [couleur] (noir)
+- fill-color	couleur de remplissage des caracteres (si 'color' non defini) [couleur] (-)
+- stroke-color	couleur de ligne des caracteres (si 'color' non defini) [couleur] (-)
+- line-space	(==space) interlignage [scalaire ; 1.0 = interligne simple] (1.0)
+- overline	surlignage [booleen] (no)
+- underline	soulignage [booleen] (no)
+- strikeout	barrage [booleen] (no)
+- char-space	espace entre les caracteres [valeur] (0)
+- word-space	espacement entre les mots [valeur] (0)
+- h-scale	echelle horizontale [scalaire, en pourcentage] (100)
+- rise		distance entre les caracteres et la ligne de base [valeur] (0)
+- alignment	alignement du texte [special: left, center, right, justify] (left)
+- indent	indentation de paragraphe [valeur] (0)
+- adapt		adaptation de la taille suivant la zone [booleen] (no)
+
+textdef == text-define
+textbox == text-area
+textblock == block
+
+Les textbox n'ayant pas de parametre 'id' prennent en compte les 'block' de texte
+a l'interieur d'eux.

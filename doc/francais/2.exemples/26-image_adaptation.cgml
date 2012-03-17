@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+	une carte avec une image bitmap
+-->
+<pandocreon:carta-genius>
+	<deck>
+		<paper type="a4" margin="2cm"/>
+		<cardsize type="a6"/>
+		<card>
+			<!-- definition de l'image -->
+			<image file="../../../resources/nature.png" entire="yes"
+			 x="1cm" y ="1cm" width="4cm" height="12cm"/>
+		</card>
+	</deck>
+</pandocreon:carta-genius>

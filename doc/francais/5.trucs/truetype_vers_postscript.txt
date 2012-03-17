@@ -1,0 +1,11 @@
+Comment convertir une police TrueType en police Postscript Type 1
+=================================================================
+
+1. Récupérez et installez le programme ttf2pt1
+   (http://ttf2pt1.sourceforge.net).
+2. Tapez 'ttf2pt1 -e font.ttf'.
+3. Vous récupérez un fichier font.pfa et un fichier font.afm.
+4. Ouvrez le fichier font.afm, et supprimez la ligne commençant par
+   'Character'.
+5. C'est fini.
+

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--
+	text with ladders
+-->
+<pandocreon:carta-genius>
+	<deck>
+		<paper type="a6" margin="0"/>
+		<cardsize type="a6"/>
+		<card>
+			<text x="5mm" y="5mm" width="8cm" height="3cm"
+			 font="Helvetica" size="20pt" color="#000000"
+			 line-color="#800000"
+			 ladder-color="#000080">
+				Text with ladder.
+			</text>
+			<text x="5mm" y="40mm" width="8cm" height="3cm"
+			 font="Helvetica" size="20pt" color="#000000"
+			 line-color="#008000"
+			 ladder-color="#000000" ladder-bottom="yes">
+				Second text with ladder.
+			</text>
+			<text x="5mm" y="75mm" width="8cm" height="3cm"
+			 font="Helvetica" size="20pt" color="#000000"
+			 line-color="#800000"
+			 ladder-color="#808000" ladder-rise="4pt">
+				Another one, with a "rise".
+			</text>
+		</card>
+	</deck>
+</pandocreon:carta-genius>

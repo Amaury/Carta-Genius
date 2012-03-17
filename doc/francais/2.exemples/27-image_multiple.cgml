@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+	deux cartes contenant la meme image
+-->
+<pandocreon:carta-genius>
+	<!-- declaration des images -->
+	<images>
+		<!-- definition d'un image -->
+		<image id="nature" file="../../../resources/nature.png"
+		 width="5cm" height="5cm"/>
+	</images>
+	<deck>
+		<paper type="a4" margin="2cm"/>
+		<cardsize type="a7"/>
+		<card>
+			<!-- utilisation de l'image, taille par defaut -->
+			<image id="nature" x="5mm" y="5mm"/>
+		</card>
+		<card>
+			<!-- utilisation de l'image, taille specifique -->
+			<image id="nature" x="1.5cm" y="1.5cm"
+			 width="2.5cm" height="2.5cm" rotation="-25"/>
+		</card>
+	</deck>
+</pandocreon:carta-genius>

@@ -1,0 +1,253 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- definition of one PDF file -->
+<pandocreon:carta-genius>
+	<!-- information about the document [optional] -->
+	<info author="" title="" subject="" keywords="" copyright="" version="" lang="" note=""/>
+	<!-- PDF encoding information [optional]
+	     version: version of PDF norm to use (1.3, 1.4, 1.5) [optional, 1.4 by default]
+	     master-password, user-password: passwords used to restrict access to the PDF file [optional]. These
+	       two passwords must be not null and different, otherwise there is no restriction. Restriction imply
+	       encryption (40 bits with PDF 1.3, 128 bits otherwise) -->
+	<pdf version="1.4" master-password="passwd1" user-password="passwd2"/>
+	<!-- Base unit : unit of values given without unit (mm | cm | in | pt) [optional, mm by default] -->
+	<unit base="mm"/>
+	<!-- add the cards' back [optional]
+	     side: turning side (width, height)
+             reverse: 'yes' to invert page order (even before odd pages) [optional] -->
+	<back side="height" reverse="no"/>
+	<!-- definition of initial variables [optional] -->
+	<variables>
+		<var name="var1">"valeur"</var>
+		<var anme="v2" precision="0">1</var>
+	</variables>
+	<!-- definition of all used fonts (MUST be Postscript Type 1 fonts)
+	     default: default font's name [optional; could be an integrated font] -->
+	<fonts default="Helvetica">
+		<!-- id: the exact Postscript font's name
+		     outline: path to the '.pfa' file
+		     metrics: path to the '.afm' file -->
+		<font id="PandocreonSymbol" outline="../resources/pandocreon-symbol-0.2.0.pfa"
+		 metrics="../resources/pandocreon-symbol-0.2.0.pfa"/>
+		<!-- add a directory for font search
+		     dir: path to the include directory -->
+		<path dir="/path/to/dir"/>
+	</fonts>
+	<!-- definition of all used images (GIF, JPEG and PNG are supported;
+	     transparency in GIF and PNG is supported) -->
+	<images>
+		<!-- id: name of the image mask as it will be used later
+		     file: path to the image mask's file -->
+		<mask id="previmg" file="/path/to/mask"/>
+		<!-- id: name of the image as it will be used later
+		     file: path to the image's file
+		     width: default image's width
+		     height: default image's height
+		     mask: path to the image mask for explicit transparency (must be a black and white PNG image)
+		     msk-id: identifier of image mask (BW PNG, previously defined) -->
+		<image id="logo" file="/path/to/logo" width="5cm" height="1cm" mask="/path/to/logo_mask.png" mask-id="previmg"/>
+		<!-- add a directory for images search
+		     dir: path to the include directory -->
+		<path dir="/path/to/dir/"/>
+	</images>
+	<!-- definition of templates [optional] -->
+	<templates>
+		<!-- id: template's name, as it will be used later -->
+		<template id="default">
+			<!-- templates may contain any data, as a card; here a line-->
+			<line x1="3mm" y1="3mm" x2="47.5mm" y2="69.25 mm" color="#808080" width="5mm"/>
+		</template>
+		<!-- id: template's name
+		     template: ID of the template to use before using this template -->
+		<template id="back" template="default">
+			<box x="0" y="0" width="47.5mm" height="69.25mm" fill-color="#800000"/>
+		</template>
+	</templates>
+	<!-- definition of files to include -->
+	<includes>
+		<!-- include a file
+		     file: path to the file to include -->
+		<include file="subfile.xml"/>
+		<!-- add an include path
+		     dir: path to the include directory (with '/' or '\' at the end) -->
+		<path dir="/path/to/dir/"/>
+	</includes>
+	<!-- definition of a deck -->
+	<deck>
+		<!-- paper definition
+		     type: paper type (4a0 to a10, ra0 to ra4, sra0 to sra4, b0 to b10, c0 to c10,
+				       letter, legal, ledger, semi-letter, executive, tabloid,
+				       dl, com10, monarch, e-a3, e-a3/2, e-a4, e-a4/2, e-a5, e-a5/2, e-a6, e-a7,
+				       e-b4, e-b4/2, e-b5, e-b6, e-b7, e-b8, id1, id2, id3, business-card)
+		     landscape: if set to yes when using the 'type' parameter, the page is set in landscape mode [optional]
+		     width, height: paper width and height if the 'type' parameter is not set (for unusual dimensions)
+		     margin: paper margin all around each sheet; contains the cut lines
+		     margin-width, margin-height: use them when the margins are not the same [optional; not used if 'margin' is set] -->
+		<paper type="a4" landscape="yes" width="210mm" height="29.7cm" margin="1cm"/>
+		<!-- hidden-ditch definition [optional]
+		     odd: odd color
+		     even: even color -->
+		<hidden-ditch odd="#000000" even="#000000"/>
+		<!-- dimensions of each cards of the deck
+		     type: nomalized size (4a0 to a10, b0 to b10, c0 to c10, letter, legal, ledger, semi-letter, executive, tabloid, printer1)
+		     landscape: if set to yes when using the 'type' parameter, the page is set in landscape mode [optional]
+		     width, height: user-defined size [optional, used if the 'type' parameter is not set]
+		     space: vertical and horizontal space between cards [optional]
+		     space-width, space-height: use them when the spaces are not the same [optional; not used if 'space' is set] -->
+		<cardsize type="a8" landscape="yes" width="47.5mm" height="69.25mm" space-width="5mm" space-height="8mm"/>
+		<!-- definition of a card (as many cards in a "deck" as you want)
+		     count: number of card's processing
+		     template: ID of the template to use (many templates could be used, separated with comas) [optional]
+		     back: ID of the template to use as the card's back [optional] -->
+		<card count="2" template="default" back="back">
+			<!-- definition of a circle
+			     x, y: circle center's position (from the card's bottom-left corner)
+			     radius: size of the circle
+			     line-width: width of the border line [optional, must be used with line-color]
+			     line-color: color of the border line [optional, must be used with line-width]
+			     fill-color: color inside of the circle [optional, but line-color OR fill-color must be set]
+			     dash1: size of filled dashes [optional, must be used with dash2]
+			     dash2: size of empty dashes [optional, must be used with dash1]
+			     opacity: circle's opacity [optional, any float value between 0 and 1]
+			     blendmode: mode of colors blending [optional]
+					possible values: Normal (just if 'opacity' is set and less than 1.0), Multiply, Screen, Overlay, Darken, Lighten, ColorDodge, ColorBurn, HardLight, SoftLight, Difference, Exclusion, Hue, Saturation, Color, Luminosity -->
+			<circle x="2cm" y="45mm" radius="4mm" line-width="0.2mm" line-color="#000000"
+			 fill-color="#808080" dash1="4mm" dash2="1.5mm" opacity="0.65" blendmode="Normal"/>
+			<!-- definition of a box
+			     x, y, width, height: dimensions of the box
+			     radius: size of the corners' round [optional; straight box if not set]
+			     line-width, line-color, fill-color: color of the box's stroke and fill [optional]
+			     rotation: rotation angle in degrees [optional]
+			     dash1: size of filled dashes [optional, must be used with dash2]
+			     dash2: size of empty dashes [optional, must be used with dash1]
+			     opacity: box's opacity [optional, any float value between 0 and 1]
+			     blendmode: mode of colors blending [optional]
+					possible values: Normal (just if 'opacity' is set and less than 1.0), Multiply, Screen, Overlay, Darken, Lighten, ColorDodge, ColorBurn, HardLight, SoftLight, Difference, Exclusion, Hue, Saturation, Color, Luminosity -->
+			<box x="1" y="2" width="3cm" height="2cm" line-width="2mm" line-color="#000000"
+			 fill-color="#ff0000" rotation="45" dash1="2mm" dash2="3mm" opacity="0.3" blendmode="HardLight"/>
+			<!-- definition of a line
+			     x1, y1: coordinates of the line's begining
+			     x2, y2: coordinates of the line's ending
+			     width: width of the line [optional]
+			     color: line's color [optional]
+			     dash1: size of filled dashes [optional, must be used with dash2]
+			     dash2: size of empty dashes [optional, must be used with dash1]
+			     opacity: line's opacity [optional, any float value between 0 and 1]
+			     blendmode: mode of colors blending [optional]
+					possible values: Normal (just if 'opacity' is set and less than 1.0), Multiply, Screen, Overlay, Darken, Lighten, ColorDodge, ColorBurn, HardLight, SoftLight, Difference, Exclusion, Hue, Saturation, Color, Luminosity -->
+			<line x1="0" y1="69.25mm" x2="47.5mm" y2="0" width="0.5mm" color="#ff0000"
+			 dash1="4mm" dash2="8mm" opacity="0.4" blendmode="Hue"/>
+			<!-- definition of a Bezier line
+			     x1, y1: coordinates of the line's begining
+			     x2, y2: coordinates of the line's ending
+			     cp-x1, cp-y1: coordinates of the first control-point
+			     cp-x2, cp-y2: coordinates of the second control-point
+			     dash1: size of filled dashes [optional, must be used with dash2]
+			     dash2: size of empty dashes [optional, must be used with dash1]
+			     opacity: line's opacity [optional, any float value between 0 and 1]
+			     blendmode: mode of colors blending [optional] -->
+			<bezier x1="0mm" y1="10mm" x2="25mm" y2="60mm" cp-x1="12cm" cp-y1="0mm" cp-x2="8mm" cp-y2="50mm"
+			 width="0.5mm" color="#00ff00" dash1="9mm" dash2="3mm" opacity="0.3" blendmode="Hue"/>
+			<!-- definition of a polygon
+			     x, y: coordinates of the polygon's beginning and ending point
+			     line-width, line-color, fill-color: color of the box's stroke and fill [optional]
+			     rotation: rotation angle in degrees [optional]
+			     dash1: size of filled dashes [optional, must be used with dash2]
+			     dash2: size of empty dashes [optional, must be used with dash1]
+			     opacity: box's opacity [optional, any float value between 0 and 1]
+			     blendmode: mode of colors blending [optional] -->
+			<polygon x="50mm" y="25cm" line-width="0.2mm" line-color="#0000ff" fill-color="#ffff00"
+			 rotation="12" dash1="0.4cm" dash2="6mm" opacity="0.5" blendmode="Difference">
+				<!-- line
+				     x, y: coordinates of the next point -->
+				<line x="55mm" y="12cm"/>
+				<!-- Bezier line
+				     x, y: coordinates of the next point
+				     cp-x1, cp-y1: coordinates of the first control-point
+				     cp-x2, cp-y2: coordinates of the second control-point -->
+				<bezier x="60mm" y="5mm" cp-x1="20cm" cp-y1="0mm" cp-x2="3mm" cp-y2="12mm"/>
+			</polygon>
+			<!-- definition of a grid
+			     x, y: coordinates of the grid
+			     cell-width, cell-height: cells dimensions
+			     nbr-width: hoizontal number of cells
+			     nbr-height: vertical number of cells
+			     line-width, line-color, fill-color: color of the grid's stroke and fill [optional]
+			     rotation: rotation angle in degrees [optional]
+			     dash1: size of filled dashes [optional, must be used with dash2]
+			     dash2: size of empty dashes [optional, must be used with dash1]
+			     opacity: box's opacity [optional, any float value between 0 and 1]
+			     blendmode: mode of colors blending [optional] -->
+			<grid x="1cm" y="2cm" cell-width="3cm" cell-height="5mm" nbr-width="3" nbr-height="6"
+			 line-width="0.5mm" line-color="#000000" fill-color="#ffffff" rotation="0"
+			 dash1="5mm" dash2="5mm" opacity="0.9" blendmode="Hue"/>
+			<!-- definition of an hexagon
+			     x, y: coordinates of the hexagon
+			     width: width of the hexagon
+			     line-width, line-color, fill-color: color of the hexagon's stroke and fill [optional]
+			     rotation: rotation angle in degrees [optional]
+			     dash1: size of filled dashes [optional, must be used with dash2]
+			     dash2: size of empty dashes [optional, must be used with dash1]
+			     opacity: box's opacity [optional, any float value between 0 and 1]
+			     blendmode: mode of colors blending [optional] -->
+			<hexagon x="1cm" y="5mm" width="10cm" line-width="0.5mm" line-color="#000000" fill-color="#ffffff"
+			 rotation="0" dash1="1cm" dash2="1cm" opacity="0.8" blendmode="Hue"/>
+			<!-- definition of a text box
+			     font: font's name (as previously defined or: Courier, Courier-Bold, Courier-Oblique,
+						Courier-BoldOblique, Helvetica, Helvetica-Bold, Helvetica-Oblique,
+						Helvetica-BoldOblique, Times-Roman, Times-Bold, Times-Italic,
+						Times-BoldItalic, Symbol, ZapfDingbats)
+			     size: font's size
+			     color: text's color
+			     align: text's alignment (left|right|center|justify)
+			     x, y: coordinates of the text box's bottom left corner
+			     width, height: dimensions of the text box
+			     adapt: set to yes to decrease automatically the text size if there is too much text [optional]
+			     space: line spacing, as a multiple of the font size (1.0 for normal simple line spacing) [optional]
+			     rotation: rotation angle in degrees [optional]
+			     dash1: size of filled dashes [optional, must be used with dash2]
+			     dash2: size of empty dashes [optional, must be used with dash1]
+			     opacity: text's opacity [optional, any float value between 0 and 1]
+			     blendmode: mode of colors blending [optional]
+					possible values: Normal (just if 'opacity' is set and less than 1.0), Multiply, Screen, Overlay, Darken, Lighten, ColorDodge, ColorBurn, HardLight, SoftLight, Difference, Exclusion, Hue, Saturation, Color, Luminosity
+			     fill-color: background color [optional]
+			     line-color: border line's color [optional]
+			     line-width: border line's width [optional]
+			     border: size of internal border [optional]
+			     underline: line under the text [optional]
+			     overline: line one the text [optional]
+			     strikeout: line in the text [optional]
+			     char-space: space between characters [optional; default=0]
+			     h-scale: horizontal scaling [optionel; default=100; must be positive]
+			     ladder-color: color of ladder [optional]
+			     ladder-bottom: set ladder lines at characters descender bottom [optional]
+			     ladder-rise: ladder vertical rise [optional] -->
+			<text font="PandocreonSymbol" size="12" color="#000000" align="center"
+			 x="0" y="5mm" width="69.25mm" height="1cm" adapt="yes" space="1.0" rotation="180"
+			 opacity="1" blendmode="Darken" fill-color="#0000ff" line-color="#800000" line-width="0.5mm"
+			 border="5mm" underline="yes" overline="yes" strikeout="yes" char-space="0pt" h-scale="120"
+			 dash1="15mm" dash2="3mm" ladder-color="#000080" ladder-bottom="YES" ladder-rise="-2pt">
+				Some text<p/>Next paragraph<br/>next line&nbsp;...
+			</text>
+			<!-- definition of an image
+			     id: image definition's ID
+			     file: path to the image [optional: use it if the image wasn't previously defined]
+			     mask: path to the image mask for explicit transparency (must be a black and white PNG image)
+			     entire: the image is distorded to fit the entire zone if set to YES [optional]
+			     x, y: coordinates of the image's bottom left corner
+			     width, height: image size [optional: use default if not set]
+			     rotation: rotation angle in degrees [optional] -->
+			<image id="logo" file="/path/to/logo2" mask="/path/to/logo_mask.png" entire="yes"
+			 x="2cm" y="3cm" width="2.5cm" height="5mm" rotation="90"/>
+			<!-- definition d'un texte enrichi
+			     id: identifiant du texte -->
+			<text-define id="word1">
+				<block font="" size="" color="" space="" underline="" overline="" strikeout=""
+				 char-space="" h-scale="">
+					Du text<p/>Paragraphe suivant<br/>ligne suivante&nbsp;...<value preision="2">$toto</value>
+				</block>
+			</text-define>
+			<text-area id="" x="" y="" width="" height="" radius="" rotation="" opacity="" blendmode=""
+			 fill-color="" line-color="" line-width="" border="" dash1="" dash2=""/>
+		</card>
+	</deck>
+</pandocreon:carta-genius>

@@ -1,0 +1,28 @@
+<?xml verison="1.0"?>
+<!--
+	draw a card case
+-->
+<pandocreon:carta-genius>
+	<templates>
+		<!-- template with all necessary variables -->
+		<template id="init">
+			<var name="case_width">6cm</var>
+			<var name="case_height">9cm</var>
+			<var name="case_depth">3cm</var>
+			<var name="case_flap_big">2cm</var>
+			<var name="case_flap_small">1.3cm</var>
+			<var name="case_gap_big">8mm</var>
+			<var name="case_gap_small">4mm</var>
+		</template>
+	</templates>
+	<includes>
+		<!-- inclusion of the template -->
+		<include file="../../../resources/inc_cardcase.xml"/>
+	</includes>
+	<deck>
+		<paper type="a4" landscape="yes" margin="0mm"/>
+		<cardsize type="a4" landscape="yes"/>
+		<hidden-ditch odd="#800000"/>
+		<card template="init,cardcase"/>
+	</deck>
+</pandocreon:carta-genius>

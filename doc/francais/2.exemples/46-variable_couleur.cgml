@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+	utilisation de variables de couleurs
+-->
+<pandocreon:carta-genius>
+	<deck>
+		<paper type="a4" margin="2cm"/>
+		<cardsize width="8cm" height="8cm"/>
+		<card>
+			<var name="couleur">$DARK_BLUE + $DARK_RED</var>
+			<box x="1.5cm" y="0cm" width="4cm" height="4cm"
+			 fill-color="$couleur" line-color="#80ff80"
+			 line-width="1mm"/>
+		</card>
+		<card>
+			<box x="1.5cm" y="0cm" width="4cm" height="4cm"
+			 fill-color="#0000ff / 2" line-color="#008000 + 0.5"
+			 line-width="1mm"/>
+		</card>
+		<card>
+			<box x="1.5cm" y="0cm" width="4cm" height="4cm"
+			 fill-color="#ffffff - #80ffff"/>
+		</card>
+		<card>
+			<box x="1.5cm" y="0cm" width="4cm" height="4cm"
+			 fill-color="#800000"/>
+		</card>
+	</deck>
+</pandocreon:carta-genius>

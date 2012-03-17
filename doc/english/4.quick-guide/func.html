@@ -1,0 +1,328 @@
+<html>
+<head>
+	<title>Pandocréon Carta Genius : Quick Guide</title>
+	<style>
+		a.r { color: #800000 }
+		a.g { color: #008000 }
+		a.b { color: #000080 }
+	</style>
+</head>
+<body bgcolor="#ffffff">
+	<center>
+	  <h2>Pandocr&eacute;on Carta Genius</h2>
+	  <h3>Quick Guide</h3>
+	</center>
+
+<br />
+
+<a name="var"></a>
+<b>var</b>($var)
+<blockquote>
+Return a variable which name is given as parameter.
+</blockquote>
+<br />
+
+<a name="string"></a>
+<b>string(</b>$var)
+<blockquote>
+Cast a variable or an expression to string.
+</blockquote>
+<br />
+
+<a name="scalar"></a>
+<b>scalar</b>($var)
+<blockquote>
+Cast a variable or an expression to scalar.
+</blockquote>
+<br />
+
+<a name="value"></a>
+<b>value</b>($var)
+<blockquote>
+Cast a variable or expression to value.
+</blockquote>
+<br />
+
+<a name="element"></a>
+<b>element</b>($var)
+<blockquote>
+Cast a variable or expression to element.
+</blockquote>
+<br />
+
+<a name="bool"></a>
+<b>bool</b>($var)
+<blockquote>
+Cast a variable or expression to boolean.
+</blockquote>
+<br />
+
+<a name="eq"></a>
+<b>eq</b>($var1, $var2)
+<blockquote>
+Means $TRUE if both parameters are equals.<br />
+The two expressions must be of the same type.
+</blockquote>
+<br />
+
+<a name="lt"></a>
+<b>lt</b>($var1, $var2)
+<blockquote>
+Means $TRUE if the first parameter if less than the second.<br />
+The two expressions must be of the same type.
+</blockquote>
+<br />
+
+<a name="gt"></a>
+<b>gt</b>($var1, $var2)
+<blockquote>
+Means $TRUE if the first parameter if greater than the second.<br />
+The two expressions must be of the same type.
+</blockquote>
+<br />
+
+<a name="not"></a>
+<b>not</b>($bool)
+<blockquote>
+Invert the parameter boolean value.
+</blockquote>
+<br />
+
+<a name="and"></a>
+<b>and</b>($bool1, $bool2)
+<blockquote>
+Returns $TRUE if both parameters are true.
+</blockquote>
+<br />
+
+<a name="or"></a>
+<b>or</b>($bool1, $bool2)
+<blockquote>
+Returns $TRUE if one parameter is true.
+</blockquote>
+<br />
+
+<a name="plus"></a>
+<b>plus</b>($var1, $var2)
+<blockquote>
+Add two variables.
+</blockquote>
+<br />
+
+<a name="minus"></a>
+<b>minus</b>($var1, var2)
+<blockquote>
+Substract a variable to another one.
+</blockquote>
+<br />
+
+<a name="mult"></a>
+<b>mult</b>($var1, $var2)
+<blockquote>
+Multiply two variables.
+</blockquote>
+<br />
+
+<a name="div"></a>
+<b>div</b>($var1, $var2)
+<blockquote>
+Divide a variable by another one.
+</blockquote>
+<br />
+
+<a name="mod"></a>
+<b>mod</b>($var1, $var2)
+<blockquote>
+Compute the modulus of a variable by another one.
+</blockquote>
+<br />
+
+<a name="sqrt"></a>
+<b>sqrt</b>($var)
+<blockquote>
+Compute the square root of a variable.
+</blockquote>
+<br />
+
+<a name="pow"></a>
+<b>pow</b>($var1, $var2)
+<blockquote>
+Compute the value of a variable raised to the power of another one.
+</blockquote>
+<br />
+
+<a name="sin"></a>
+<b>sin</b>(<a href="type.html#scalar" class="b">$scal</a>)
+<blockquote>
+Return the sine of a scalar (<a href="type.html#scalar" class="b">scalar</a>).
+</blockquote>
+<br />
+
+<a name="cos"></a>
+<b>cos</b>(<a href="type.html#scalar" class="b">$scal</a>)
+<blockquote>
+Return the cosine of a scalar (<a href="type.html#scalar" class="b">scalar</a>).
+</blockquote>
+<br />
+
+<a name="tan"></a>
+<b>tan</b>(<a href="type.html#scalar" class="b">$scal</a>)
+<blockquote>
+Return the tangent of a scalar (<a href="type.html#scalar" class="b">scalar</a>).
+</blockquote>
+<br />
+
+<a name="asin"></a>
+<b>asin</b>(<a href="type.html#scalar" class="b">$scal</a>)
+<blockquote>
+Return the arc-sine of a scalar (<a href="type.html#scalar" class="b">scalar</a>).
+</blockquote>
+<br />
+
+<a name="acos"></a>
+<b>acos</b>(<a href="type.html#scalar" class="b">$scal</a>)
+<blockquote>
+Return the arc-cosine of a scalar (<a href="type.html#scalar" class="b">scalar</a>).
+</blockquote>
+<br />
+
+<a name="atan"></a>
+<b>atan</b>(<a href="type.html#scalar" class="b">$scal</a>)
+<blockquote>
+Return the arc-tangent of a scalar (<a href="type.html#scalar" class="b">scalar</a>).
+</blockquote>
+<br />
+
+<a name="width"></a>
+<b>width</b>(<a href="type.html#element" class="b">$elem</a>)
+<blockquote>
+Return the width of an element (<a href="type.html#value" class="b">value</a>).
+</blockquote>
+<br />
+
+<a name="height"></a>
+<b>height</b>(<a href="type.html#element" class="b">$elem</a>)
+<blockquote>
+Return the height of an element (<a href="type.html#value" class="b">value</a>).
+</blockquote>
+<br />
+
+<a name="landscape"></a>
+<b>landscape</b>(<a href="type.html#element" class="b">$elem</a>)
+<blockquote>
+Return an element which width and height are inverted from the one given as parameter.
+</blockquote>
+<br />
+
+<a name="strlen"></a>
+<b>strlen</b>(<a href="type.html#string" class="b">$str</a>)
+<blockquote>
+Return the length of a string.
+</blockquote>
+<br />
+
+<a name="strwidth"></a>
+<b>strwidth</b>(<a href="type.html#string" class="b">$str</a>, <a href="type.html#value" class="b">$val</a>, <a href="type.html#string" class="b">$str</a>)
+<blockquote>
+Return a value equal to a string width, depending of the font and characters size.
+<ul>
+	<li>parameter 1 : the font's name (string)</li>
+	<li>parameter 2 : characters size (value)</li>
+	<li>parameter 3 : the text (string)</li>
+</ul>
+</blockquote>
+<br />
+
+<a name="min"></a>
+<b>min</b>($var1, $var2)
+<blockquote>
+Return a variable equal to the minimal variable given as parameter.
+</blockquote>
+<br />
+
+<a name="max"></a>
+<b>max</b>($var1, $var2)
+<blockquote>
+Return a variable equal to the maximal variable given as parameter.
+</blockquote>
+<br />
+
+<a name="time"></a>
+<b>time</b>(<a href="type.html#scalar" class="b">scalar</a>)
+<blockquote>
+Return an Unix timestamp (number of seconds since 00:00:00 UTC, January 1, 1970). The number given in parameter is a time-lag
+(positive or negative number of hours) ; set it to zero if you want current GMT time.
+</blockquote>
+<br />
+
+<a name="strftime"></a>
+<b>strftime</b>(<a href="type.html#scalar" class="b">$scal</a>, <a href="type.html#string" class="b">$str</a>)
+<blockquote>
+Format a character string from an Unix timestamp. Conversion specifiers could be:
+<ul>
+	<li>%a : The abbreviated weekday name according to the current locale.</li>
+	<li>%A : The full weekday name according to the current locale.</li>
+	<li>%b : The abbreviated month name according to the current locale.</li>
+	<li>%B : The full month name according to the current locale.</li>
+	<li>%c : The preferred date and time representation for the current locale.</li>
+	<li>%C : The century number (year/100) as a 2-digit integer.</li>
+	<li>%d : The day of the month as a decimal number (range 01 to 31).</li>
+	<li>%D : Equivalent  to  %m/%d/%y.</li>
+	<li>%e : Like %d, the day of the month as a decimal number, but a leading zero is replaced by a space.</li>
+	<li>%F : Equivalent to %Y-%m-%d (the ISO 8601 date format).</li>
+	<li>%G : The ISO 8601 year with century as a decimal number.  The 4-digit year corresponding to the ISO week number (see %V).  This has the same format and value as %y, except that if the ISO week number belongs to the previous or next year, that year is used instead.</li>
+	<li>%g : Like %G, but without century, i.e., with a 2-digit year (00-99).</li>
+	<li>%h : Equivalent to %b.</li>
+	<li>%H : The hour as a decimal number using a 24-hour clock (range 00 to 23).</li>
+	<li>%I : The hour as a decimal number using a 12-hour clock (range 01 to 12).</li>
+	<li>%j : The day of the year as a decimal number (range 001 to 366).</li>
+	<li>%k : The hour (24-hour clock) as a decimal number (range 0 to 23); single digits are preceded by a blank.</li>
+	<li>%l : The hour (12-hour clock) as a decimal number (range 1 to 12); single digits are preceded by a blank.</li>
+	<li>%m : The month as a decimal number (range 01 to 12).</li>
+	<li>%M : The minute as a decimal number (range 00 to 59).</li>
+	<li>%n : A newline character.</li>
+	<li>%p : Either `AM' or `PM' according to the given time value, or the corresponding strings for the current locale.  Noon is treated as `pm' and midnight as `am'.  Note that in many locales `am' and `pm' notation is unsupported and in such cases %p will return an empty string.</li>
+	<li>%P : Like %p but in lowercase: `am' or `pm' or a corresponding string for the current locale.</li>
+	<li>%r : The time in a.m. or p.m. notation.  In the POSIX locale this is equivalent to `%I:%M:%S %p'.</li>
+	<li>%R : The time in 24-hour notation (%H:%M). For a version including the seconds, see %T below.</li>
+	<li>%s : The number of seconds since the Epoch, i.e., since 1970-01-01 00:00:00 UTC.</li>
+	<li>%S : The second as a decimal number (range 00 to 61).</li>
+	<li>%t : A tab character.</li>
+	<li>%T : The time in 24-hour notation (%H:%M:%S).</li>
+	<li>%u : The day of the week as a decimal, range 1 to 7, Monday being 1.  See also %w.</li>
+	<li>%U : The week number of the current year as a decimal number, range 00 to 53, starting with the first Sunday as the first day of week 01.  See also %V and %W.</li>
+	<li>%V : The  ISO  8601:1988  week number of the current year as a decimal number, range 01 to 53, where week 1 is the first week that has at least 4 days in the current year, and with Monday as the first day of the week. See also %U and %W.</li>
+	<li>%w : The day of the week as a decimal, range 0 to 6, Sunday being 0.  See also %u.</li>
+	<li>%W : The week number of the current year as a decimal number, range 00 to 53, starting with the first Monday as the first day of week 01.</li>
+	<li>%x : The preferred date representation for the current locale without the time.</li>
+	<li>%X : The preferred time representation for the current locale without the date.</li>
+	<li>%y : The year as a decimal number without a century (range 00 to 99).</li>
+	<li>%Y : The year as a decimal number including the century.</li>
+	<li>%z : The time-zone as hour offset from GMT.  Required to emit RFC822-conformant dates (using "%a, %d %b %Y %H:%M:%S %z").</li>
+	<li>%Z : The time zone or name or abbreviation.</li>
+	<li>%% : A literal `%' character.</li>
+</ul>
+(extracted from strftime man page)
+</blockquote>
+<br />
+
+<a name="srand"></a>
+<b>srand</b>(<a href="type.html#scalar" class="b">scalar</a>)
+<blockquote>
+Initialize the random number generator. The parameter is the generator seed. Return a random number between 0 and 1.
+</blockquote>
+<br />
+
+<a name="rand"></a>
+<b>rand</b>(<a href="type.html#scalar" class="b">scalar</a>)
+<blockquote>
+Return a random number between zero and the number given as parameter.
+</blockquote>
+<br />
+
+<br /><hr />
+<font size="-2">Copyright (c) 2004-2005, Amaury Bouchard<br />
+This documentation is placed under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation License</a></font>
+
+</body>
+</html>

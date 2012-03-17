@@ -1,0 +1,252 @@
+<html>
+<head>
+	<title>Pandocréon Carta Genius : Quick Guide</title>
+	<style>
+		a.r { color: #800000 }
+		a.g { color: #008000 }
+		a.b { color: #000080 }
+	</style>
+</head>
+<body bgcolor="#ffffff">
+	<center>
+	  <h2>Pandocr&eacute;on Carta Genius</h2>
+	  <h3>Quick Guide</h3>
+	</center>
+
+<br />
+
+<a name="scalar"></a>
+<b>scalar</b> [expression parser]
+<blockquote>
+Float number.<br />
+Examples : 12, 13.45, 148134.352352
+</blockquote>
+<br />
+
+<a name="value"></a>
+<b>value</b> [expression parser]
+<blockquote>
+Value followed by an unit. Theunit could be "mm" (millimeters), "cm" (centimeters), "in" (inchs) ou "pt" (points).<br />
+Examples : 210mm, 55pt, 121.1323in
+</blockquote>
+<br />
+
+<a name="element"></a>
+<b>element</b> [expression parser]
+<blockquote>
+Object consituted by two values, one for its width, the other for its height. When an element must be written, it is two scalars separated with 'x' character, followed by an unit.<br />
+Examples : 21x29.7cm, 11x14pt
+</blockquote>
+<br />
+
+<a name="color"></a>
+<b>color</b> [expression parser]
+<blockquote>
+Colors are encoded in the same way than in HTML pages : the '#' character followed by six hexadecimal characters (two for red, two for green, two for blue).<br />
+Examples : #000000 (black), #ffffff (white), #ff0000 (red), #008000 (dark green)
+</blockquote>
+<br />
+
+<a name="string"></a>
+<b>string</b> [expression parser]
+<blockquote>
+Character strings are simply flanked by double-quotes.<br />
+Examples : "blabla", "here is a string"
+</blockquote>
+<br />
+
+<a name="boolean"></a>
+<b>boolean</b> [expression parser]
+<blockquote>
+Booleans are true or false values only.<br />
+Examples : $TRUE, $FALSE
+</blockquote>
+<br />
+
+<a name="bool"></a>
+<b>boolean</b> [parameters]
+<blockquote>
+Some parameters waits for boolean values, which could be YES or NO. It is case-insensible, values could be YES, yes, Yes, ...<br />
+</blockquote>
+<br />
+
+<hr />
+<a name="blendmode"></a>
+<center><b>blendmode</b></center><br />
+
+<a name="multiply"></a>
+<b>Multiply</b>
+<blockquote>
+Multiples the backdrop and source color values. The result color is always at least as dark as either of the two argument colors. Multiplying any color with black produces black. Multiplying any color with white leaves the color unchanged. Painting successive overlapping objects with a color other than black or white produces progressively darker colors.
+</blockquote>
+<br />
+
+<a name="screen"></a>
+<b>Screen</b>
+<blockquote>
+Multiplies the complements of the backdrop and source color values. The result color is always at least as light as either of the two argument colors. Screening with black leaves the color unchanged. Screening with white produces white. The effect is similar to projecting multiple photographic slides simultaneously onto a single screen.
+</blockquote>
+<br />
+
+<a name="overlay"></a>
+<b>Overlay</b>
+<blockquote>
+Multiplies or screens the colors, depending on the backdrop color. Source colors overlay the backdrop while preserving the highlights and shadows of the backdrop. The backdrop color is not replaced but is mixed with the source color to reflect the lightness or darkess of the backdrop color.
+</blockquote>
+<br />
+
+<a name="softlight"></a>
+<b>SoftLight</b>
+<blockquote>
+Darkens or lightens the colors, depending on the source color value. The effect is similar to shining a diffused spotlight on the backdrop. If the source color is lighter than 0.5, the backdrop is lightened, as if it were dodged. This is useful for adding highlights to a scene. If the source color is darker than 0.5, the backdrop is darkened, as if it were burned in. Painting with pure black or white produces a distinctly darker or lighter area but does not result in pure black or white.
+</blockquote>
+<br />
+
+<a name="hardlight"></a>
+<b>HardLight</b>
+<blockquote>
+Multiplies or screens the colors, depending on the source color value. The effect is similar to shining a harsh spotlight on the backdrop. If the source color is lighter than 0.5, the backdrop is lightened, as if it were screened. This is useful for adding highlights to a scene. If the source color is darker than 0.5, the backdrop is darkened, as if it were multiplied. This is useful for adding shadows to a scene. Painting with pure black or white produces pure black or white.
+</blockquote>
+<br />
+
+<a name="colordodge"></a>
+<b>ColorDodge</b>
+<blockquote>
+Brightens the backdrop color to reflect the source color. Painting with black produces no change.
+</blockquote>
+<br />
+
+<a name="colorburn"></a>
+<b>ColorBurn</b>
+<blockquote>
+Darkens the backdrop color to reflect the source color. Painting with white produces no change.
+</blockquote>
+<br />
+
+<a name="darken"></a>
+<b>Darken</b>
+<blockquote>
+Selects the darker of the backdrop and source colors. The backdrop is replaced with the source where the source is darker; otherwise it is left unchanged.
+</blockquote>
+<br />
+
+<a name="lighten"></a>
+<b>Lighten</b>
+<blockquote>
+Selects the lighter of the backdrop and source colors. The backdrop is replaced with the source where the source is lighter; otherwise it is left unchanged.
+</blockquote>
+<br />
+
+<a name="difference"></a>
+<b>Difference</b>
+<blockquote>
+Subtracts the source color from the backdrop color or the backdrop color from the source color, depending on which has the greater brightness value. Painting with white inverts the backdrop color; painting with black produces no change.
+</blockquote>
+<br />
+
+<a name="exclusion"></a>
+<b>Exclusion</b>
+<blockquote>
+Produces an effect similar to but lower in contrast than the Difference mode. Painting with white inverts the backdrop color; painting with black produces no change.
+</blockquote>
+<br />
+
+<a name="hue"></a>
+<b>Hue</b>
+<blockquote>
+Creates a color with the luminance and saturation of the backdrop color and the hue of the source color.
+</blockquote>
+<br />
+
+<a name="saturation"></a>
+<b>Saturation</b>
+<blockquote>
+Creates a color with the luminance and hue of the backdrop color and the saturation of the source color. Painting with this mode in an area of the backdrop that is a pure gray (no saturation) produces no change.
+</blockquote>
+<br />
+
+<a name="blend-color"></a>
+<b>Color</b>
+<blockquote>
+Creates a color with the luminance of the backdrop color and the hue and saturation of the source color. This preserves the gray levels of the backdrop and is useful for coloring monochrome images and for tinting color images.
+</blockquote>
+<br />
+
+<a name="luminosity"></a>
+<b>Luminosity</b>
+<blockquote>
+Creates a color with the hue and saturation of the base color and the luminance of the blend color. This produces an inverse effect from that of the Color mode.
+</blockquote>
+<br />
+
+<hr />
+<a name="pdf"></a>
+<b>PDF version</b>
+<blockquote>
+Supported PDF versions are 1.3, 1.4 and 1.5. The 1.3 version doesn't support transparency. Version 1.5 specificities are not supported.
+</blockquote>
+<br />
+
+<a name="unit"></a>
+<b>Base unit</b>
+<blockquote>
+Units are millimeters (mm), centimeters (cm), inchs (in) and points (pt).
+</blockquote>
+<br />
+
+<a name="unit"></a>
+<b>Flip side</b>
+<blockquote>
+The flip side defines how pages' back will be printed, to fit cards' front and back. This parameter could be NONE (no back), WIDTH (flip on horizontal axis) or HEIGHT (flip on vertical axis).
+</blockquote>
+<br />
+
+<hr />
+<a name="align"></a>
+<a name="left"></a>
+<a name="right"></a>
+<a name="center"></a>
+<a name="justify"></a>
+<b>Text alignment</b>
+<blockquote>
+<ul>
+  <li>left : left alignment (default)</li>
+  <li>right : right alignment</li>
+  <li>center : centered text</li>
+  <li>justify : justified text</li>
+</ul>
+</blockquote>
+<br />
+
+<hr />
+<a name="font-courier"></a>
+<a name="font-helvetica"></a>
+<a name="font-times"></a>
+<a name="font-symbol"></a>
+<a name="font-zapf"></a>
+<b>Integrated fonts</b>
+<blockquote>
+<ul>
+  <li>Courier : typewrite-style font, similar to "courier-new".</li>
+  <li>Courier-Bold : the same in bold</li>
+  <li>Courier-Oblique : the same in italic</li>
+  <li>Courier-BoldOblique : the same in bold and italic</li>
+  <li>Helvetica : sans-serif font, similar to "arial".</li>
+  <li>Helvetica-Bold : the same in bold</li>
+  <li>Helvetica-Oblique : the same in italic</li>
+  <li>Helvetica-BoldOblique : the same in bold and italic</li>
+  <li>Times-Roman : serif font, similar to "time-new-roman".</li>
+  <li>Times-Bold : the same in bold</li>
+  <li>Times-Italic : the same in italic</li>
+  <li>Times-BoldItalic : the same in bold and italic</li>
+  <li>Symbol : special characters, for mathematics formula (for example)</li>
+  <li>ZapfDingbats : symbols font</li>
+</ul>
+</blockquote>
+
+<br /><hr />
+<font size="-2">Copyright (c) 2004-2005, Amaury Bouchard<br />
+This documentation is placed under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU Free Documentation License</a></font>
+
+</body>
+</html>

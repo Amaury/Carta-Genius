@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+	une grille
+-->
+<pandocreon:carta-genius>
+	<deck>
+		<paper type="a4" landscape="yes" margin="2cm"/>
+		<cardsize type="a6"/>
+		<card>
+			<grid x="5mm" y="1cm" cell-width="2cm" cell-height="1cm"
+			 nbr-width="3" nbr-height="6" line-width="0.4mm"
+			 line-color="#800000"/>
+		</card>
+		<card>
+			<grid x="5mm" y="2cm" cell-width="5cm" cell-height="2cm"
+			 nbr-width="2" nbr-height="4" fill-color="#8080ff"
+			 line-width="0.5mm" line-color="#000000"/>
+		</card>
+	</deck>
+</pandocreon:carta-genius>

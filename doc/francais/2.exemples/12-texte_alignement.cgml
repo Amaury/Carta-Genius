@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+	une carte avec du texte centre
+-->
+<pandocreon:carta-genius>
+	<deck>
+		<paper type="a4" margin="2cm"/>
+		<cardsize type="a6"/>
+		<card>
+			<text x="5mm" y="5mm" width="4cm" height="10cm"
+			 font="Helvetica" size="12pt" color="#000000"
+			 align="center">
+				Petit texte d'exemple qui est assez long afin de montrer
+				l'effet d'un texte dont l'alignement n'est pas comme
+				d'habitude.
+			</text>
+		</card>
+	</deck>
+<pandocreon:carta-genius>

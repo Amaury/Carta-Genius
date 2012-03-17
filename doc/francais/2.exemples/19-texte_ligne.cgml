@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+	texte souligne, surligne, barre
+-->
+<pandocreon:carta-genius>
+	<deck>
+		<paper type="a4" margin="2cm"/>
+		<cardsize type="a6"/>
+		<card>
+			<text x="5mm" y="5mm" width="8cm" height="3cm"
+			 font="Helvetica" size="20pt" color="#000000"
+			 underline="yes">
+				Texte avec soulignage.
+			</text>
+			<text x="5mm" y="40mm" width="8cm" height="3cm"
+			 font="Helvetica" size="20pt" color="#000000"
+			 overline="yes">
+				Texte avec surlignage.
+			</text>
+			<text x="5mm" y="75mm" width="8cm" height="3cm"
+			 font="Helvetica" size="20pt" color="#000000"
+			 strikeout="yes">
+				Texte barre.
+			</text>
+			<text x="5mm" y="110mm" width="8cm" height="3cm"
+			 font="Helvetica" size="20pt" color="#000000"
+			 underline="yes" overline="yes" strikeout="yes">
+				Les 3 ensemble.
+			</text>
+		</card>
+	</deck>
+</pandocreon:carta-genius>

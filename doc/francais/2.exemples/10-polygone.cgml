@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+	un polygone
+-->
+<pandocreon:carta-genius>
+	<deck>
+		<paper type="a4" margin="2cm"/>
+		<cardsize type="a5"/>
+		<card>
+			<!-- polygone -->
+			<polygon x="1cm" y="1cm" fill-color="#808080">
+				<line x="8cm" y="1cm"/>
+				<line x="4cm" y="5cm"/>
+				<line x="8cm" y="8cm"/>
+				<bezier x="1cm" y="8cm" cp-x1="4cm" cp-y1="10cm"
+				 cp-x2="4cm" cp-y2="15cm"/>
+			</polygon>
+		</card>
+	</deck>
+</pandocreon:carta-genius>

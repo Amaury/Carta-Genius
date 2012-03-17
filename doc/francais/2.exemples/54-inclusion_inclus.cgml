@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!--
+	un document XML inclus par un autre
+-->
+<pandocreon:carta-genius>
+	<templates>
+		<template id="fond">
+			<box x="0mm" y="0mm" width="$taille" height="$taille / 2"
+			 fill-color="#800000"/>
+		</template>
+	</templates>
+</pandocreon:carta-genius>

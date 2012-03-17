@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<RDF:RDF xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns:chrome="http://www.mozilla.org/rdf/chrome#">
+ 
+  <RDF:Seq RDF:about="urn:mozilla:package:root">
+    <RDF:li RDF:resource="urn:mozilla:package:carta-gui"/>
+  </RDF:Seq>
+
+  <RDF:Description RDF:about="urn:mozilla:package:carta-gui"
+   chrome:displayName="Carta-GUI"
+   chrome:author="Pandocréon"
+   chrome:authorURL="http://www.pandocreon.com"
+   chrome:description="Graphical User Interface for Carta-Genius"
+   chrome:extension="true"
+   chrome:name="carta-gui"/>
+
+</RDF:RDF>

@@ -1,0 +1,140 @@
+#!/bin/sh
+
+# ######################################################################
+# #                          pdf_to_bitmap                             #
+# ######################################################################
+# |                                                                    |
+# | Author: Amaury Bouchard (amaury@amaury.net)                        |
+# | Creation: Mar 18, 2004                                             |
+# | Last Modification: Mar 19, 2004                                    |
+# |                                                                    |
+# ======================================================================
+# |                                                                    |
+# | This program is placed under the terms of the GNU General Public   |
+# | License (http://www.gnu.org/licenses/gpl.html).                    |
+# | It is provided "AS IS".                                            |
+# | Copyright (c) 2004, Amaury Bouchard                                |
+# |                                                                    |
+# ======================================================================
+# |                                                                    |
+# | To use this software, you need the Ghostscript software, in its    |
+# | APFL or GNU revision, version 8.14 and above. You can get it at    |
+# | http://www.ghostscript.com                                         |
+# | Ghostscript versions under 8.14 can be used, only if your PDF      |
+# | documents doesn't include any transparency.                        |
+# |                                                                    |
+# ======================================================================
+
+# full path to 'gs' program (or just 'gs' if it is in your default PATH)
+#GS="/home/amaury/c/ghostscript-8.14/bin/gs"
+GS="gs"
+
+# path to gs' includes (only if needed)
+#GS_INC="/home/amaury/c/ghostscript-8.14/lib:/home/amaury/c/ghostscript-8.14/fonts"
+
+# usage display
+function usage {
+    echo "Usage:"
+    echo "  pdf_to_bitmap -h (for this help)"
+    echo "  pdf_to_bitmap -i FILE.PDF -o FILE%d.JPG -r DPI_VALUE"
+    echo "    %d stand for page number (you *must* write it)"
+    echo "Options:"
+    echo "  -v (verbose mode, display the executed command line)"
+    echo "  -t IMAGE_TYPE (bmp16m, jpeg, pbm, png16m, tiff24nc ; default=jpeg)"
+    echo "  -f FIRST_PAGE"
+    echo "  -l LAST_PAGE"
+    echo "  -ta TEXT_ANTIALIAS (1, 2 or 4 ; default=1 [no antialias])"
+    echo "  -ga GRAPHICS_ANTIALIAS (1, 2 or 4 ; default=1 [no antialias])"
+    exit
+}
+
+# check help option
+if [ $# -eq 0 -o $1 == "-h" -o $1 == "--help" ]; then
+    usage
+fi
+
+# get command line options
+cmd=""
+for i in $@; do
+    if [ x$cmd == "xi" ]; then
+	str_input=$i
+	cmd=""
+    elif [ x$cmd == "xo" ]; then
+	str_output=$i
+	cmd=""
+    elif [ x$cmd == "xr" ]; then
+	str_dpi=$i
+	cmd=""
+    elif [ x$cmd == "xt" ]; then
+	str_type=$i
+	cmd=""
+    elif [ x$cmd == "xf" ]; then
+	str_first=$i
+	cmd=""
+    elif [ x$cmd == "xl" ]; then
+	str_last=$i
+	cmd=""
+    elif [ x$cmd == "xta" ]; then
+	str_texta=$i
+	cmd=""
+    elif [ x$cmd == "xga" ]; then
+	str_grapha=$i
+	cmd=""
+    elif [ $i == "-i" ]; then
+	cmd="i"
+    elif [ $i == "-o" ]; then
+	cmd="o"
+    elif [ $i == "-r" ]; then
+	cmd="r"
+    elif [ $i == "-v" ]; then
+	verbose=1
+    elif [ $i == "-t" ]; then
+	cmd="t"
+    elif [ $i == "-f" ]; then
+	cmd="f"
+    elif [ $i == "-l" ]; then
+	cmd="l"
+    elif [ $i == "-ta" ]; then
+	cmd="ta"
+    elif [ $i == "-ga" ]; then
+	cmd="ga"
+    else
+	usage
+    fi
+done
+
+# check command line options
+if [ x$str_input == "x" -o x$str_output == "x" -o x$str_dpi == "x" ]; then
+    usage
+fi
+
+# create execution command
+cmd=$GS
+if [ x$GS_INC != "x" ]; then
+    cmd="$cmd -I$GS_INC"
+fi
+cmd="$cmd -q -dNOPROMPT -dBATCH -dNOPAUSE"
+if [ x$str_type == "x" ]; then
+    str_type="jpeg"
+fi
+cmd="$cmd -sDEVICE=$str_type -r$str_dpi"
+if [ x$str_texta != "x" ]; then
+    cmd="$cmd -dTextAlphaBits=$str_texta"
+fi
+if [ x$str_grapha != "x" ]; then
+    cmd="$cmd -dGraphicsAlphaBits=$str_grapha"
+fi
+if [ x$str_first != "x" ]; then
+    cmd="cmd -dFirstPage=$str_first"
+fi
+if [ x$str_last != "x" ]; then
+    cmd="cmd -dLastPage=$str_last"
+fi
+cmd="$cmd -sOutputFile=$str_output $str_input -c quit"
+
+if [ x$verbose != "x" ]; then
+    echo $cmd
+fi
+
+# execute the command
+`$cmd`

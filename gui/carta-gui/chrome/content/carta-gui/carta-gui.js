@@ -1,0 +1,1 @@
+var carta = new CartaGui();

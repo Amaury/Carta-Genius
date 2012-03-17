@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+	a card with a back
+-->
+<pandocreon:carta-genius>
+	<!-- back generation definition -->
+	<back side="width"/>
+	<!-- templates declaration -->
+	<templates>
+		<!-- definition of one template gabarit -->
+		<template id="fond">
+			<box x="2mm" y="2mm" width="4cm" height="4cm"
+			 fill-color="#800000"/>
+		</template>
+	</templates>
+	<deck>
+		<paper type="a4" margin="4cm"/>
+		<cardsize width="8cm" height="8cm"/>
+		<!-- card using the template as back -->
+		<card back="fond">
+			<circle x="4cm" y="4cm" radius="25mm" fill-color="#00ffff"/>
+		</card>
+	</deck>
+</pandocreon:carta-genius>

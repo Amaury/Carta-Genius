@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!--
+	Three cards, each one with a box:
+	- filled in grey
+	- with a red line
+	- with a green line and filled in blue
+-->
+<pandocreon:carta-genius>
+	<!-- deck definition -->
+	<deck>
+		<!-- paper definition -->
+		<paper type="a4" margin="2cm"/>
+		<!-- cards size definition -->
+		<cardsize type="a7"/>
+		<!-- first card -->
+		<card>
+			<!-- box -->
+			<box x="1cm" y="1cm" width="3cm" height="4cm"
+			 fill-color="#808080"/>
+		</card>
+		<!-- second card -->
+		<card>
+			<!-- box -->
+			<box x="25mm" y="2.3cm" width="3cm" height="3cm"
+			 line-width="2mm" line-color="#ff0000"/>
+		</card>
+		<!-- third card -->
+		<card>
+			<!-- box -->
+			<box x="20mm" y="2cm" width="3cm" height="4cm"
+			 line-color="#00ff00" fill-color="#0000ff"/>
+		</card>
+	</deck>
+</pandocreon:carta-genius>

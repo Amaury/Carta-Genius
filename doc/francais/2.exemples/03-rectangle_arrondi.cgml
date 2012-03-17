@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+	une carte avec un rectangle arrondi
+-->
+<pandocreon:carta-genius>
+	<deck>
+		<paper type="a4" margin="2cm"/>
+		<cardsize type="a6"/>
+		<card>
+			<box x="1cm" y="1cm" width="6cm" height="9cm"
+			 radius="2.5cm" fill-color="#808080"/>
+		</card>
+	</deck>
+</pandocreon:carta-genius>

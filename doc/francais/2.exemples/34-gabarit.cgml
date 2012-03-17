@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+	Deux cartes utilisant le meme gabarit
+-->
+<pandocreon:carta-genius>
+	<!-- declaration des gabarits -->
+	<templates>
+		<!-- definition d'un gabarit -->
+		<template id="fond">
+			<box x="0mm" y="0mm" width="6cm" height="6cm"
+			 fill-color="#ff0000"/>
+			<box x="2cm" y="2cm" width="6cm" height="6cm"
+			 fill-color="#0000ff"/>
+		</template>
+	</templates>
+	<deck>
+		<paper type="a4" margin="4cm"/>
+		<cardsize width="8cm" height="8cm"/>
+		<!-- premiere carte utilisant le gabarit -->
+		<card template="fond">
+			<circle x="4cm" y="4cm" radius="25mm" fill-color="#00ffff"/>
+		</card>
+		<!-- deuxieme carte utilisant le meme gabarit -->
+		<card template="fond">
+			<circle x="4cm" y="4cm" radius="25mm" fill-color="#ffff00"/>
+		</card>
+	</deck>
+</pandocreon:carta-genius>

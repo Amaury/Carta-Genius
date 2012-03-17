@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+	une carte dans laquelle le contenu d'une variable
+	est ajoute dans un texte
+-->
+<pandocreon:carta-genius>
+	<deck>
+		<paper type="a4" margin="2cm"/>
+		<cardsize width="16cm" height="8cm"/>
+		<card>
+			<var name="tralala">"pouet pouet"</var>
+			<var name="numero">172.99 * 0.5</var>
+			<text font="Helvetica" size="20pt" color="#000000"
+			 x="1cm" y="1cm" width="10cm" height="6cm">
+				Une chaine : <value>$tralala</value><br/>
+				Un nombre : <value>$numero * 0.5</value><br/>
+				Index : <value precision="0">$CARD_INDEX</value>
+			</text>
+		</card>
+	</deck>
+</pandocreon:carta-genius>
